@@ -23,7 +23,7 @@ site_author = "hzd"
 
 # site_url 是你网站的规范 URL。在构建在线文档时，你应该设置此项。
 # 阅读更多：https://zensical.org/docs/setup/basics/#site_url
-#site_url = "https://www.example.com/"
+site_url = "https://k8s-in-action-2e.pages.dev/"
 
 # repo_url 使文档中显示项目仓库的链接
 #

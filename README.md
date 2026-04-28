@@ -19,6 +19,11 @@ Kubernetes 一直在演进，网上的教程要么过时，要么不够系统。
 | 站点生成 | [Zensical](https://zensical.org) |
 | 站点部署 | GitHub Pages / Cloudflare Pages |
 
+## 在线访问
+
+- [k8s-in-action-2e.pages.dev](https://k8s-in-action-2e.pages.dev/)（Cloudflare Pages，推荐）
+- [hezhengdong.github.io/k8s-in-action-2e](https://hezhengdong.github.io/k8s-in-action-2e/)（GitHub Pages，备用）
+
 ## 项目结构
 
 ```

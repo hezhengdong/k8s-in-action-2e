@@ -38,12 +38,12 @@
     ├── .venv/                        # Python 虚拟环境（含 zensical CLI）
     ├── site/                         # 构建产物
     └── docs/                         # 文档内容（翻译产物所在）
-        ├── 01-preface.md             # 前言
-        ├── 02-acknowledgments.md     # 致谢
-        ├── 03-about-this-book.md     # 关于本书
-        ├── 04-about-the-authors.md   # 关于作者
-        ├── 05-about-the-cover-illustration.md  # 关于封面插图
-        ├── 06-glossary.md            # 术语表
+        ├── index.md                    # 前言（站点首页）
+        ├── 01-acknowledgments.md     # 致谢
+        ├── 02-about-this-book.md     # 关于本书
+        ├── 03-about-the-authors.md   # 关于作者
+        ├── 04-about-the-cover-illustration.md  # 关于封面插图
+        ├── 05-glossary.md            # 术语表
         ├── overrides/                # Zensical 模板覆写
         │   └── partials/
         │       └── footer.html
@@ -99,7 +99,7 @@
   - 纯文本/应用输出 → ` ```text `
   - 代码片段（JS、Go 等）→ ` ```js ` / ` ```go ` 等
   - 表格/纯文本日志 → ` ``` `（无类型标注）
-- **术语一致性**：首次遇到 K8s 术语时，确定中文译法并记录到 `translation/docs/06-glossary.md`，后续章节严格沿用。每次翻译前先查阅 `glossary.md`
+- **术语一致性**：首次遇到 K8s 术语时，确定中文译法并记录到 `translation/docs/05-glossary.md`，后续章节严格沿用。每次翻译前先查阅 `glossary.md`
 - **标注框**：书中 callout/sidebar（如 "This chapter covers"、"NOTE"、"DEFINITION"）使用 Zensical admonition 语法。语法格式见 `source/zensical-admonitions.md`。基本格式为 `!!! type "标题"` 后接四空格缩进内容。常用类型：`note`、`info`、`tip`、`warning`。不可使用 `:::` 语法（非 Zensical 支持）
 - **图表**：Marker 已自动提取图片。将图片从 `extracted/<chapter>/` 拷贝到 `translation/docs/images/<chapter>/`，重命名为 `figure-X.X.jpg`。由于 markdown 文件位于 `translation/docs/` 下，图片引用路径为 `../images/chXX/figure-X.X.jpg`（相对于当前 markdown 文件的路径）。图表标题（Figure X.X）翻译为"图 X.X 描述"
 
@@ -139,7 +139,7 @@ uv run zensical build    # 构建静态站点到 site/ 目录
 3. 将提取的 markdown 作为底稿，逐段翻译写入 `translation/docs/` 对应位置，代码块保持不动
 4. 若章节内容较长（>400 行），按原文章节的小节（如 3.1、3.1.1、3.2）为单位分段翻译，每个小节完成后追加到文件末尾。不可盲目按字数或行数切分
 5. 将章节图片拷贝到 `translation/docs/images/<chapter>/`，更新 markdown 中的图片引用路径（相对路径格式：`../images/chXX/figure-X.X.jpg`）
-6. 遇到新术语时确定译法并写入 `translation/docs/06-glossary.md`
+6. 遇到新术语时确定译法并写入 `translation/docs/05-glossary.md`
 7. 翻译完成后更新术语表（如有新增术语）
 8. 运行 `cd translation && uv run zensical serve` 预览效果
 
