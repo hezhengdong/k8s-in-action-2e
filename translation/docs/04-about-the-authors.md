@@ -1,6 +1,6 @@
 # 作者简介
 
-![Marko Lukša](../images/authors/marko-luksa.jpg)
+![Marko Lukša](images/authors/marko-luksa.jpg)
 
 **MARKO LUKŠA** 是一位拥有超过 40 年编程经验的软件工程师。他于 1985 年六岁时写了第一个程序，从青少年时期便开始从事专业软件开发。他的项目涵盖从早期动态网站到大型 ERP 系统、框架和中间件。
 
@@ -10,7 +10,7 @@
 
 2025 年，他离开 Red Hat 以完成本书，目前是一名独立软件工程师。
 
-![Kevin Conner](../images/authors/kevin-conner.jpg)
+![Kevin Conner](images/authors/kevin-conner.jpg)
 
 **KEVIN CONNER** 是一位资深工程领导者，拥有超过 30 年的软件开发经验和 17 年以上的全球工程团队构建与管理经验。他专注于分布式系统、云技术和 Kubernetes。他的职业生涯始于 20 世纪 90 年代初，作为内核开发者为容错电信系统开发网络和 SCSI 驱动程序，随后在 Sun Microsystems 及多家金融机构从事企业级 Java 开发，并在 Arjuna Technologies 领导事务管理系统开发，期间为 OASIS WS-CAF 规范做出了贡献。
 
