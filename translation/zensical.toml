@@ -86,7 +86,7 @@ custom_dir = "docs/overrides"
 # - https://zensical.org/docs/setup/logo-and-icons/#favicon
 # - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
 #
-favicon = "images/icon/book.png"
+favicon = "images/book-icon.png"
 
 # Zensical 支持超过 60 种不同的语言。这意味着 Zensical 模板生成的标签和工具提示将被翻译。
 # "language" 选项允许你设置使用的语言。此语言也会在 HTML 头部元素中指示，以帮助无障碍访问并指导搜索引擎和翻译工具。
