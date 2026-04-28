@@ -1,0 +1,318 @@
+# ============================================================================
+#
+# 默认生成的配置旨在突出 Zensical 提供的功能，并作为你自己项目的起点。
+#
+# ============================================================================
+
+[project]
+
+# site_name 显示在页面标题和浏览器窗口标题中
+#
+# 阅读更多：https://zensical.org/docs/setup/basics/#site_name
+site_name = "Kubernetes in Action, Second Edition"
+
+# site_description 包含在 HTML 头部中，应包含对网站内容的有意义描述，供搜索引擎使用。
+#
+# 阅读更多：https://zensical.org/docs/setup/basics/#site_description
+site_description = "Kubernetes in Action, Second Edition 中文翻译"
+
+# site_author 属性。用于 HTML 头部元素。
+#
+# 阅读更多：https://zensical.org/docs/setup/basics/#site_author
+site_author = "hzd"
+
+# site_url 是你网站的规范 URL。在构建在线文档时，你应该设置此项。
+# 阅读更多：https://zensical.org/docs/setup/basics/#site_url
+#site_url = "https://www.example.com/"
+
+# repo_url 使文档中显示项目仓库的链接
+#
+# 阅读更多：https://zensical.org/docs/setup/repository/#repository-url
+repo_url = "https://github.com/hezhengdong/k8s-in-action-2e"
+
+# 版权声明显示在页面页脚中，可以包含 HTML 片段。
+#
+# 阅读更多：https://zensical.org/docs/setup/basics/#copyright
+# copyright = """
+# Copyright &copy; 2026 The authors
+# """
+
+# Zensical 支持隐式导航和显式定义的导航。
+# 如果你决定不在此处定义导航，Zensical 将简单地从你的 "docs_dir" 目录结构推导出导航结构。
+# 下面的定义演示了如何使用 TOML 语法定义导航结构。
+#
+# 阅读更多：https://zensical.org/docs/setup/navigation/
+# nav = [
+#   { "Get started" = "index.md" },
+#   { "Markdown in 5min" = "markdown.md" },
+# ]
+
+# 使用 "extra_css" 选项，你可以添加自己的 CSS 样式，根据你的需要自定义 Zensical 项目。
+# 你可以添加任意数量的 CSS 文件。
+#
+# 提供的路径应相对于 "docs_dir"。
+#
+# 阅读更多：https://zensical.org/docs/customization/#additional-css
+#
+#extra_css = ["stylesheets/extra.css"]
+
+# 使用 `extra_javascript` 选项，你可以向项目添加自己的 JavaScript，根据你的需要自定义行为。
+#
+# 提供的路径应相对于 "docs_dir"。
+#
+# 阅读更多：https://zensical.org/docs/customization/#additional-javascript
+#extra_javascript = ["javascripts/extra.js"]
+
+# ----------------------------------------------------------------------------
+# 配置主题选项的部分
+# ----------------------------------------------------------------------------
+[project.theme]
+
+# 将此更改为 "classic"，以使用传统的 Material for MkDocs 外观。
+#variant = "classic"
+
+# Zensical 允许你覆盖特定的块（blocks）、局部模板（partials）或整个模板，以及定义你自己的模板。
+# 为此，请取消注释下面的 custom_dir 设置，并将其设置为保存模板覆盖的目录。
+#
+# 阅读更多：
+# - https://zensical.org/docs/customization/#extending-the-theme
+#
+custom_dir = "docs/overrides"
+
+# 使用 "favicon" 选项，你可以设置自己的图像用作浏览器标题栏或标签栏中的图标。
+# 提供的路径必须相对于 "docs_dir"。
+#
+# 阅读更多：
+# - https://zensical.org/docs/setup/logo-and-icons/#favicon
+# - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
+#
+favicon = "images/icon/book.png"
+
+# Zensical 支持超过 60 种不同的语言。这意味着 Zensical 模板生成的标签和工具提示将被翻译。
+# "language" 选项允许你设置使用的语言。此语言也会在 HTML 头部元素中指示，以帮助无障碍访问并指导搜索引擎和翻译工具。
+#
+# 默认语言是 "en"（英语）。可以创建多语言站点并配置语言选择器。详见文档。
+#
+# 阅读更多：
+# - https://zensical.org/docs/setup/language/
+#
+language = "zh"
+
+# Zensical 提供了许多功能开关，用于更改文档站点的行为。
+features = [
+    # Zensical 包含一个公告栏。此功能允许用户在阅读公告后将其关闭。
+    # https://zensical.org/docs/setup/header/#announcement-bar
+    "announce.dismiss",
+
+    # 如果您配置了仓库并开启此功能，Zensical 将为页面生成一个编辑按钮。
+    # 这适用于常见的仓库托管服务。
+    # https://zensical.org/docs/setup/repository/#content-actions
+    "content.action.edit",
+
+    # 如果您配置了仓库并开启此功能，Zensical 将生成一个按钮，
+    # 允许用户查看当前页面的 Markdown 代码。
+    # https://zensical.org/docs/setup/repository/#content-actions
+    "content.action.view",
+
+    # 代码注释允许您在代码块中添加带有工具提示的图标，
+    # 以在关键点提供解释。
+    # https://zensical.org/docs/authoring/code-blocks/#code-annotations
+    "content.code.annotate",
+
+    # 此功能在代码块中开启一个按钮，允许用户将内容复制到剪贴板，
+    # 而无需先选择内容。
+    # https://zensical.org/docs/authoring/code-blocks/#code-copy-button
+    "content.code.copy",
+
+    # 代码块可以包含一个按钮，允许用户选择行范围。
+    # https://zensical.org/docs/authoring/code-blocks/#code-selection-button
+    "content.code.select",
+
+    # Zensical 可以将脚注呈现为内联工具提示，因此用户可以在不离开
+    # 文档上下文的情况下阅读脚注。
+    # https://zensical.org/docs/authoring/footnotes/#footnote-tooltips
+    "content.footnote.tooltips",
+
+    # 如果您有许多具有相同标题的内容标签（例如 "Python"、"JavaScript"、
+    # "Cobol"），此功能会使它们全部在用户在其中一个选择语言时同时切换。
+    # https://zensical.org/docs/authoring/content-tabs/#linked-content-tabs
+    "content.tabs.link",
+
+    # 启用此功能后，用户可以为链接添加工具提示，当鼠标指针悬停在链接上时
+    # 将显示这些提示。
+    # https://zensical.org/docs/authoring/tooltips/#improved-tooltips
+    "content.tooltips",
+
+    # 启用此功能后，当用户滚动超过某个点时，Zensical 将自动隐藏标题的
+    # 部分内容。
+    # https://zensical.org/docs/setup/header/#automatic-hiding
+    "header.autohide",
+
+    # 开启此功能可将导航侧边栏中的所有可折叠部分默认展开。
+    # https://zensical.org/docs/setup/navigation/#navigation-expansion
+    # "navigation.expand",
+
+    # 此功能在页脚中开启导航元素，允许用户导航到下一页或上一页。
+    # https://zensical.org/docs/setup/footer/#navigation
+    # "navigation.footer",
+
+    # 启用章节索引页面后，文档可以直接附加到章节，
+    # 这对于提供概述页面特别有用。
+    # https://zensical.org/docs/setup/navigation/#section-index-pages
+    "navigation.indexes",
+
+    # 启用即时导航后，所有内部链接的点击将被拦截并通过 XHR 分派，
+    # 而无需完全重新加载页面。
+    # https://zensical.org/docs/setup/navigation/#instant-navigation
+    "navigation.instant",
+
+    # 使用即时预取，一旦用户将鼠标悬停在链接上，您的站点就会开始获取页面。
+    # 这将减少用户的感知加载时间。
+    # https://zensical.org/docs/setup/navigation/#instant-prefetching
+    "navigation.instant.prefetch",
+
+    # 为了在使用即时导航时在慢速连接上提供更好的用户体验，
+    # 可以启用进度指示器。
+    # https://zensical.org/docs/setup/navigation/#progress-indicator
+    #"navigation.instant.progress",
+
+    # 激活导航路径后，会在每个页面的标题上方呈现面包屑导航。
+    # https://zensical.org/docs/setup/navigation/#navigation-path
+    "navigation.path",
+
+    # 启用修剪后，只有可见的导航项才会包含在呈现的 HTML 中，
+    # 将构建站点的尺寸减少 33% 或更多。
+    # https://zensical.org/docs/setup/navigation/#navigation-pruning
+    #"navigation.prune",
+
+    # 启用章节后，顶级章节在 1220px 以上的视口中呈现为侧边栏中的组，
+    # 但在移动设备上保持不变。
+    # https://zensical.org/docs/setup/navigation/#navigation-sections
+    "navigation.sections",
+
+    # 启用标签页后，顶级章节在 1220px 以上的视口中在标题下方的菜单层中
+    # 呈现，但在移动设备上保持不变。
+    # https://zensical.org/docs/setup/navigation/#navigation-tabs
+    #"navigation.tabs",
+
+    # 启用粘性标签页后，导航标签页将锁定在标题下方，
+    # 并在向下滚动时始终可见。
+    # https://zensical.org/docs/setup/navigation/#sticky-navigation-tabs
+    # "navigation.tabs.sticky",
+
+    # 当用户向下滚动后再次开始向上滚动时，可以显示返回顶部按钮。
+    # https://zensical.org/docs/setup/navigation/#back-to-top-button
+    "navigation.top",
+
+    # 启用锚点跟踪后，地址栏中的 URL 会自动更新为在目录中突出显示的
+    # 活动锚点。
+    # https://zensical.org/docs/setup/navigation/#anchor-tracking
+    "navigation.tracking",
+
+    # 启用搜索突出显示后，当用户点击搜索结果时，Zensical 将在跟随链接后
+    # 突出显示所有出现的内容。
+    # https://zensical.org/docs/setup/search/#search-highlighting
+    "search.highlight",
+
+    # 启用目录的锚点跟随后，侧边栏会自动滚动，以便活动锚点始终可见。
+    # https://zensical.org/docs/setup/navigation/#anchor-following
+    # "toc.follow",
+
+    # 启用目录的导航集成后，它始终作为左侧导航侧边栏的一部分呈现。
+    # https://zensical.org/docs/setup/navigation/#navigation-integration
+    # "toc.integrate",
+]
+
+# ----------------------------------------------------------------------------
+# 你可以使用 "theme" 子节中的 "logo" 选项配置要在页眉中显示的自定义徽标。
+# 徽标必须是相对于 "docs_dir" 中文件的路径，例如，要使用 `docs/assets/logo.png`，你需要设置：
+# ----------------------------------------------------------------------------
+#logo = "assets/logo.png"
+
+# ----------------------------------------------------------------------------
+# 如果你没有专用的项目徽标，可以使用 Zensical 内置图标集中的内置图标。
+# 请注意，该设置位于不同的子节中，并且上述设置优先于图标。
+#
+# 阅读更多：
+# - https://zensical.org/docs/setup/logo-and-icons
+# - https://github.com/zensical/ui/tree/master/dist/.icons
+# ----------------------------------------------------------------------------
+[project.theme.icon]
+logo = "lucide/book-open"
+repo = "fontawesome/brands/github"
+
+# ----------------------------------------------------------------------------
+# 在 "font" 子节中，你可以配置使用的字体。默认情况下，字体从 Google Fonts 加载，
+# 为你提供了一组合适授权的字体供广泛选择。有用于普通文本字体和代码块中使用的等宽字体的选项。
+# ----------------------------------------------------------------------------
+#[project.theme.font]
+#text = "Inter"
+#code = "Jetbrains Mono"
+
+# ----------------------------------------------------------------------------
+# 在 "palette" 子节中，你可以配置颜色方案的选项。
+# 你可以配置不同的颜色方案，例如开启深色模式，用户可以在它们之间切换。
+# 每个颜色方案可以进一步自定义。
+#
+# 阅读更多：
+# - https://zensical.org/docs/setup/colors/
+# ----------------------------------------------------------------------------
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "切换到深色模式"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "切换到浅色模式"
+
+# ----------------------------------------------------------------------------
+# "extra" 部分包含其他设置。
+# ----------------------------------------------------------------------------
+#[[project.extra.social]]
+#icon = "fontawesome/brands/github"
+#link = "https://github.com/user/repo"
+
+# ----------------------------------------------------------------------------
+# 在此部分中，你可以配置渲染文档时使用的 Markdown 扩展。
+# 我们默认启用了最有用的扩展，但你可以根据需要自定义此列表。
+#
+# 阅读更多：
+# - https://zensical.org/docs/setup/extensions/
+# ----------------------------------------------------------------------------
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.def_list]
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.pymdownx.arithmatex]
+generic = true
+[project.markdown_extensions.pymdownx.betterem]
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.emoji]
+emoji_generator = "zensical.extensions.emoji.to_svg"
+emoji_index = "zensical.extensions.emoji.twemoji"
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.keys]
+[project.markdown_extensions.pymdownx.magiclink]
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.smartsymbols]
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+combine_header_slug = true
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+[project.markdown_extensions.pymdownx.tilde]

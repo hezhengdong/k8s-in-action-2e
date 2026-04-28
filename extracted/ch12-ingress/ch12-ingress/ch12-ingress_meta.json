@@ -1,0 +1,2732 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Using Ingress to route\ntraffic to services",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          209.5800018310547,
+          120.57083129882812
+        ],
+        [
+          465.662109375,
+          120.57083129882812
+        ],
+        [
+          465.662109375,
+          182.61080932617188
+        ],
+        [
+          209.5800018310547,
+          182.61080932617188
+        ]
+      ]
+    },
+    {
+      "title": "This chapter covers",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          81.931640625,
+          267.3367004394531
+        ],
+        [
+          186.93601989746094,
+          267.3367004394531
+        ],
+        [
+          186.93601989746094,
+          279.3367004394531
+        ],
+        [
+          81.931640625,
+          279.3367004394531
+        ]
+      ]
+    },
+    {
+      "title": "12.1 Introducing Ingresses",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          66.18000030517578,
+          119.41598510742188
+        ],
+        [
+          219.9473419189453,
+          119.41598510742188
+        ],
+        [
+          219.9473419189453,
+          131.89602661132812
+        ],
+        [
+          66.18000030517578,
+          131.89602661132812
+        ]
+      ]
+    },
+    {
+      "title": "12.1.1 Introducing the Ingress object kind",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          65.8564453125,
+          496.3916015625
+        ],
+        [
+          263.9443359375,
+          496.3916015625
+        ],
+        [
+          263.9443359375,
+          508.16624450683594
+        ],
+        [
+          65.8564453125,
+          508.16624450683594
+        ]
+      ]
+    },
+    {
+      "title": "EXPOSING SERVICES THROUGH AN INGRESS OBJECT",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          92.302734375,
+          84.79202270507812
+        ],
+        [
+          281.1027526855469,
+          84.79202270507812
+        ],
+        [
+          281.1027526855469,
+          94.27200317382812
+        ],
+        [
+          92.302734375,
+          94.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "USING MULTIPLE INGRESS OBJECTS IN A CLUSTER",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          92.302734375,
+          486.7353515625
+        ],
+        [
+          274.833984375,
+          486.7353515625
+        ],
+        [
+          274.833984375,
+          496.8719940185547
+        ],
+        [
+          92.302734375,
+          496.8719940185547
+        ]
+      ]
+    },
+    {
+      "title": "12.1.2 Introducing the Ingress controller and the reverse proxy",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          57.041015625,
+          559.458984375
+        ],
+        [
+          349.8549499511719,
+          559.458984375
+        ],
+        [
+          349.8549499511719,
+          571.3463592529297
+        ],
+        [
+          57.041015625,
+          571.3463592529297
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE ROLE OF THE INGRESS CONTROLLER",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          100.0810546875,
+          252.5712890625
+        ],
+        [
+          312.75,
+          252.5712890625
+        ],
+        [
+          312.75,
+          261.0
+        ],
+        [
+          100.0810546875,
+          261.0
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING HOW THE PROXY FORWARDS TRAFFIC TO THE SERVICES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          93.18000030517578,
+          96.79202270507812
+        ],
+        [
+          359.28472900390625,
+          96.79202270507812
+        ],
+        [
+          359.28472900390625,
+          106.27200317382812
+        ],
+        [
+          93.18000030517578,
+          106.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "12.1.3 Installing an ingress controller",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          57.041015625,
+          522.4462585449219
+        ],
+        [
+          233.63258361816406,
+          522.4462585449219
+        ],
+        [
+          233.63258361816406,
+          533.2060546875
+        ],
+        [
+          57.041015625,
+          533.2060546875
+        ]
+      ]
+    },
+    {
+      "title": "Installing the Nginx ingress controller",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          113.044921875,
+          260.6183776855469
+        ],
+        [
+          291.427734375,
+          260.6183776855469
+        ],
+        [
+          291.427734375,
+          271.1183776855469
+        ],
+        [
+          113.044921875,
+          271.1183776855469
+        ]
+      ]
+    },
+    {
+      "title": "12.2 Creating and using Ingress objects",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          65.337890625,
+          519.4358978271484
+        ],
+        [
+          292.072998046875,
+          519.4358978271484
+        ],
+        [
+          292.072998046875,
+          531.9990234375
+        ],
+        [
+          65.337890625,
+          531.9990234375
+        ]
+      ]
+    },
+    {
+      "title": "12.2.1 Exposing a service through an Ingress",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          56.5224609375,
+          107.66635131835938
+        ],
+        [
+          267.8352966308594,
+          107.66635131835938
+        ],
+        [
+          267.8352966308594,
+          118.16635131835938
+        ],
+        [
+          56.5224609375,
+          118.16635131835938
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.1 The kiada service manifest",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          104.748046875,
+          192.21487426757812
+        ],
+        [
+          272.93939208984375,
+          192.21487426757812
+        ],
+        [
+          272.93939208984375,
+          201.2724609375
+        ],
+        [
+          104.748046875,
+          201.2724609375
+        ]
+      ]
+    },
+    {
+      "title": "CREATING THE INGRESS OBJECT",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          92.56201171875,
+          420.6719970703125
+        ],
+        [
+          210.27392578125,
+          420.6719970703125
+        ],
+        [
+          210.27392578125,
+          430.15199279785156
+        ],
+        [
+          92.56201171875,
+          430.15199279785156
+        ]
+      ]
+    },
+    {
+      "title": "INSPECTING AN INGRESS OBJECT TO GET ITS PUBLIC IP ADDRESS",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          101.25,
+          461.25
+        ],
+        [
+          340.5,
+          461.25
+        ],
+        [
+          340.5,
+          469.2333984375
+        ],
+        [
+          101.25,
+          469.2333984375
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ingresses",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          101.25,
+          519.75
+        ],
+        [
+          213.64453125,
+          519.75
+        ],
+        [
+          213.64453125,
+          531.9990234375
+        ],
+        [
+          101.25,
+          531.9990234375
+        ]
+      ]
+    },
+    {
+      "title": "ADDING THE INGRESS IP TO THE DNS",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          101.1181640625,
+          173.59201049804688
+        ],
+        [
+          242.14845275878906,
+          173.59201049804688
+        ],
+        [
+          242.14845275878906,
+          183.072021484375
+        ],
+        [
+          101.1181640625,
+          183.072021484375
+        ]
+      ]
+    },
+    {
+      "title": "ACCESSING SERVICES THROUGH THE INGRESS",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          102.18000030517578,
+          308.0947265625
+        ],
+        [
+          269.31597900390625,
+          308.0947265625
+        ],
+        [
+          269.31597900390625,
+          317.5920104980469
+        ],
+        [
+          102.18000030517578,
+          317.5920104980469
+        ]
+      ]
+    },
+    {
+      "title": "12.2.2 Path-based ingress traffic routing",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          57.18000030517578,
+          225.68637084960938
+        ],
+        [
+          247.3505859375,
+          225.68637084960938
+        ],
+        [
+          247.3505859375,
+          236.18637084960938
+        ],
+        [
+          57.18000030517578,
+          236.18637084960938
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.3 Ingress mapping request paths to different services",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          102.673828125,
+          526.7147521972656
+        ],
+        [
+          370.49822998046875,
+          526.7147521972656
+        ],
+        [
+          370.49822998046875,
+          535.7147521972656
+        ],
+        [
+          102.673828125,
+          535.7147521972656
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING HOW THE PATH IS MATCHED",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          102.1552734375,
+          548.7718963623047
+        ],
+        [
+          269.1298828125,
+          548.7718963623047
+        ],
+        [
+          269.1298828125,
+          558.2518920898438
+        ],
+        [
+          102.1552734375,
+          558.2518920898438
+        ]
+      ]
+    },
+    {
+      "title": "MATCHING PATHS USING THE EXACT PATH TYPE",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          92.302734375,
+          202.78125
+        ],
+        [
+          269.2860107421875,
+          202.78125
+        ],
+        [
+          269.2860107421875,
+          213.25201416015625
+        ],
+        [
+          92.302734375,
+          213.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "MATCHING PATHS USING THE PREFIX PATH TYPE",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          91.7841796875,
+          421.5556640625
+        ],
+        [
+          271.43719482421875,
+          421.5556640625
+        ],
+        [
+          271.43719482421875,
+          431.77198791503906
+        ],
+        [
+          91.7841796875,
+          431.77198791503906
+        ]
+      ]
+    },
+    {
+      "title": "MATCHING PATHS USING THE IMPLEMENTATIONSPECIFIC PATH TYPE",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          101.1181640625,
+          150.5771484375
+        ],
+        [
+          351.30450439453125,
+          150.5771484375
+        ],
+        [
+          351.30450439453125,
+          160.27200317382812
+        ],
+        [
+          101.1181640625,
+          160.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "12.2.3 Using multiple rules in an Ingress object",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          64.8193359375,
+          241.1663818359375
+        ],
+        [
+          287.80255126953125,
+          241.1663818359375
+        ],
+        [
+          287.80255126953125,
+          251.6663818359375
+        ],
+        [
+          64.8193359375,
+          251.6663818359375
+        ]
+      ]
+    },
+    {
+      "title": "CREATING AN INGRESS OBJECT WITH MULTIPLE RULES",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          101.63671875,
+          317.7509765625
+        ],
+        [
+          299.7960205078125,
+          317.7509765625
+        ],
+        [
+          299.7960205078125,
+          327.25201416015625
+        ],
+        [
+          101.63671875,
+          327.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.4 Ingress exposing multiple services on different hosts",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          114.08203125,
+          398.73486328125
+        ],
+        [
+          384.5382385253906,
+          398.73486328125
+        ],
+        [
+          384.5382385253906,
+          407.73486328125
+        ],
+        [
+          114.08203125,
+          407.73486328125
+        ]
+      ]
+    },
+    {
+      "title": "USING WILDCARDS IN THE HOST FIELD",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          101.1181640625,
+          52.8076171875
+        ],
+        [
+          241.1279296875,
+          52.8076171875
+        ],
+        [
+          241.1279296875,
+          60.0
+        ],
+        [
+          101.1181640625,
+          60.0
+        ]
+      ]
+    },
+    {
+      "title": "12.2.4 Setting the default backend",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          64.5,
+          337.5
+        ],
+        [
+          231.75,
+          337.5
+        ],
+        [
+          231.75,
+          347.3232421875
+        ],
+        [
+          64.5,
+          347.3232421875
+        ]
+      ]
+    },
+    {
+      "title": "SPECIFYING THE DEFAULT BACKEND IN AN INGRESS OBJECT",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          91.265625,
+          52.751983642578125
+        ],
+        [
+          310.26397705078125,
+          52.751983642578125
+        ],
+        [
+          310.26397705078125,
+          62.231964111328125
+        ],
+        [
+          91.265625,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.5 Specifying the default backend in the Ingress object",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          104.748046875,
+          106.71487426757812
+        ],
+        [
+          373.1982727050781,
+          106.71487426757812
+        ],
+        [
+          373.1982727050781,
+          115.71487426757812
+        ],
+        [
+          104.748046875,
+          115.71487426757812
+        ]
+      ]
+    },
+    {
+      "title": "CREATING THE SERVICE AND POD FOR THE DEFAULT BACKEND",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          92.302734375,
+          387.61199951171875
+        ],
+        [
+          319.3254699707031,
+          387.61199951171875
+        ],
+        [
+          319.3254699707031,
+          397.0920104980469
+        ],
+        [
+          92.302734375,
+          397.0920104980469
+        ]
+      ]
+    },
+    {
+      "title": "12.3 Configuring TLS for an Ingress",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          65.8564453125,
+          537.4306640625
+        ],
+        [
+          266.7698059082031,
+          537.4306640625
+        ],
+        [
+          266.7698059082031,
+          550.5160140991211
+        ],
+        [
+          65.8564453125,
+          550.5160140991211
+        ]
+      ]
+    },
+    {
+      "title": "12.3.1 Configuring the Ingress for TLS passthrough",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          56.5224609375,
+          139.412109375
+        ],
+        [
+          294.8359375,
+          139.412109375
+        ],
+        [
+          294.8359375,
+          150.20632934570312
+        ],
+        [
+          56.5224609375,
+          150.20632934570312
+        ]
+      ]
+    },
+    {
+      "title": "12.3.2 Terminating TLS at the Ingress",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          56.00390625,
+          465.310546875
+        ],
+        [
+          234.08609008789062,
+          465.310546875
+        ],
+        [
+          234.08609008789062,
+          476.6663513183594
+        ],
+        [
+          56.00390625,
+          476.6663513183594
+        ]
+      ]
+    },
+    {
+      "title": "CREATING A TLS SECRET FOR THE INGRESS",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          101.1181640625,
+          206.7041015625
+        ],
+        [
+          263.135986328125,
+          206.7041015625
+        ],
+        [
+          263.135986328125,
+          216.25201416015625
+        ],
+        [
+          101.1181640625,
+          216.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "ADDING THE TLS SECRET TO THE INGRESS",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          101.1181640625,
+          423.91200256347656
+        ],
+        [
+          258.21600341796875,
+          423.91200256347656
+        ],
+        [
+          258.21600341796875,
+          433.3919982910156
+        ],
+        [
+          101.1181640625,
+          433.3919982910156
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.8 Adding a TLS secret to an Ingress",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          112.5263671875,
+          490.8348693847656
+        ],
+        [
+          308.1588439941406,
+          490.8348693847656
+        ],
+        [
+          308.1588439941406,
+          499.8348693847656
+        ],
+        [
+          112.5263671875,
+          499.8348693847656
+        ]
+      ]
+    },
+    {
+      "title": "ACCESSING THE INGRESS THROUGH TLS",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          91.7841796875,
+          164.15625
+        ],
+        [
+          241.12921142578125,
+          164.15625
+        ],
+        [
+          241.12921142578125,
+          173.65200805664062
+        ],
+        [
+          91.7841796875,
+          173.65200805664062
+        ]
+      ]
+    },
+    {
+      "title": "12.4 Additional Ingress configuration options",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          56.00390625,
+          472.2509765625
+        ],
+        [
+          312.6805419921875,
+          472.2509765625
+        ],
+        [
+          312.6805419921875,
+          485.05601501464844
+        ],
+        [
+          56.00390625,
+          485.05601501464844
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl explain ingress.spec",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          91.7841796875,
+          549.5009765625
+        ],
+        [
+          237.10731506347656,
+          549.5009765625
+        ],
+        [
+          237.10731506347656,
+          558.2675857543945
+        ],
+        [
+          91.7841796875,
+          558.2675857543945
+        ]
+      ]
+    },
+    {
+      "title": "12.4.1 Configuring the Ingress using annotations",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          65.337890625,
+          272.6663818359375
+        ],
+        [
+          294.5614013671875,
+          272.6663818359375
+        ],
+        [
+          294.5614013671875,
+          283.1663818359375
+        ],
+        [
+          65.337890625,
+          283.1663818359375
+        ]
+      ]
+    },
+    {
+      "title": "USING ANNOTATIONS TO ENABLE COOKIE-BASED SESSION AFFINITY IN NGINX INGRESSES",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          100.599609375,
+          373.2720031738281
+        ],
+        [
+          422.1395263671875,
+          373.2720031738281
+        ],
+        [
+          422.1395263671875,
+          382.75201416015625
+        ],
+        [
+          100.599609375,
+          382.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "TESTING THE COOKIE-BASED SESSION AFFINITY",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          91.7841796875,
+          98.77200317382812
+        ],
+        [
+          262.89263916015625,
+          98.77200317382812
+        ],
+        [
+          262.89263916015625,
+          108.25198364257812
+        ],
+        [
+          91.7841796875,
+          108.25198364257812
+        ]
+      ]
+    },
+    {
+      "title": "12.4.2 Configuring the Ingress using additional API objects",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          57.041015625,
+          320.7685546875
+        ],
+        [
+          332.272705078125,
+          320.7685546875
+        ],
+        [
+          332.272705078125,
+          331.286376953125
+        ],
+        [
+          57.041015625,
+          331.286376953125
+        ]
+      ]
+    },
+    {
+      "title": "USING THE BACKENDCONFIG OBJECT TYPE TO ENABLE COOKIE-BASED SESSION AFFINITY IN GKE",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          91.265625,
+          409.4853515625
+        ],
+        [
+          444.63873291015625,
+          409.4853515625
+        ],
+        [
+          444.63873291015625,
+          419.8919982910156
+        ],
+        [
+          91.265625,
+          419.8919982910156
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.10 Referring to a BackendConfig in a Service object in GKE",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          102.673828125,
+          503.6337890625
+        ],
+        [
+          394.0179748535156,
+          503.6337890625
+        ],
+        [
+          394.0179748535156,
+          513.3348693847656
+        ],
+        [
+          102.673828125,
+          513.3348693847656
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.11 Using GKE-specific BackendConfig object to configure session affinity",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          113.044921875,
+          146.05078125
+        ],
+        [
+          459.439453125,
+          146.05078125
+        ],
+        [
+          459.439453125,
+          155.25485229492188
+        ],
+        [
+          113.044921875,
+          155.25485229492188
+        ]
+      ]
+    },
+    {
+      "title": "12.5 Using multiple ingress controllers",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          65.8564453125,
+          341.58984375
+        ],
+        [
+          286.7607421875,
+          341.58984375
+        ],
+        [
+          286.7607421875,
+          354.2560119628906
+        ],
+        [
+          65.8564453125,
+          354.2560119628906
+        ]
+      ]
+    },
+    {
+      "title": "12.5.1 Introducing the IngressClass object kind",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          57.041015625,
+          258.806396484375
+        ],
+        [
+          279.1426696777344,
+          258.806396484375
+        ],
+        [
+          279.1426696777344,
+          269.306396484375
+        ],
+        [
+          57.041015625,
+          269.306396484375
+        ]
+      ]
+    },
+    {
+      "title": "FINDING INGRESSCLASSES IN YOUR CLUSTER",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          92.302734375,
+          319.9320068359375
+        ],
+        [
+          258.240234375,
+          319.9320068359375
+        ],
+        [
+          258.240234375,
+          329.4120178222656
+        ],
+        [
+          92.302734375,
+          329.4120178222656
+        ]
+      ]
+    },
+    {
+      "title": "INSPECTING THE YAML MANIFEST OF AN INGRESSCLASS OBJECT",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          92.8212890625,
+          442.99200439453125
+        ],
+        [
+          332.3935546875,
+          442.99200439453125
+        ],
+        [
+          332.3935546875,
+          452.4720001220703
+        ],
+        [
+          92.8212890625,
+          452.4720001220703
+        ]
+      ]
+    },
+    {
+      "title": "12.5.2 Specifying the IngressClass in the Ingress object",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          64.8193359375,
+          52.505859375
+        ],
+        [
+          326.1442565917969,
+          52.505859375
+        ],
+        [
+          326.1442565917969,
+          63.146392822265625
+        ],
+        [
+          64.8193359375,
+          63.146392822265625
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.12 Ingress object referencing a specific IngressClass",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          113.044921875,
+          124.32421875
+        ],
+        [
+          378.2382507324219,
+          124.32421875
+        ],
+        [
+          378.2382507324219,
+          133.71487426757812
+        ],
+        [
+          113.044921875,
+          133.71487426757812
+        ]
+      ]
+    },
+    {
+      "title": "SETTING THE DEFAULT INGRESSCLASS",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          101.1181640625,
+          286.06640625
+        ],
+        [
+          241.5425567626953,
+          286.06640625
+        ],
+        [
+          241.5425567626953,
+          296.2919921875
+        ],
+        [
+          101.1181640625,
+          296.2919921875
+        ]
+      ]
+    },
+    {
+      "title": "12.5.3 Adding parameters to an IngressClass",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          65.337890625,
+          363.6181640625
+        ],
+        [
+          277.3791809082031,
+          363.6181640625
+        ],
+        [
+          277.3791809082031,
+          375.0849609375
+        ],
+        [
+          65.337890625,
+          375.0849609375
+        ]
+      ]
+    },
+    {
+      "title": "SPECIFYING PARAMETERS IN THE INGRESSCLASS OBJECT",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          102.18000030517578,
+          440.77198791503906
+        ],
+        [
+          312.169921875,
+          440.77198791503906
+        ],
+        [
+          312.169921875,
+          450.2519836425781
+        ],
+        [
+          102.18000030517578,
+          450.2519836425781
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.13 Referring to a custom parameters object in the IngressClass",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          104.748046875,
+          56.126953125
+        ],
+        [
+          412.0179443359375,
+          56.126953125
+        ],
+        [
+          412.0179443359375,
+          65.19491577148438
+        ],
+        [
+          104.748046875,
+          65.19491577148438
+        ]
+      ]
+    },
+    {
+      "title": "EXAMPLE OF A CUSTOM API OBJECT TYPE USED TO HOLD PARAMETERS FOR THE INGRESSCLASS",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          93.18000030517578,
+          239.8974609375
+        ],
+        [
+          447.0364990234375,
+          239.8974609375
+        ],
+        [
+          447.0364990234375,
+          250.15200805664062
+        ],
+        [
+          93.18000030517578,
+          250.15200805664062
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.14 Example IngressClassParams object manifest",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          102.673828125,
+          281.5400390625
+        ],
+        [
+          352.3182678222656,
+          281.5400390625
+        ],
+        [
+          352.3182678222656,
+          291.6348571777344
+        ],
+        [
+          102.673828125,
+          291.6348571777344
+        ]
+      ]
+    },
+    {
+      "title": "12.6 Using custom resources instead of services \nas backends",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          66.18000030517578,
+          52.2041015625
+        ],
+        [
+          343.6578063964844,
+          52.2041015625
+        ],
+        [
+          343.6578063964844,
+          78.43569946289062
+        ],
+        [
+          66.18000030517578,
+          78.43569946289062
+        ]
+      ]
+    },
+    {
+      "title": "12.6.1 Using a custom object to configure Ingress routing",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          65.337890625,
+          170.18637084960938
+        ],
+        [
+          335.3884582519531,
+          170.18637084960938
+        ],
+        [
+          335.3884582519531,
+          180.68637084960938
+        ],
+        [
+          65.337890625,
+          180.68637084960938
+        ]
+      ]
+    },
+    {
+      "title": "Listing 12.15 Example Ingress object using a resource backend",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          112.5263671875,
+          267.357421875
+        ],
+        [
+          377.6982727050781,
+          267.357421875
+        ],
+        [
+          377.6982727050781,
+          276.7548828125
+        ],
+        [
+          112.5263671875,
+          276.7548828125
+        ]
+      ]
+    },
+    {
+      "title": "Summary",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          92.56201171875,
+          52.456024169921875
+        ],
+        [
+          144.15829467773438,
+          52.456024169921875
+        ],
+        [
+          144.15829467773438,
+          64.93606567382812
+        ],
+        [
+          92.56201171875,
+          64.93606567382812
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          48
+        ],
+        [
+          "Line",
+          20
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          104
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          60
+        ],
+        [
+          "Span",
+          12
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          137
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          95
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          147
+        ],
+        [
+          "Line",
+          60
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          59
+        ],
+        [
+          "Span",
+          16
+        ],
+        [
+          "TableCell",
+          12
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          145
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          137
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          148
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          151
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "TableCell",
+          35
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          66
+        ],
+        [
+          "Span",
+          27
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          58
+        ],
+        [
+          "TableCell",
+          15
+        ],
+        [
+          "Span",
+          11
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          157
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          119
+        ],
+        [
+          "Line",
+          58
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          86
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          54
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          123
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          113
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          121
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          92
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          154
+        ],
+        [
+          "Line",
+          61
+        ],
+        [
+          "TableCell",
+          12
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 25,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          106
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 26,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 27,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          110
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 28,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          80
+        ],
+        [
+          "Line",
+          34
+        ],
+        [
+          "ListItem",
+          11
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ch12-ingress"
+}

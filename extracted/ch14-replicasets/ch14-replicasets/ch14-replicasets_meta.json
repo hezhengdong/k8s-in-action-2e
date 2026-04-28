@@ -1,0 +1,2022 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Scaling and maintaining\npods with ReplicaSets",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          182.53125,
+          120.099609375
+        ],
+        [
+          477.0703125,
+          120.099609375
+        ],
+        [
+          477.0703125,
+          182.61080932617188
+        ],
+        [
+          182.53125,
+          182.61080932617188
+        ]
+      ]
+    },
+    {
+      "title": "This chapter covers",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          94.8955078125,
+          267.0556640625
+        ],
+        [
+          198.93601989746094,
+          267.0556640625
+        ],
+        [
+          198.93601989746094,
+          279.3966979980469
+        ],
+        [
+          94.8955078125,
+          279.3966979980469
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl apply -f SETUP -R",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          92.302734375,
+          99.0
+        ],
+        [
+          223.5,
+          99.0
+        ],
+        [
+          223.5,
+          108.029296875
+        ],
+        [
+          92.302734375,
+          108.029296875
+        ]
+      ]
+    },
+    {
+      "title": "14.1 Introducing ReplicaSets",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          55.5,
+          153.75
+        ],
+        [
+          225.0,
+          153.75
+        ],
+        [
+          225.0,
+          164.759765625
+        ],
+        [
+          55.5,
+          164.759765625
+        ]
+      ]
+    },
+    {
+      "title": "14.1.1 Creating a ReplicaSet",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          65.8564453125,
+          465.0087890625
+        ],
+        [
+          203.7919921875,
+          465.0087890625
+        ],
+        [
+          203.7919921875,
+          477.0863494873047
+        ],
+        [
+          65.8564453125,
+          477.0863494873047
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCING THE REPLICASET SPEC",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          102.1552734375,
+          539.8447265625
+        ],
+        [
+          238.0166015625,
+          539.8447265625
+        ],
+        [
+          238.0166015625,
+          550.1519927978516
+        ],
+        [
+          102.1552734375,
+          550.1519927978516
+        ]
+      ]
+    },
+    {
+      "title": "CREATING A REPLICASET OBJECT MANIFEST",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          92.8212890625,
+          201.57421875
+        ],
+        [
+          254.39418029785156,
+          201.57421875
+        ],
+        [
+          254.39418029785156,
+          212.23199462890625
+        ],
+        [
+          92.8212890625,
+          212.23199462890625
+        ]
+      ]
+    },
+    {
+      "title": "Listing 14.1 The Kiada ReplicaSet object manifest",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          102.673828125,
+          256.7148742675781
+        ],
+        [
+          314.3985595703125,
+          256.7148742675781
+        ],
+        [
+          314.3985595703125,
+          266.150390625
+        ],
+        [
+          102.673828125,
+          266.150390625
+        ]
+      ]
+    },
+    {
+      "title": "14.1.2 Inspecting a ReplicaSet and its pods",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          65.8564453125,
+          158.06637573242188
+        ],
+        [
+          271.2544860839844,
+          158.06637573242188
+        ],
+        [
+          271.2544860839844,
+          168.56637573242188
+        ],
+        [
+          65.8564453125,
+          168.56637573242188
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe rs kiada",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          101.63671875,
+          549.5009765625
+        ],
+        [
+          231.70741271972656,
+          549.5009765625
+        ],
+        [
+          231.70741271972656,
+          557.9675827026367
+        ],
+        [
+          101.63671875,
+          557.9675827026367
+        ]
+      ]
+    },
+    {
+      "title": "LISTING THE PODS IN A REPLICASET",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          90.7470703125,
+          52.2041015625
+        ],
+        [
+          225.84266662597656,
+          52.2041015625
+        ],
+        [
+          225.84266662597656,
+          62.231964111328125
+        ],
+        [
+          90.7470703125,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING HOW PODS IN A REPLICASET ARE NAMED",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          92.8212890625,
+          252.26953125
+        ],
+        [
+          308.6507873535156,
+          252.26953125
+        ],
+        [
+          308.6507873535156,
+          262.1520080566406
+        ],
+        [
+          92.8212890625,
+          262.1520080566406
+        ]
+      ]
+    },
+    {
+      "title": "DISPLAYING THE LOGS OF THE REPLICASET'S PODS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          101.63671875,
+          96.2607421875
+        ],
+        [
+          289.2969055175781,
+          96.2607421875
+        ],
+        [
+          289.2969055175781,
+          106.27200317382812
+        ],
+        [
+          101.63671875,
+          106.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl logs rs/kiada -c kiada",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          102.1552734375,
+          181.658203125
+        ],
+        [
+          255.70724487304688,
+          181.658203125
+        ],
+        [
+          255.70724487304688,
+          190.6475830078125
+        ],
+        [
+          102.1552734375,
+          190.6475830078125
+        ]
+      ]
+    },
+    {
+      "title": "$ kubect logs rs/kiada --all-pods -c envoy",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          101.63671875,
+          314.7333984375
+        ],
+        [
+          303.6470642089844,
+          314.7333984375
+        ],
+        [
+          303.6470642089844,
+          323.6675720214844
+        ],
+        [
+          101.63671875,
+          323.6675720214844
+        ]
+      ]
+    },
+    {
+      "title": "14.1.3 Understanding pod ownership",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          64.30078125,
+          494.1863555908203
+        ],
+        [
+          239.3974151611328,
+          494.1863555908203
+        ],
+        [
+          239.3974151611328,
+          504.6863555908203
+        ],
+        [
+          64.30078125,
+          504.6863555908203
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe po kiada-001",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          102.18000030517578,
+          571.2275390625
+        ],
+        [
+          252.017578125,
+          571.2275390625
+        ],
+        [
+          252.017578125,
+          579.6875839233398
+        ],
+        [
+          102.18000030517578,
+          579.6875839233398
+        ]
+      ]
+    },
+    {
+      "title": "14.2 Updating a ReplicaSet",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          56.5224609375,
+          529.88671875
+        ],
+        [
+          216.13272094726562,
+          529.88671875
+        ],
+        [
+          216.13272094726562,
+          542.536018371582
+        ],
+        [
+          56.5224609375,
+          542.536018371582
+        ]
+      ]
+    },
+    {
+      "title": "14.2.1 Scaling a ReplicaSet",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          65.59716796875,
+          52.505859375
+        ],
+        [
+          197.82861328125,
+          52.505859375
+        ],
+        [
+          197.82861328125,
+          63.146392822265625
+        ],
+        [
+          65.59716796875,
+          63.146392822265625
+        ]
+      ]
+    },
+    {
+      "title": "SCALING A REPLICASET USING THE KUBECTL SCALE COMMAND",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          101.63671875,
+          152.77200317382812
+        ],
+        [
+          332.58636474609375,
+          152.77200317382812
+        ],
+        [
+          332.58636474609375,
+          162.25201416015625
+        ],
+        [
+          101.63671875,
+          162.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "SCALING DOWN",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          100.34033203125,
+          523.8719940185547
+        ],
+        [
+          158.53067016601562,
+          523.8719940185547
+        ],
+        [
+          158.53067016601562,
+          533.3519897460938
+        ],
+        [
+          100.34033203125,
+          533.3519897460938
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl edit rs kiada",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          101.37744140625,
+          585.7119140625
+        ],
+        [
+          212.50750732421875,
+          585.7119140625
+        ],
+        [
+          212.50750732421875,
+          594.7475814819336
+        ],
+        [
+          101.37744140625,
+          594.7475814819336
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING WHICH PODS ARE DELETED FIRST WHEN A REPLICASET IS SCALED DOWN",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          91.265625,
+          256.1923828125
+        ],
+        [
+          423.140625,
+          256.1923828125
+        ],
+        [
+          423.140625,
+          265.87200927734375
+        ],
+        [
+          91.265625,
+          265.87200927734375
+        ]
+      ]
+    },
+    {
+      "title": "SCALING DOWN TO ZERO",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          100.85888671875,
+          201.57421875
+        ],
+        [
+          192.7903594970703,
+          201.57421875
+        ],
+        [
+          192.7903594970703,
+          211.87200927734375
+        ],
+        [
+          100.85888671875,
+          211.87200927734375
+        ]
+      ]
+    },
+    {
+      "title": "14.2.2 Updating the Pod template",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          64.8193359375,
+          486.4462585449219
+        ],
+        [
+          226.6378631591797,
+          486.4462585449219
+        ],
+        [
+          226.6378631591797,
+          497.296875
+        ],
+        [
+          64.8193359375,
+          497.296875
+        ]
+      ]
+    },
+    {
+      "title": "EDITING A REPLICASET'S POD TEMPLATE",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          101.63671875,
+          559.1572265625
+        ],
+        [
+          253.50405883789062,
+          559.1572265625
+        ],
+        [
+          253.50405883789062,
+          570.0119934082031
+        ],
+        [
+          101.63671875,
+          570.0119934082031
+        ]
+      ]
+    },
+    {
+      "title": "Listing 14.2 Adding a label to the Pod template",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          104.748046875,
+          171.7001953125
+        ],
+        [
+          303.238525390625,
+          171.7001953125
+        ],
+        [
+          303.238525390625,
+          181.23486328125
+        ],
+        [
+          104.748046875,
+          181.23486328125
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING HOW THE REPLICASET'S POD TEMPLATE IS USED",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          91.7841796875,
+          517.2718811035156
+        ],
+        [
+          336.66455078125,
+          517.2718811035156
+        ],
+        [
+          336.66455078125,
+          526.7518768310547
+        ],
+        [
+          91.7841796875,
+          526.7518768310547
+        ]
+      ]
+    },
+    {
+      "title": "14.3 Understanding the operation of the ReplicaSet \ncontroller",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          64.30078125,
+          241.03604125976562
+        ],
+        [
+          362.1869201660156,
+          241.03604125976562
+        ],
+        [
+          362.1869201660156,
+          267.015625
+        ],
+        [
+          64.30078125,
+          267.015625
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe rs kiada",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          100.0810546875,
+          462.267578125
+        ],
+        [
+          225.5712890625,
+          462.267578125
+        ],
+        [
+          225.5712890625,
+          470.24757385253906
+        ],
+        [
+          100.0810546875,
+          470.24757385253906
+        ]
+      ]
+    },
+    {
+      "title": "14.3.1 Introducing the reconciliation control loop",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          56.5224609375,
+          52.646392822265625
+        ],
+        [
+          288.1023254394531,
+          52.646392822265625
+        ],
+        [
+          288.1023254394531,
+          63.146392822265625
+        ],
+        [
+          56.5224609375,
+          63.146392822265625
+        ]
+      ]
+    },
+    {
+      "title": "14.3.2 Understanding how the ReplicaSet controller reacts \nto pod changes",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          66.18000030517578,
+          51.6005859375
+        ],
+        [
+          344.76824951171875,
+          51.6005859375
+        ],
+        [
+          344.76824951171875,
+          75.68655395507812
+        ],
+        [
+          66.18000030517578,
+          75.68655395507812
+        ]
+      ]
+    },
+    {
+      "title": "DELETING A POD MANAGED BY A REPLICASET",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          101.63671875,
+          165.25198364257812
+        ],
+        [
+          269.88262939453125,
+          165.25198364257812
+        ],
+        [
+          269.88262939453125,
+          174.73199462890625
+        ],
+        [
+          101.63671875,
+          174.73199462890625
+        ]
+      ]
+    },
+    {
+      "title": "CREATING A POD THAT MATCHES THE REPLICASET'S LABEL SELECTOR",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          101.1181640625,
+          435.19200134277344
+        ],
+        [
+          359.3583984375,
+          435.19200134277344
+        ],
+        [
+          359.3583984375,
+          444.6719970703125
+        ],
+        [
+          101.1181640625,
+          444.6719970703125
+        ]
+      ]
+    },
+    {
+      "title": "WHAT HAPPENS WHEN A NODE THAT RUNS A REPLICASET'S POD FAILS?",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          90.228515625,
+          155.59201049804688
+        ],
+        [
+          357.8592224121094,
+          155.59201049804688
+        ],
+        [
+          357.8592224121094,
+          165.072021484375
+        ],
+        [
+          90.228515625,
+          165.072021484375
+        ]
+      ]
+    },
+    {
+      "title": "$ docker exec kind-worker2 ip link set eth0 down",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          92.302734375,
+          344.3056640625
+        ],
+        [
+          323.4468688964844,
+          344.3056640625
+        ],
+        [
+          323.4468688964844,
+          352.46759033203125
+        ],
+        [
+          92.302734375,
+          352.46759033203125
+        ]
+      ]
+    },
+    {
+      "title": "WHEN DO PODS NOT GET REPLACED?",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          102.1552734375,
+          503.5919952392578
+        ],
+        [
+          238.6392059326172,
+          503.5919952392578
+        ],
+        [
+          238.6392059326172,
+          513.0719909667969
+        ],
+        [
+          102.1552734375,
+          513.0719909667969
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl exec rs/kiada -c kiada -- curl -X POST localhost:9901/healthcheck/fail",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          92.302734375,
+          202.4794921875
+        ],
+        [
+          464.3211975097656,
+          202.4794921875
+        ],
+        [
+          464.3211975097656,
+          212.1275634765625
+        ],
+        [
+          92.302734375,
+          212.1275634765625
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get pods -l app=kiada",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          93.18000030517578,
+          302.361328125
+        ],
+        [
+          246.3134765625,
+          302.361328125
+        ],
+        [
+          246.3134765625,
+          313.224609375
+        ],
+        [
+          93.18000030517578,
+          313.224609375
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get rs\nNAME DESIRED CURRENT READY AGE\nkiada 3 3 2 2h \nOnly two of the three \npods are ready.",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          93.18000030517578,
+          413.1875762939453
+        ],
+        [
+          409.6559753417969,
+          413.1875762939453
+        ],
+        [
+          409.6559753417969,
+          441.56764221191406
+        ],
+        [
+          93.18000030517578,
+          441.56764221191406
+        ]
+      ]
+    },
+    {
+      "title": "14.3.3 Removing a pod from the ReplicaSet's control",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          64.5,
+          52.505859375
+        ],
+        [
+          315.75,
+          52.505859375
+        ],
+        [
+          315.75,
+          62.162109375
+        ],
+        [
+          64.5,
+          62.162109375
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl label po kiada-78j7m rel=debug --overwrite",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          101.25,
+          475.5
+        ],
+        [
+          352.5,
+          475.5
+        ],
+        [
+          352.5,
+          483.75
+        ],
+        [
+          101.25,
+          483.75
+        ]
+      ]
+    },
+    {
+      "title": "14.4 Deleting a ReplicaSet",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          56.00390625,
+          238.8160400390625
+        ],
+        [
+          212.34262084960938,
+          238.8160400390625
+        ],
+        [
+          212.34262084960938,
+          251.2960205078125
+        ],
+        [
+          56.00390625,
+          251.2960205078125
+        ]
+      ]
+    },
+    {
+      "title": "14.4.1 Deleting a ReplicaSet and all associated pods",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          56.00390625,
+          342.796875
+        ],
+        [
+          305.52606201171875,
+          342.796875
+        ],
+        [
+          305.52606201171875,
+          353.60638427734375
+        ],
+        [
+          56.00390625,
+          353.60638427734375
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get pods -l app=kiada\nNAME READY STATUS RESTARTS AGE\nkiada-2dq4f 0/2 Terminating 0 7m29s\nkiada-f5nff 0/2 Terminating 0 7m29s\nkiada-khmj5 0/2 Terminating 0 7m29s",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          91.7841796875,
+          434.9675750732422
+        ],
+        [
+          343.8017578125,
+          434.9675750732422
+        ],
+        [
+          343.8017578125,
+          485.2265625
+        ],
+        [
+          91.7841796875,
+          485.2265625
+        ]
+      ]
+    },
+    {
+      "title": "14.4.2 Deleting a ReplicaSet while preserving the pods",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          56.00390625,
+          544.6728515625
+        ],
+        [
+          314.56964111328125,
+          544.6728515625
+        ],
+        [
+          314.56964111328125,
+          556.1396484375
+        ],
+        [
+          56.00390625,
+          556.1396484375
+        ]
+      ]
+    },
+    {
+      "title": "Summary",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          101.37744140625,
+          239.83602905273438
+        ],
+        [
+          153.15829467773438,
+          239.83602905273438
+        ],
+        [
+          153.15829467773438,
+          252.31600952148438
+        ],
+        [
+          101.37744140625,
+          252.31600952148438
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          44
+        ],
+        [
+          "Line",
+          20
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          65
+        ],
+        [
+          "Span",
+          12
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          134
+        ],
+        [
+          "Line",
+          60
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          142
+        ],
+        [
+          "Line",
+          54
+        ],
+        [
+          "TableCell",
+          8
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          102
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "TableCell",
+          42
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          115
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "TableCell",
+          63
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          130
+        ],
+        [
+          "TableCell",
+          48
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          128
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          107
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "TableCell",
+          12
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          143
+        ],
+        [
+          "Line",
+          68
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          126
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "TableCell",
+          30
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          125
+        ],
+        [
+          "TableCell",
+          66
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          117
+        ],
+        [
+          "TableCell",
+          49
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          109
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "TableCell",
+          24
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          59
+        ],
+        [
+          "TableCell",
+          36
+        ],
+        [
+          "Span",
+          9
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          87
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "TableCell",
+          16
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          74
+        ],
+        [
+          "Line",
+          33
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ch14-replicasets"
+}

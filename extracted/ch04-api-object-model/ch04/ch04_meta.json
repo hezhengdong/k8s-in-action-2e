@@ -1,0 +1,1870 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Navigating\nthe Kubernetes API\nand object model",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          250.98046875,
+          120.099609375
+        ],
+        [
+          479.14453125,
+          120.099609375
+        ],
+        [
+          479.14453125,
+          214.59078979492188
+        ],
+        [
+          250.98046875,
+          214.59078979492188
+        ]
+      ]
+    },
+    {
+      "title": "This chapter covers",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          94.376953125,
+          264.943359375
+        ],
+        [
+          198.93601989746094,
+          264.943359375
+        ],
+        [
+          198.93601989746094,
+          277.356689453125
+        ],
+        [
+          94.376953125,
+          277.356689453125
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Getting familiar with the Kubernetes API",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          55.4853515625,
+          52.5
+        ],
+        [
+          318.0,
+          52.5
+        ],
+        [
+          318.0,
+          64.2744140625
+        ],
+        [
+          55.4853515625,
+          64.2744140625
+        ]
+      ]
+    },
+    {
+      "title": "4.1.1 Introducing the API",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          55.4853515625,
+          455.25
+        ],
+        [
+          183.0,
+          455.25
+        ],
+        [
+          183.0,
+          466.8193359375
+        ],
+        [
+          55.4853515625,
+          466.8193359375
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE ARCHITECTURAL STYLE OF THE API",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          91.5,
+          515.7041015625
+        ],
+        [
+          303.0,
+          515.7041015625
+        ],
+        [
+          303.0,
+          524.25
+        ],
+        [
+          91.5,
+          524.25
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE DIFFERENCE BETWEEN RESOURCES AND OBJECTS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          102.1552734375,
+          166.75198364257812
+        ],
+        [
+          361.177734375,
+          166.75198364257812
+        ],
+        [
+          361.177734375,
+          176.23199462890625
+        ],
+        [
+          102.1552734375,
+          176.23199462890625
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING HOW OBJECTS ARE REPRESENTED",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          91.7841796875,
+          390.7919921875
+        ],
+        [
+          279.5009765625,
+          390.7919921875
+        ],
+        [
+          279.5009765625,
+          400.2720031738281
+        ],
+        [
+          91.7841796875,
+          400.2720031738281
+        ]
+      ]
+    },
+    {
+      "title": "4.1.2 Understanding the structure of an object manifest",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          56.00390625,
+          501.2197265625
+        ],
+        [
+          325.65234375,
+          501.2197265625
+        ],
+        [
+          325.65234375,
+          513.6863555908203
+        ],
+        [
+          56.00390625,
+          513.6863555908203
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCING THE MAIN PARTS OF AN OBJECT",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          102.1552734375,
+          52.751983642578125
+        ],
+        [
+          269.7039794921875,
+          52.751983642578125
+        ],
+        [
+          269.7039794921875,
+          62.231964111328125
+        ],
+        [
+          102.1552734375,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE SPEC AND STATUS SECTIONS",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          91.7841796875,
+          52.751983642578125
+        ],
+        [
+          278.1571044921875,
+          52.751983642578125
+        ],
+        [
+          278.1571044921875,
+          62.231964111328125
+        ],
+        [
+          91.7841796875,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "Not all objects have the spec and status sections",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          104.2294921875,
+          514.4183654785156
+        ],
+        [
+          339.6533203125,
+          514.4183654785156
+        ],
+        [
+          339.6533203125,
+          525.662109375
+        ],
+        [
+          104.2294921875,
+          525.662109375
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Examining an object's individual properties",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          65.337890625,
+          157.93603515625
+        ],
+        [
+          338.662109375,
+          157.93603515625
+        ],
+        [
+          338.662109375,
+          170.416015625
+        ],
+        [
+          65.337890625,
+          170.416015625
+        ]
+      ]
+    },
+    {
+      "title": "4.2.1 Exploring the full manifest of a Node object",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          55.4853515625,
+          121.306640625
+        ],
+        [
+          293.9696960449219,
+          121.306640625
+        ],
+        [
+          293.9696960449219,
+          132.20632934570312
+        ],
+        [
+          55.4853515625,
+          132.20632934570312
+        ]
+      ]
+    },
+    {
+      "title": "Accessing the API directly",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          113.044921875,
+          351.4583740234375
+        ],
+        [
+          239.572265625,
+          351.4583740234375
+        ],
+        [
+          239.572265625,
+          362.109375
+        ],
+        [
+          113.044921875,
+          362.109375
+        ]
+      ]
+    },
+    {
+      "title": "THE TYPE METADATA FIELDS",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          101.89599609375,
+          566.3994140625
+        ],
+        [
+          206.0084228515625,
+          566.3994140625
+        ],
+        [
+          206.0084228515625,
+          576.4919891357422
+        ],
+        [
+          101.89599609375,
+          576.4919891357422
+        ]
+      ]
+    },
+    {
+      "title": "FIELDS IN THE OBJECT METADATA SECTION",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          91.7841796875,
+          225.71484375
+        ],
+        [
+          249.19154357910156,
+          225.71484375
+        ],
+        [
+          249.19154357910156,
+          236.23199462890625
+        ],
+        [
+          91.7841796875,
+          236.23199462890625
+        ]
+      ]
+    },
+    {
+      "title": "FIELDS IN THE SPEC SECTION",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          93.08056640625,
+          296.0244140625
+        ],
+        [
+          199.571533203125,
+          296.0244140625
+        ],
+        [
+          199.571533203125,
+          305.7720031738281
+        ],
+        [
+          93.08056640625,
+          305.7720031738281
+        ]
+      ]
+    },
+    {
+      "title": "FIELDS IN THE STATUS SECTION",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          91.265625,
+          390.1728515625
+        ],
+        [
+          208.09153747558594,
+          390.1728515625
+        ],
+        [
+          208.09153747558594,
+          401.2919921875
+        ],
+        [
+          91.265625,
+          401.2919921875
+        ]
+      ]
+    },
+    {
+      "title": "4.2.2 Understanding individual object fields",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          56.00390625,
+          489.451171875
+        ],
+        [
+          267.57421875,
+          489.451171875
+        ],
+        [
+          267.57421875,
+          501.6863555908203
+        ],
+        [
+          56.00390625,
+          501.6863555908203
+        ]
+      ]
+    },
+    {
+      "title": "USING KUBECTL EXPLAIN TO EXPLORE API OBJECT FIELDS",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          92.302734375,
+          551.9150390625
+        ],
+        [
+          305.1284484863281,
+          551.9150390625
+        ],
+        [
+          305.1284484863281,
+          561.7919921875
+        ],
+        [
+          92.302734375,
+          561.7919921875
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl explain nodes",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          101.63671875,
+          51.90234375
+        ],
+        [
+          212.50750732421875,
+          51.90234375
+        ],
+        [
+          212.50750732421875,
+          61.167633056640625
+        ],
+        [
+          101.63671875,
+          61.167633056640625
+        ]
+      ]
+    },
+    {
+      "title": "DESCRIPTION:",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          100.85888671875,
+          93.8466796875
+        ],
+        [
+          159.70782470703125,
+          93.8466796875
+        ],
+        [
+          159.70782470703125,
+          101.96780395507812
+        ],
+        [
+          100.85888671875,
+          101.96780395507812
+        ]
+      ]
+    },
+    {
+      "title": "FIELDS:",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          100.599609375,
+          133.6787109375
+        ],
+        [
+          135.767822265625,
+          133.6787109375
+        ],
+        [
+          135.767822265625,
+          142.76791381835938
+        ],
+        [
+          100.599609375,
+          142.76791381835938
+        ]
+      ]
+    },
+    {
+      "title": "DRILLING DEEPER INTO AN API OBJECT'S STRUCTURE",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          100.599609375,
+          360.9720153808594
+        ],
+        [
+          297.90478515625,
+          360.9720153808594
+        ],
+        [
+          297.90478515625,
+          370.4520263671875
+        ],
+        [
+          100.599609375,
+          370.4520263671875
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl explain node.spec",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          101.37744140625,
+          407.0712890625
+        ],
+        [
+          231.70741271972656,
+          407.0712890625
+        ],
+        [
+          231.70741271972656,
+          415.88758850097656
+        ],
+        [
+          101.37744140625,
+          415.88758850097656
+        ]
+      ]
+    },
+    {
+      "title": "DESCRIPTION:",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          102.18000030517578,
+          467.4228515625
+        ],
+        [
+          159.70782470703125,
+          467.4228515625
+        ],
+        [
+          159.70782470703125,
+          477.0878143310547
+        ],
+        [
+          102.18000030517578,
+          477.0878143310547
+        ]
+      ]
+    },
+    {
+      "title": "FIELDS:",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          101.89599609375,
+          518.1181640625
+        ],
+        [
+          135.767822265625,
+          518.1181640625
+        ],
+        [
+          135.767822265625,
+          528.0879974365234
+        ],
+        [
+          101.89599609375,
+          528.0879974365234
+        ]
+      ]
+    },
+    {
+      "title": "4.2.3 Understanding an object's status conditions",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          56.5224609375,
+          177.08636474609375
+        ],
+        [
+          296.4813232421875,
+          177.08636474609375
+        ],
+        [
+          296.4813232421875,
+          187.58636474609375
+        ],
+        [
+          56.5224609375,
+          187.58636474609375
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCING THE NODE'S STATUS CONDITIONS",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          92.302734375,
+          264.1919860839844
+        ],
+        [
+          264.6961364746094,
+          264.1919860839844
+        ],
+        [
+          264.6961364746094,
+          273.6719970703125
+        ],
+        [
+          92.302734375,
+          273.6719970703125
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING CONDITIONS IN OTHER OBJECT KINDS",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          101.63671875,
+          542.1719970703125
+        ],
+        [
+          300.76171875,
+          542.1719970703125
+        ],
+        [
+          300.76171875,
+          551.6519927978516
+        ],
+        [
+          101.63671875,
+          551.6519927978516
+        ]
+      ]
+    },
+    {
+      "title": "4.2.4 Inspecting objects using the kubectl describe command",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          56.00390625,
+          267.6863708496094
+        ],
+        [
+          350.9688415527344,
+          267.6863708496094
+        ],
+        [
+          350.9688415527344,
+          278.1863708496094
+        ],
+        [
+          56.00390625,
+          278.1863708496094
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE KUBECTL DESCRIBE OUTPUT FOR A NODE OBJECT",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          92.302734375,
+          353.9619140625
+        ],
+        [
+          353.654296875,
+          353.9619140625
+        ],
+        [
+          353.654296875,
+          364.2720031738281
+        ],
+        [
+          92.302734375,
+          364.2720031738281
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe node kind-worker-2",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          93.18000030517578,
+          414.3134765625
+        ],
+        [
+          271.2041015625,
+          414.3134765625
+        ],
+        [
+          271.2041015625,
+          422.6675720214844
+        ],
+        [
+          93.18000030517578,
+          422.6675720214844
+        ]
+      ]
+    },
+    {
+      "title": "INSPECTING OTHER OBJECTS RELATED TO THE NODE",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          92.8212890625,
+          52.751983642578125
+        ],
+        [
+          281.5250549316406,
+          52.751983642578125
+        ],
+        [
+          281.5250549316406,
+          62.231964111328125
+        ],
+        [
+          92.8212890625,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Observing cluster events via Event objects",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          56.00390625,
+          242.9150390625
+        ],
+        [
+          325.65234375,
+          242.9150390625
+        ],
+        [
+          325.65234375,
+          255.43600463867188
+        ],
+        [
+          56.00390625,
+          255.43600463867188
+        ]
+      ]
+    },
+    {
+      "title": "4.3.1 Introducing the Event object",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          55.4853515625,
+          347.1863708496094
+        ],
+        [
+          224.5341796875,
+          347.1863708496094
+        ],
+        [
+          224.5341796875,
+          357.6863708496094
+        ],
+        [
+          55.4853515625,
+          357.6863708496094
+        ]
+      ]
+    },
+    {
+      "title": "LISTING EVENTS USING KUBECTL GET EVENTS",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          101.1181640625,
+          131.77188110351562
+        ],
+        [
+          266.0185546875,
+          131.77188110351562
+        ],
+        [
+          266.0185546875,
+          141.25186157226562
+        ],
+        [
+          101.1181640625,
+          141.25186157226562
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ev",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          101.1181640625,
+          304.4736328125
+        ],
+        [
+          178.90769958496094,
+          304.4736328125
+        ],
+        [
+          178.90769958496094,
+          314.6675720214844
+        ],
+        [
+          101.1181640625,
+          314.6675720214844
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING WHAT'S IN AN EVENT OBJECT",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          101.63671875,
+          498.8056640625
+        ],
+        [
+          273.796875,
+          498.8056640625
+        ],
+        [
+          273.796875,
+          509.5918884277344
+        ],
+        [
+          101.63671875,
+          509.5918884277344
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ev -o wide",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          101.37744140625,
+          559.1572265625
+        ],
+        [
+          217.3074951171875,
+          559.1572265625
+        ],
+        [
+          217.3074951171875,
+          567.9875793457031
+        ],
+        [
+          101.37744140625,
+          567.9875793457031
+        ]
+      ]
+    },
+    {
+      "title": "DISPLAYING ONLY WARNING EVENTS",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          93.18000030517578,
+          335.7720031738281
+        ],
+        [
+          224.4375762939453,
+          335.7720031738281
+        ],
+        [
+          224.4375762939453,
+          345.25201416015625
+        ],
+        [
+          93.18000030517578,
+          345.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ev --field-selector type=Warning\nNo resources found in default namespace.",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          92.8212890625,
+          471.6474609375
+        ],
+        [
+          313.8469543457031,
+          471.6474609375
+        ],
+        [
+          313.8469543457031,
+          491.8476104736328
+        ],
+        [
+          92.8212890625,
+          491.8476104736328
+        ]
+      ]
+    },
+    {
+      "title": "4.3.2 Examining the YAML of the Event object",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          64.8193359375,
+          52.505859375
+        ],
+        [
+          287.82135009765625,
+          52.505859375
+        ],
+        [
+          287.82135009765625,
+          63.146392822265625
+        ],
+        [
+          64.8193359375,
+          63.146392822265625
+        ]
+      ]
+    },
+    {
+      "title": "EVENT OBJECTS HAVE NO SPEC AND STATUS SECTIONS",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          101.1181640625,
+          126.79202270507812
+        ],
+        [
+          301.2712707519531,
+          126.79202270507812
+        ],
+        [
+          301.2712707519531,
+          136.27200317382812
+        ],
+        [
+          101.1181640625,
+          136.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "Summary",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          93.08056640625,
+          113.41598510742188
+        ],
+        [
+          144.41748046875,
+          113.41598510742188
+        ],
+        [
+          144.41748046875,
+          125.89602661132812
+        ],
+        [
+          93.08056640625,
+          125.89602661132812
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          46
+        ],
+        [
+          "Line",
+          21
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          71
+        ],
+        [
+          "Span",
+          14
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          110
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          107
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          113
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          96
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          106
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "TableCell",
+          25
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          157
+        ],
+        [
+          "Line",
+          71
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          160
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          90
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          20
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          113
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          19
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          137
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          120
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "TableCell",
+          40
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          119
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "TableCell",
+          27
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          147
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          118
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ch04"
+}

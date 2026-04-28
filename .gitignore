@@ -1,0 +1,38 @@
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+\#*\#
+
+# Python 产物
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Python 虚拟环境
+.venv/
+
+# Zensical 构建输出
+translation/site/
+
+# Marker 模型下载缓存
+.cache/
+
+# 临时文件
+.tmp/
+
+# Claude Code 本地状态（计划、配置等）
+.claude/

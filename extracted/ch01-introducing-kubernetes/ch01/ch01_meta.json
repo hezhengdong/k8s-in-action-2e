@@ -1,0 +1,2236 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Introducing Kubernetes",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          201.77999877929688,
+          120.4013671875
+        ],
+        [
+          477.0703125,
+          120.4013671875
+        ],
+        [
+          477.0703125,
+          150.57083129882812
+        ],
+        [
+          201.77999877929688,
+          150.57083129882812
+        ]
+      ]
+    },
+    {
+      "title": "This chapter covers",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          94.376953125,
+          267.0556640625
+        ],
+        [
+          198.93601989746094,
+          267.0556640625
+        ],
+        [
+          198.93601989746094,
+          279.3966979980469
+        ],
+        [
+          94.376953125,
+          279.3966979980469
+        ]
+      ]
+    },
+    {
+      "title": "1.1 Introducing Kubernetes",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          57.041015625,
+          372.97265625
+        ],
+        [
+          221.6252899169922,
+          372.97265625
+        ],
+        [
+          221.6252899169922,
+          385.9360046386719
+        ],
+        [
+          57.041015625,
+          385.9360046386719
+        ]
+      ]
+    },
+    {
+      "title": "How to pronounce Kubernetes, and what is k8s?",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          104.2294921875,
+          528.3779296875
+        ],
+        [
+          334.0337219238281,
+          528.3779296875
+        ],
+        [
+          334.0337219238281,
+          539.1383666992188
+        ],
+        [
+          104.2294921875,
+          539.1383666992188
+        ]
+      ]
+    },
+    {
+      "title": "1.1.1 Kubernetes in a nutshell",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          65.8564453125,
+          119.7978515625
+        ],
+        [
+          214.82748413085938,
+          119.7978515625
+        ],
+        [
+          214.82748413085938,
+          130.70632934570312
+        ],
+        [
+          65.8564453125,
+          130.70632934570312
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACTING THE INFRASTRUCTURE AWAY",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          101.63671875,
+          181.0546875
+        ],
+        [
+          259.8338928222656,
+          181.0546875
+        ],
+        [
+          259.8338928222656,
+          190.75201416015625
+        ],
+        [
+          101.63671875,
+          190.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "STANDARDIZING HOW WE DEPLOY APPLICATIONS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          102.18000030517578,
+          496.2718811035156
+        ],
+        [
+          279.48724365234375,
+          496.2718811035156
+        ],
+        [
+          279.48724365234375,
+          505.7518768310547
+        ],
+        [
+          102.18000030517578,
+          505.7518768310547
+        ]
+      ]
+    },
+    {
+      "title": "DEPLOYING APPLICATIONS DECLARATIVELY",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          91.7841796875,
+          52.505859375
+        ],
+        [
+          247.7130584716797,
+          52.505859375
+        ],
+        [
+          247.7130584716797,
+          62.231964111328125
+        ],
+        [
+          91.7841796875,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "TAKING ON THE DAILY MANAGEMENT OF APPLICATIONS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          91.7841796875,
+          542.2587890625
+        ],
+        [
+          292.68902587890625,
+          542.2587890625
+        ],
+        [
+          292.68902587890625,
+          552.6718978881836
+        ],
+        [
+          91.7841796875,
+          552.6718978881836
+        ]
+      ]
+    },
+    {
+      "title": "1.1.2 About the Kubernetes project",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          65.337890625,
+          385.646484375
+        ],
+        [
+          239.572265625,
+          385.646484375
+        ],
+        [
+          239.572265625,
+          396.9263610839844
+        ],
+        [
+          65.337890625,
+          396.9263610839844
+        ]
+      ]
+    },
+    {
+      "title": "BORG AND OMEGA: THE PREDECESSORS OF KUBERNETES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          101.1181640625,
+          486.55189514160156
+        ],
+        [
+          313.77642822265625,
+          486.55189514160156
+        ],
+        [
+          313.77642822265625,
+          496.0318908691406
+        ],
+        [
+          101.1181640625,
+          496.0318908691406
+        ]
+      ]
+    },
+    {
+      "title": "KUBERNETES AS THE OPEN SOURCE PROJECT AND COMMERCIAL PRODUCTS DERIVED FROM IT",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          91.265625,
+          174.7919921875
+        ],
+        [
+          434.7024841308594,
+          174.7919921875
+        ],
+        [
+          434.7024841308594,
+          184.27200317382812
+        ],
+        [
+          91.265625,
+          184.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "HOW KUBERNETES GREW A WHOLE NEW CLOUD-NATIVE ECO-SYSTEM",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          92.302734375,
+          554.1719970703125
+        ],
+        [
+          343.51922607421875,
+          554.1719970703125
+        ],
+        [
+          343.51922607421875,
+          563.6519927978516
+        ],
+        [
+          92.302734375,
+          563.6519927978516
+        ]
+      ]
+    },
+    {
+      "title": "1.1.3 Understanding why Kubernetes is so popular",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          65.337890625,
+          126.68637084960938
+        ],
+        [
+          308.021484375,
+          126.68637084960938
+        ],
+        [
+          308.021484375,
+          137.18637084960938
+        ],
+        [
+          65.337890625,
+          137.18637084960938
+        ]
+      ]
+    },
+    {
+      "title": "AUTOMATING THE MANAGEMENT OF MICROSERVICES",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          101.1181640625,
+          200.77200317382812
+        ],
+        [
+          294.0788879394531,
+          200.77200317382812
+        ],
+        [
+          294.0788879394531,
+          210.25201416015625
+        ],
+        [
+          101.1181640625,
+          210.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "BRIDGING THE DEV AND OPS DIVIDE",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          93.08056640625,
+          213.7919921875
+        ],
+        [
+          223.44595336914062,
+          213.7919921875
+        ],
+        [
+          223.44595336914062,
+          223.27200317382812
+        ],
+        [
+          93.08056640625,
+          223.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "STANDARDIZING THE CLOUD",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          92.04345703125,
+          387.3119812011719
+        ],
+        [
+          195.36911010742188,
+          387.3119812011719
+        ],
+        [
+          195.36911010742188,
+          396.7919921875
+        ],
+        [
+          92.04345703125,
+          396.7919921875
+        ]
+      ]
+    },
+    {
+      "title": "1.2 Understanding Kubernetes",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          66.18000030517578,
+          197.0478515625
+        ],
+        [
+          248.02232360839844,
+          197.0478515625
+        ],
+        [
+          248.02232360839844,
+          209.77603149414062
+        ],
+        [
+          66.18000030517578,
+          209.77603149414062
+        ]
+      ]
+    },
+    {
+      "title": "1.2.1 Understanding how Kubernetes transforms a computer cluster",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          64.30078125,
+          248.54635620117188
+        ],
+        [
+          389.953125,
+          248.54635620117188
+        ],
+        [
+          389.953125,
+          259.0463562011719
+        ],
+        [
+          64.30078125,
+          259.0463562011719
+        ]
+      ]
+    },
+    {
+      "title": "KUBERNETES\u2014AN OPERATING SYSTEM FOR COMPUTER CLUSTERS",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          99.5625,
+          293.6103515625
+        ],
+        [
+          343.4640197753906,
+          293.6103515625
+        ],
+        [
+          343.4640197753906,
+          303.6120300292969
+        ],
+        [
+          99.5625,
+          303.6120300292969
+        ]
+      ]
+    },
+    {
+      "title": "HOW KUBERNETES FITS INTO A COMPUTER CLUSTER",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          92.8212890625,
+          221.77200317382812
+        ],
+        [
+          284.6865234375,
+          221.77200317382812
+        ],
+        [
+          284.6865234375,
+          231.25201416015625
+        ],
+        [
+          92.8212890625,
+          231.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "HOW ALL CLUSTER NODES BECOME ONE LARGE DEPLOYMENT AREA",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          101.1181640625,
+          52.2041015625
+        ],
+        [
+          346.2641906738281,
+          52.2041015625
+        ],
+        [
+          346.2641906738281,
+          62.231964111328125
+        ],
+        [
+          101.1181640625,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "1.2.2 The benefits of using Kubernetes",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          65.337890625,
+          402.9263610839844
+        ],
+        [
+          254.091796875,
+          402.9263610839844
+        ],
+        [
+          254.091796875,
+          413.4263610839844
+        ],
+        [
+          65.337890625,
+          413.4263610839844
+        ]
+      ]
+    },
+    {
+      "title": "SELF-SERVICE DEPLOYMENT OF APPLICATIONS",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          102.1552734375,
+          464.052001953125
+        ],
+        [
+          269.1298828125,
+          464.052001953125
+        ],
+        [
+          269.1298828125,
+          473.53199768066406
+        ],
+        [
+          102.1552734375,
+          473.53199768066406
+        ]
+      ]
+    },
+    {
+      "title": "REDUCING COSTS VIA BETTER INFRASTRUCTURE UTILIZATION",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          93.18000030517578,
+          52.2041015625
+        ],
+        [
+          314.59423828125,
+          52.2041015625
+        ],
+        [
+          314.59423828125,
+          62.231964111328125
+        ],
+        [
+          93.18000030517578,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "AUTOMATICALLY ADJUSTING TO CHANGING LOAD",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          92.302734375,
+          225.71484375
+        ],
+        [
+          268.611328125,
+          225.71484375
+        ],
+        [
+          268.611328125,
+          235.75201416015625
+        ],
+        [
+          92.302734375,
+          235.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "KEEPING APPLICATIONS RUNNING SMOOTHLY",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          92.8212890625,
+          346.7197265625
+        ],
+        [
+          255.8018341064453,
+          346.7197265625
+        ],
+        [
+          255.8018341064453,
+          357.25201416015625
+        ],
+        [
+          92.8212890625,
+          357.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "SIMPLIFYING APPLICATION DEVELOPMENT",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          101.1181640625,
+          52.2041015625
+        ],
+        [
+          252.9638671875,
+          52.2041015625
+        ],
+        [
+          252.9638671875,
+          62.231964111328125
+        ],
+        [
+          101.1181640625,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "1.2.3 The architecture of a Kubernetes cluster",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          65.337890625,
+          203.6865234375
+        ],
+        [
+          289.353515625,
+          203.6865234375
+        ],
+        [
+          289.353515625,
+          214.70639038085938
+        ],
+        [
+          65.337890625,
+          214.70639038085938
+        ]
+      ]
+    },
+    {
+      "title": "CONTROL PLANE COMPONENTS",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          93.18000030517578,
+          96.79202270507812
+        ],
+        [
+          205.34962463378906,
+          96.79202270507812
+        ],
+        [
+          205.34962463378906,
+          106.27200317382812
+        ],
+        [
+          93.18000030517578,
+          106.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "WORKER NODE COMPONENTS",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          100.599609375,
+          52.2041015625
+        ],
+        [
+          210.0,
+          52.2041015625
+        ],
+        [
+          210.0,
+          60.75
+        ],
+        [
+          100.599609375,
+          60.0
+        ]
+      ]
+    },
+    {
+      "title": "ADD-ON COMPONENTS",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          100.599609375,
+          460.1806640625
+        ],
+        [
+          183.75,
+          460.1806640625
+        ],
+        [
+          183.75,
+          468.0
+        ],
+        [
+          100.599609375,
+          468.0
+        ]
+      ]
+    },
+    {
+      "title": "GAINING A DEEPER UNDERSTANDING OF THE ARCHITECTURE",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          101.25,
+          516.75
+        ],
+        [
+          320.25,
+          516.75
+        ],
+        [
+          320.25,
+          524.7568359375
+        ],
+        [
+          101.25,
+          524.7568359375
+        ]
+      ]
+    },
+    {
+      "title": "1.2.4 How Kubernetes runs an application",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          56.00390625,
+          100.4853515625
+        ],
+        [
+          260.7088928222656,
+          100.4853515625
+        ],
+        [
+          260.7088928222656,
+          111.20632934570312
+        ],
+        [
+          56.00390625,
+          111.20632934570312
+        ]
+      ]
+    },
+    {
+      "title": "DEFINING YOUR APPLICATION",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          92.302734375,
+          148.75198364257812
+        ],
+        [
+          199.3896026611328,
+          148.75198364257812
+        ],
+        [
+          199.3896026611328,
+          158.23199462890625
+        ],
+        [
+          92.302734375,
+          158.23199462890625
+        ]
+      ]
+    },
+    {
+      "title": "SUBMITTING THE APPLICATION TO THE API",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          101.1181640625,
+          379.2720031738281
+        ],
+        [
+          259.1896667480469,
+          379.2720031738281
+        ],
+        [
+          259.1896667480469,
+          388.75201416015625
+        ],
+        [
+          101.1181640625,
+          388.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "ABOUT THE CONTROLLERS",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          101.1181640625,
+          527.7718811035156
+        ],
+        [
+          197.5693359375,
+          527.7718811035156
+        ],
+        [
+          197.5693359375,
+          537.2518768310547
+        ],
+        [
+          101.1181640625,
+          537.2518768310547
+        ]
+      ]
+    },
+    {
+      "title": "ABOUT THE SCHEDULER",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          91.7841796875,
+          83.77200317382812
+        ],
+        [
+          179.9384765625,
+          83.77200317382812
+        ],
+        [
+          179.9384765625,
+          93.25198364257812
+        ],
+        [
+          91.7841796875,
+          93.25198364257812
+        ]
+      ]
+    },
+    {
+      "title": "ABOUT THE KUBELET AND THE CONTAINER RUNTIME",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          92.8212890625,
+          140.015625
+        ],
+        [
+          283.3853759765625,
+          140.015625
+        ],
+        [
+          283.3853759765625,
+          149.77200317382812
+        ],
+        [
+          92.8212890625,
+          149.77200317382812
+        ]
+      ]
+    },
+    {
+      "title": "ABOUT THE KUBE-PROXY",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          91.265625,
+          209.77200317382812
+        ],
+        [
+          183.26919555664062,
+          209.77200317382812
+        ],
+        [
+          183.26919555664062,
+          219.25201416015625
+        ],
+        [
+          91.265625,
+          219.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "KEEPING THE APPLICATIONS HEALTHY",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          92.8212890625,
+          279.1259765625
+        ],
+        [
+          230.0036163330078,
+          279.1259765625
+        ],
+        [
+          230.0036163330078,
+          288.7919921875
+        ],
+        [
+          92.8212890625,
+          288.7919921875
+        ]
+      ]
+    },
+    {
+      "title": "1.3 Introducing Kubernetes into your organization",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          56.00390625,
+          404.35546875
+        ],
+        [
+          345.1221923828125,
+          404.35546875
+        ],
+        [
+          345.1221923828125,
+          416.9560089111328
+        ],
+        [
+          56.00390625,
+          416.9560089111328
+        ]
+      ]
+    },
+    {
+      "title": "1.3.1 Running Kubernetes on-premises and in the cloud",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          56.00390625,
+          455.6663513183594
+        ],
+        [
+          323.578125,
+          455.6663513183594
+        ],
+        [
+          323.578125,
+          466.2158203125
+        ],
+        [
+          56.00390625,
+          466.2158203125
+        ]
+      ]
+    },
+    {
+      "title": "RUNNING KUBERNETES ON-PREMISES",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          92.8212890625,
+          515.7041015625
+        ],
+        [
+          229.34393310546875,
+          515.7041015625
+        ],
+        [
+          229.34393310546875,
+          526.2719879150391
+        ],
+        [
+          92.8212890625,
+          526.2719879150391
+        ]
+      ]
+    },
+    {
+      "title": "DEPLOYING KUBERNETES IN THE CLOUD",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          101.63671875,
+          51.90234375
+        ],
+        [
+          247.20986938476562,
+          51.90234375
+        ],
+        [
+          247.20986938476562,
+          62.231964111328125
+        ],
+        [
+          101.63671875,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "USING A HYBRID CLOUD SOLUTION",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          101.37744140625,
+          187.27200317382812
+        ],
+        [
+          226.96533203125,
+          187.27200317382812
+        ],
+        [
+          226.96533203125,
+          196.75201416015625
+        ],
+        [
+          101.37744140625,
+          196.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "1.3.2 To manage or not to manage Kubernetes yourself",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          64.8193359375,
+          337.365234375
+        ],
+        [
+          329.81390380859375,
+          337.365234375
+        ],
+        [
+          329.81390380859375,
+          349.1663818359375
+        ],
+        [
+          64.8193359375,
+          349.1663818359375
+        ]
+      ]
+    },
+    {
+      "title": "MANAGING KUBERNETES YOURSELF",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          101.63671875,
+          399.7919921875
+        ],
+        [
+          232.66441345214844,
+          399.7919921875
+        ],
+        [
+          232.66441345214844,
+          409.2720031738281
+        ],
+        [
+          101.63671875,
+          409.2720031738281
+        ]
+      ]
+    },
+    {
+      "title": "USING A MANAGED KUBERNETES CLUSTER IN THE CLOUD",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          91.7841796875,
+          51.90234375
+        ],
+        [
+          301.4490966796875,
+          51.90234375
+        ],
+        [
+          301.4490966796875,
+          62.231964111328125
+        ],
+        [
+          91.7841796875,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "1.3.3 Using vanilla or extended Kubernetes",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          56.5224609375,
+          308.6982421875
+        ],
+        [
+          265.3562316894531,
+          308.6982421875
+        ],
+        [
+          265.3562316894531,
+          320.6663818359375
+        ],
+        [
+          56.5224609375,
+          320.6663818359375
+        ]
+      ]
+    },
+    {
+      "title": "USING A VANILLA VERSION OF KUBERNETES",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          92.302734375,
+          358.2720031738281
+        ],
+        [
+          252.45716857910156,
+          358.2720031738281
+        ],
+        [
+          252.45716857910156,
+          367.75201416015625
+        ],
+        [
+          92.302734375,
+          367.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "USING ENTERPRISE-GRADE KUBERNETES DISTRIBUTIONS",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          93.18000030517578,
+          427.81199645996094
+        ],
+        [
+          297.4704284667969,
+          427.81199645996094
+        ],
+        [
+          297.4704284667969,
+          437.2919921875
+        ],
+        [
+          93.18000030517578,
+          437.2919921875
+        ]
+      ]
+    },
+    {
+      "title": "1.3.4 Should you even use Kubernetes?",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          65.8564453125,
+          52.505859375
+        ],
+        [
+          257.7216796875,
+          52.505859375
+        ],
+        [
+          257.7216796875,
+          63.146392822265625
+        ],
+        [
+          65.8564453125,
+          63.146392822265625
+        ]
+      ]
+    },
+    {
+      "title": "DO YOUR WORKLOADS REQUIRE AUTOMATED MANAGEMENT?",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          101.63671875,
+          113.4609375
+        ],
+        [
+          323.578125,
+          113.4609375
+        ],
+        [
+          323.578125,
+          123.25198364257812
+        ],
+        [
+          101.63671875,
+          123.25198364257812
+        ]
+      ]
+    },
+    {
+      "title": "CAN YOU AFFORD TO INVEST YOUR ENGINEERS' TIME INTO LEARNING KUBERNETES?",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          100.599609375,
+          273.6943359375
+        ],
+        [
+          408.37921142578125,
+          273.6943359375
+        ],
+        [
+          408.37921142578125,
+          283.75201416015625
+        ],
+        [
+          100.599609375,
+          283.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "ARE YOU PREPARED FOR INCREASED COSTS IN THE INTERIM?",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          101.1181640625,
+          395.0009765625
+        ],
+        [
+          326.7192077636719,
+          395.0009765625
+        ],
+        [
+          326.7192077636719,
+          405.25201416015625
+        ],
+        [
+          101.1181640625,
+          405.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "Summary",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          101.1181640625,
+          520.5322265625
+        ],
+        [
+          153.15829467773438,
+          520.5322265625
+        ],
+        [
+          153.15829467773438,
+          533.4158935546875
+        ],
+        [
+          101.1181640625,
+          533.4158935546875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          44
+        ],
+        [
+          "Line",
+          20
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          87
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          101
+        ],
+        [
+          "Line",
+          36
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          114
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          91
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          100
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          96
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          58
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          166
+        ],
+        [
+          "Line",
+          73
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          111
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          110
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          120
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          117
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          63
+        ],
+        [
+          "Span",
+          23
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          99
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          162
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          106
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          96
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          109
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ch01"
+}

@@ -1,0 +1,3339 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Automating application\nupdates with Deployments",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          168.01171875,
+          119.49609375
+        ],
+        [
+          466.69921875,
+          119.49609375
+        ],
+        [
+          466.69921875,
+          182.61080932617188
+        ],
+        [
+          168.01171875,
+          182.61080932617188
+        ]
+      ]
+    },
+    {
+      "title": "This chapter covers",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          83.22802734375,
+          267.3367004394531
+        ],
+        [
+          186.93601989746094,
+          267.3367004394531
+        ],
+        [
+          186.93601989746094,
+          279.3367004394531
+        ],
+        [
+          83.22802734375,
+          279.3367004394531
+        ]
+      ]
+    },
+    {
+      "title": "15.1 Introducing Deployments",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          65.25,
+          86.0009765625
+        ],
+        [
+          239.25,
+          86.0009765625
+        ],
+        [
+          239.25,
+          97.4677734375
+        ],
+        [
+          65.25,
+          97.4677734375
+        ]
+      ]
+    },
+    {
+      "title": "15.1.1 Creating a Deployment",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          64.5,
+          503.935546875
+        ],
+        [
+          209.25,
+          503.935546875
+        ],
+        [
+          209.25,
+          514.798828125
+        ],
+        [
+          64.5,
+          514.798828125
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl delete rs kiada --cascade=orphan",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          102.0,
+          555.0
+        ],
+        [
+          304.5,
+          555.0
+        ],
+        [
+          304.5,
+          563.3818359375
+        ],
+        [
+          102.0,
+          563.3818359375
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCING THE DEPLOYMENT SPEC",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          92.8212890625,
+          52.2041015625
+        ],
+        [
+          232.1728515625,
+          52.2041015625
+        ],
+        [
+          232.1728515625,
+          62.231964111328125
+        ],
+        [
+          92.8212890625,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "CREATING A DEPLOYMENT MANIFEST FROM SCRATCH",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          92.8212890625,
+          337.0634765625
+        ],
+        [
+          288.8349609375,
+          337.0634765625
+        ],
+        [
+          288.8349609375,
+          346.75201416015625
+        ],
+        [
+          92.8212890625,
+          346.75201416015625
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl create deployment kiada --image=luksa/kiada:0.1",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          92.302734375,
+          421.5556640625
+        ],
+        [
+          366.64654541015625,
+          421.5556640625
+        ],
+        [
+          366.64654541015625,
+          431.1875762939453
+        ],
+        [
+          92.302734375,
+          431.1875762939453
+        ]
+      ]
+    },
+    {
+      "title": "CREATING A DEPLOYMENT MANIFEST FROM A POD OR REPLICASET MANIFEST",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          101.63671875,
+          52.505859375
+        ],
+        [
+          387.87890625,
+          52.505859375
+        ],
+        [
+          387.87890625,
+          62.231964111328125
+        ],
+        [
+          101.63671875,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "Listing 15.1 The kiada Deployment object manifest",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          114.08203125,
+          144.84375
+        ],
+        [
+          326.6385498046875,
+          144.84375
+        ],
+        [
+          326.6385498046875,
+          154.71487426757812
+        ],
+        [
+          114.08203125,
+          154.71487426757812
+        ]
+      ]
+    },
+    {
+      "title": "CREATING AND INSPECTING THE DEPLOYMENT OBJECT",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          100.599609375,
+          360.7919921875
+        ],
+        [
+          299.724609375,
+          360.7919921875
+        ],
+        [
+          299.724609375,
+          370.2720031738281
+        ],
+        [
+          100.599609375,
+          370.2720031738281
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl rollout status deployment kiada",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          89.7099609375,
+          51.6005859375
+        ],
+        [
+          289.84710693359375,
+          51.6005859375
+        ],
+        [
+          289.84710693359375,
+          61.167633056640625
+        ],
+        [
+          89.7099609375,
+          61.167633056640625
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get rs\nNAME DESIRED CURRENT READY AGE\nkiada-7bffb9bf96 3 3 3 17m",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          91.265625,
+          481.1675720214844
+        ],
+        [
+          333.0467834472656,
+          481.1675720214844
+        ],
+        [
+          333.0467834472656,
+          509.5476379394531
+        ],
+        [
+          91.265625,
+          509.5476379394531
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe rs kiada \nName: kiada-7bffb9bf96",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          93.18000030517578,
+          570.322265625
+        ],
+        [
+          389.953125,
+          570.322265625
+        ],
+        [
+          389.953125,
+          588.9875183105469
+        ],
+        [
+          93.18000030517578,
+          588.9875183105469
+        ]
+      ]
+    },
+    {
+      "title": "Troubleshooting Deployments that fail to produce any pods",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          104.748046875,
+          392.5869140625
+        ],
+        [
+          382.7687683105469,
+          392.5869140625
+        ],
+        [
+          382.7687683105469,
+          404.9183654785156
+        ],
+        [
+          104.748046875,
+          404.9183654785156
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe deploy where-are-the-pods",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          104.748046875,
+          496.08984375
+        ],
+        [
+          316.2469787597656,
+          496.08984375
+        ],
+        [
+          316.2469787597656,
+          505.40757751464844
+        ],
+        [
+          104.748046875,
+          505.40757751464844
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe rs where-are-the-pods-67cbc77f88",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          114.08203125,
+          127.0400390625
+        ],
+        [
+          352.6171875,
+          127.0400390625
+        ],
+        [
+          352.6171875,
+          136.16763305664062
+        ],
+        [
+          114.08203125,
+          136.16763305664062
+        ]
+      ]
+    },
+    {
+      "title": "15.1.2 Scaling a Deployment",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          65.8564453125,
+          308.96636962890625
+        ],
+        [
+          202.3681640625,
+          308.96636962890625
+        ],
+        [
+          202.3681640625,
+          319.46636962890625
+        ],
+        [
+          65.8564453125,
+          319.46636962890625
+        ]
+      ]
+    },
+    {
+      "title": "SCALING A DEPLOYMENT",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          102.1552734375,
+          508.0919952392578
+        ],
+        [
+          193.32334899902344,
+          508.0919952392578
+        ],
+        [
+          193.32334899902344,
+          517.5719909667969
+        ],
+        [
+          102.1552734375,
+          517.5719909667969
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe deploy kiada",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          93.18000030517578,
+          99.2783203125
+        ],
+        [
+          242.1650390625,
+          99.2783203125
+        ],
+        [
+          242.1650390625,
+          108.3310546875
+        ],
+        [
+          93.18000030517578,
+          108.3310546875
+        ]
+      ]
+    },
+    {
+      "title": "SCALING A REPLICASET OWNED BY A DEPLOYMENT",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          93.18000030517578,
+          263.4119873046875
+        ],
+        [
+          282.09375,
+          263.4119873046875
+        ],
+        [
+          282.09375,
+          272.8919982910156
+        ],
+        [
+          93.18000030517578,
+          272.8919982910156
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get rs -w",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          93.18000030517578,
+          310.20703125
+        ],
+        [
+          185.90185546875,
+          310.20703125
+        ],
+        [
+          185.90185546875,
+          318.267578125
+        ],
+        [
+          93.18000030517578,
+          318.267578125
+        ]
+      ]
+    },
+    {
+      "title": "INADVERTENTLY SCALING A DEPLOYMENT",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          102.1552734375,
+          52.751983642578125
+        ],
+        [
+          252.6636199951172,
+          52.751983642578125
+        ],
+        [
+          252.6636199951172,
+          62.231964111328125
+        ],
+        [
+          102.1552734375,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get deploy\nNAME READY UP-TO-DATE AVAILABLE AGE\nkiada 3/3 3 3 46m",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          102.18000030517578,
+          414.08758544921875
+        ],
+        [
+          313.24700927734375,
+          414.08758544921875
+        ],
+        [
+          313.24700927734375,
+          442.4676513671875
+        ],
+        [
+          102.18000030517578,
+          442.4676513671875
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl apply edit-last-applied deploy kiada",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          92.302734375,
+          138.205078125
+        ],
+        [
+          314.244140625,
+          138.205078125
+        ],
+        [
+          314.244140625,
+          147.14749145507812
+        ],
+        [
+          92.302734375,
+          147.14749145507812
+        ]
+      ]
+    },
+    {
+      "title": "15.1.3 Deleting a Deployment",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          56.00390625,
+          346.7063903808594
+        ],
+        [
+          198.087890625,
+          346.7063903808594
+        ],
+        [
+          198.087890625,
+          357.5830078125
+        ],
+        [
+          56.00390625,
+          357.5830078125
+        ]
+      ]
+    },
+    {
+      "title": "PRESERVING THE REPLICASET AND PODS WHEN DELETING A DEPLOYMENT",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          91.265625,
+          433.6259765625
+        ],
+        [
+          365.0625,
+          433.6259765625
+        ],
+        [
+          365.0625,
+          443.2919921875
+        ],
+        [
+          91.265625,
+          443.2919921875
+        ]
+      ]
+    },
+    {
+      "title": "ADOPTING AN EXISTING REPLICASET AND PODS",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          92.302734375,
+          503.2919921875
+        ],
+        [
+          266.6769104003906,
+          503.2919921875
+        ],
+        [
+          266.6769104003906,
+          512.7719879150391
+        ],
+        [
+          92.302734375,
+          512.7719879150391
+        ]
+      ]
+    },
+    {
+      "title": "15.2 Updating a Deployment",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          64.30078125,
+          52.456024169921875
+        ],
+        [
+          230.72378540039062,
+          52.456024169921875
+        ],
+        [
+          230.72378540039062,
+          64.93606567382812
+        ],
+        [
+          64.30078125,
+          64.93606567382812
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCING THE AVAILABLE UPDATE STRATEGIES",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          100.599609375,
+          217.5673828125
+        ],
+        [
+          286.2086486816406,
+          217.5673828125
+        ],
+        [
+          286.2086486816406,
+          227.23199462890625
+        ],
+        [
+          100.599609375,
+          227.23199462890625
+        ]
+      ]
+    },
+    {
+      "title": "15.2.1 The Recreate strategy",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          55.5,
+          246.5361328125
+        ],
+        [
+          195.75,
+          246.5361328125
+        ],
+        [
+          195.75,
+          255.5888671875
+        ],
+        [
+          55.5,
+          255.5888671875
+        ]
+      ]
+    },
+    {
+      "title": "CONFIGURING THE DEPLOYMENT TO USE THE RECREATE STRATEGY",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          91.5,
+          306.75
+        ],
+        [
+          338.25,
+          306.75
+        ],
+        [
+          338.25,
+          314.7333984375
+        ],
+        [
+          91.5,
+          314.7333984375
+        ]
+      ]
+    },
+    {
+      "title": "Listing 15.2 Enabling the Recreate update strategy in a Deployment",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          104.748046875,
+          375.0
+        ],
+        [
+          389.25,
+          375.0
+        ],
+        [
+          389.25,
+          382.9306640625
+        ],
+        [
+          104.748046875,
+          382.9306640625
+        ]
+      ]
+    },
+    {
+      "title": "UPDATING THE CONTAINER IMAGE WITH KUBECTL SET IMAGE",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          91.5,
+          537.4306640625
+        ],
+        [
+          315.0,
+          537.4306640625
+        ],
+        [
+          315.0,
+          544.0693359375
+        ],
+        [
+          91.5,
+          544.0693359375
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl set image deployment kiada kiada=luksa/kiada:0.6",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          102.18000030517578,
+          115.271484375
+        ],
+        [
+          380.619140625,
+          115.271484375
+        ],
+        [
+          380.619140625,
+          124.16763305664062
+        ],
+        [
+          102.18000030517578,
+          124.16763305664062
+        ]
+      ]
+    },
+    {
+      "title": "UPDATING THE CONTAINER IMAGE AND LABELS USING KUBECTL PATCH",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          101.1181640625,
+          183.46875
+        ],
+        [
+          358.6846618652344,
+          183.46875
+        ],
+        [
+          358.6846618652344,
+          193.27200317382812
+        ],
+        [
+          101.1181640625,
+          193.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "OBSERVING THE POD STATE CHANGES DURING AN UPDATE",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          101.63671875,
+          542.2587890625
+        ],
+        [
+          313.6344909667969,
+          542.2587890625
+        ],
+        [
+          313.6344909667969,
+          551.7719955444336
+        ],
+        [
+          101.63671875,
+          551.7719955444336
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING HOW AN UPDATE USING THE RECREATE STRATEGY AFFECTS SERVICE AVAILABILITY",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          91.265625,
+          319.3919982910156
+        ],
+        [
+          456.981201171875,
+          319.3919982910156
+        ],
+        [
+          456.981201171875,
+          328.87200927734375
+        ],
+        [
+          91.265625,
+          328.87200927734375
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE RELATIONSHIP BETWEEN A DEPLOYMENT AND ITS REPLICASETS",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          91.265625,
+          401.8919982910156
+        ],
+        [
+          406.546875,
+          401.8919982910156
+        ],
+        [
+          406.546875,
+          411.3719940185547
+        ],
+        [
+          91.265625,
+          411.3719940185547
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING HOW THE DEPLOYMENT'S PODS TRANSITIONED FROM ONE REPLICASET TO THE OTHER",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          100.599609375,
+          368.4119873046875
+        ],
+        [
+          472.8688659667969,
+          368.4119873046875
+        ],
+        [
+          472.8688659667969,
+          377.8919982910156
+        ],
+        [
+          100.599609375,
+          377.8919982910156
+        ]
+      ]
+    },
+    {
+      "title": "15.2.2 The RollingUpdate strategy",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          55.5,
+          275.25
+        ],
+        [
+          219.75,
+          275.25
+        ],
+        [
+          219.75,
+          284.5576171875
+        ],
+        [
+          55.5,
+          284.5576171875
+        ]
+      ]
+    },
+    {
+      "title": "CONFIGURING THE DEPLOYMENT TO USE THE ROLLINGUPDATE STRATEGY",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          102.18000030517578,
+          52.505859375
+        ],
+        [
+          368.25830078125,
+          52.505859375
+        ],
+        [
+          368.25830078125,
+          62.231964111328125
+        ],
+        [
+          102.18000030517578,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "UPDATING THE IMAGE NAME IN THE MANIFEST",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          101.1181640625,
+          454.99200439453125
+        ],
+        [
+          270.9776306152344,
+          454.99200439453125
+        ],
+        [
+          270.9776306152344,
+          464.4720001220703
+        ],
+        [
+          101.1181640625,
+          464.4720001220703
+        ]
+      ]
+    },
+    {
+      "title": "TRIGGERING THE UPDATE AND OBSERVING THE ROLLOUT OF THE NEW VERSION",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          100.599609375,
+          549.5009765625
+        ],
+        [
+          387.06884765625,
+          549.5009765625
+        ],
+        [
+          387.06884765625,
+          559.9919891357422
+        ],
+        [
+          100.599609375,
+          559.9919891357422
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl rollout status deploy kiada",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          90.7470703125,
+          51.90234375
+        ],
+        [
+          270.6472473144531,
+          51.90234375
+        ],
+        [
+          270.6472473144531,
+          61.167633056640625
+        ],
+        [
+          90.7470703125,
+          61.167633056640625
+        ]
+      ]
+    },
+    {
+      "title": "15.2.3 Configuring how many pods are replaced at a time",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          56.00390625,
+          199.16015625
+        ],
+        [
+          326.27203369140625,
+          199.16015625
+        ],
+        [
+          326.27203369140625,
+          209.786376953125
+        ],
+        [
+          56.00390625,
+          209.786376953125
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCING THE MAXSURGE AND MAXUNAVAILABLE CONFIGURATION OPTIONS",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          92.302734375,
+          247.87200927734375
+        ],
+        [
+          383.97662353515625,
+          247.87200927734375
+        ],
+        [
+          383.97662353515625,
+          257.3520202636719
+        ],
+        [
+          92.302734375,
+          257.3520202636719
+        ]
+      ]
+    },
+    {
+      "title": "Listing 15.4 Specifying parameters for the rollingUpdate strategy",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          103.7109375,
+          327.10546875
+        ],
+        [
+          382.9200439453125,
+          327.10546875
+        ],
+        [
+          382.9200439453125,
+          336.81488037109375
+        ],
+        [
+          103.7109375,
+          336.81488037109375
+        ]
+      ]
+    },
+    {
+      "title": "MAXSURGE=0, MAXUNAVAILABLE=1",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          101.1181640625,
+          124.32421875
+        ],
+        [
+          240.75,
+          124.32421875
+        ],
+        [
+          240.75,
+          132.7734375
+        ],
+        [
+          101.1181640625,
+          132.7734375
+        ]
+      ]
+    },
+    {
+      "title": "MAXSURGE=1. MAXUNAVAILABLE=0",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          101.25,
+          455.25
+        ],
+        [
+          240.0,
+          455.25
+        ],
+        [
+          240.0,
+          462.75
+        ],
+        [
+          101.25,
+          462.75
+        ]
+      ]
+    },
+    {
+      "title": "MAXSURGE=1. MAXUNAVAILABLE=1",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          91.5,
+          358.5
+        ],
+        [
+          230.25,
+          358.5
+        ],
+        [
+          230.25,
+          366.75
+        ],
+        [
+          91.5,
+          366.75
+        ]
+      ]
+    },
+    {
+      "title": "USING HIGHER VALUES OF MAXSURGE AND MAXUNAVAILABLE",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          100.599609375,
+          249.7919921875
+        ],
+        [
+          327.9057922363281,
+          249.7919921875
+        ],
+        [
+          327.9057922363281,
+          259.2720031738281
+        ],
+        [
+          100.599609375,
+          259.2720031738281
+        ]
+      ]
+    },
+    {
+      "title": "USING PERCENTAGES",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          100.85888671875,
+          305.6806640625
+        ],
+        [
+          179.6012725830078,
+          305.6806640625
+        ],
+        [
+          179.6012725830078,
+          315.7919921875
+        ],
+        [
+          100.85888671875,
+          315.7919921875
+        ]
+      ]
+    },
+    {
+      "title": "15.2.4 Pausing the rollout process",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          64.8193359375,
+          442.6787109375
+        ],
+        [
+          228.2003173828125,
+          442.6787109375
+        ],
+        [
+          228.2003173828125,
+          453.20635986328125
+        ],
+        [
+          64.8193359375,
+          453.20635986328125
+        ]
+      ]
+    },
+    {
+      "title": "PAUSING THE ROLLOUT",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          101.1181640625,
+          542.2587890625
+        ],
+        [
+          185.70094299316406,
+          542.2587890625
+        ],
+        [
+          185.70094299316406,
+          552.2518920898438
+        ],
+        [
+          101.1181640625,
+          552.2518920898438
+        ]
+      ]
+    },
+    {
+      "title": "Be careful when using rolling updates with a web application",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          104.748046875,
+          150.87890625
+        ],
+        [
+          391.59674072265625,
+          150.87890625
+        ],
+        [
+          391.59674072265625,
+          162.15838623046875
+        ],
+        [
+          104.748046875,
+          162.15838623046875
+        ]
+      ]
+    },
+    {
+      "title": "RESUMING THE ROLLOUT",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          92.8212890625,
+          381.7919921875
+        ],
+        [
+          183.3009490966797,
+          381.7919921875
+        ],
+        [
+          183.3009490966797,
+          391.2720031738281
+        ],
+        [
+          92.8212890625,
+          391.2720031738281
+        ]
+      ]
+    },
+    {
+      "title": "USING THE PAUSE FEATURE TO BLOCK ROLLOUTS",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          92.302734375,
+          447.6719970703125
+        ],
+        [
+          271.4143981933594,
+          447.6719970703125
+        ],
+        [
+          271.4143981933594,
+          457.15199279785156
+        ],
+        [
+          92.302734375,
+          457.15199279785156
+        ]
+      ]
+    },
+    {
+      "title": "15.2.5 Updating to a faulty version",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          56.5224609375,
+          532.6025390625
+        ],
+        [
+          220.82562255859375,
+          532.6025390625
+        ],
+        [
+          220.82562255859375,
+          544.5862655639648
+        ],
+        [
+          56.5224609375,
+          544.5862655639648
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING POD AVAILABILITY",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          100.85888671875,
+          52.2041015625
+        ],
+        [
+          231.32119750976562,
+          52.2041015625
+        ],
+        [
+          231.32119750976562,
+          62.231964111328125
+        ],
+        [
+          100.85888671875,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "DELAYING POD AVAILABILITY WITH MINREADYSECONDS",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          101.63671875,
+          246.85198974609375
+        ],
+        [
+          303.6968078613281,
+          246.85198974609375
+        ],
+        [
+          303.6968078613281,
+          256.3320007324219
+        ],
+        [
+          101.63671875,
+          256.3320007324219
+        ]
+      ]
+    },
+    {
+      "title": "DEPLOYING A BROKEN APPLICATION VERSION",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          101.63671875,
+          472.2509765625
+        ],
+        [
+          266.1688537597656,
+          472.2509765625
+        ],
+        [
+          266.1688537597656,
+          481.8719940185547
+        ],
+        [
+          101.63671875,
+          481.8719940185547
+        ]
+      ]
+    },
+    {
+      "title": "CHECKING WHETHER THE ROLLOUT IS PROGRESSING",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          102.1552734375,
+          52.2041015625
+        ],
+        [
+          291.9462890625,
+          52.2041015625
+        ],
+        [
+          291.9462890625,
+          62.231964111328125
+        ],
+        [
+          102.1552734375,
+          62.231964111328125
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe deploy kiada",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          101.63671875,
+          137.6015625
+        ],
+        [
+          250.98046875,
+          137.6015625
+        ],
+        [
+          250.98046875,
+          146.66763305664062
+        ],
+        [
+          101.63671875,
+          146.66763305664062
+        ]
+      ]
+    },
+    {
+      "title": "15.2.6 Rolling back a Deployment",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          65.337890625,
+          438.3863525390625
+        ],
+        [
+          227.126953125,
+          438.3863525390625
+        ],
+        [
+          227.126953125,
+          449.015625
+        ],
+        [
+          65.337890625,
+          449.015625
+        ]
+      ]
+    },
+    {
+      "title": "ROLLING BACK A DEPLOYMENT",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          101.1181640625,
+          498.8056640625
+        ],
+        [
+          215.40182495117188,
+          498.8056640625
+        ],
+        [
+          215.40182495117188,
+          508.99200439453125
+        ],
+        [
+          101.1181640625,
+          508.99200439453125
+        ]
+      ]
+    },
+    {
+      "title": "DISPLAYING A DEPLOYMENT'S ROLLOUT HISTORY",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          92.302734375,
+          160.53515625
+        ],
+        [
+          271.2962341308594,
+          160.53515625
+        ],
+        [
+          271.2962341308594,
+          170.23199462890625
+        ],
+        [
+          92.302734375,
+          170.23199462890625
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl rollout history deploy kiada",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          93.18000030517578,
+          245.630859375
+        ],
+        [
+          275.44720458984375,
+          245.630859375
+        ],
+        [
+          275.44720458984375,
+          254.66757202148438
+        ],
+        [
+          93.18000030517578,
+          254.66757202148438
+        ]
+      ]
+    },
+    {
+      "title": "ROLLING BACK TO A SPECIFIC DEPLOYMENT REVISION",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          101.63671875,
+          394.1520080566406
+        ],
+        [
+          298.6875,
+          394.1520080566406
+        ],
+        [
+          298.6875,
+          403.63201904296875
+        ],
+        [
+          101.63671875,
+          403.63201904296875
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl rollout undo deployment kiada --to-revision=1",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          102.1552734375,
+          506.0478515625
+        ],
+        [
+          366.6181640625,
+          506.0478515625
+        ],
+        [
+          366.6181640625,
+          514.0475769042969
+        ],
+        [
+          102.1552734375,
+          514.0475769042969
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE DIFFERENCE BETWEEN ROLLING BACK AND\nAPPLYING AN OLDER VERSION OF THE MANIFEST FILE",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          100.599609375,
+          557.044921875
+        ],
+        [
+          337.060546875,
+          557.044921875
+        ],
+        [
+          337.060546875,
+          578.2635269165039
+        ],
+        [
+          100.599609375,
+          578.2635269165039
+        ]
+      ]
+    },
+    {
+      "title": "Restarting pods with kubectl rollout restart",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          104.2294921875,
+          125.53125
+        ],
+        [
+          309.66851806640625,
+          125.53125
+        ],
+        [
+          309.66851806640625,
+          136.11831665039062
+        ],
+        [
+          104.2294921875,
+          136.11831665039062
+        ]
+      ]
+    },
+    {
+      "title": "15.3 Implementing other deployment strategies",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          56.00390625,
+          259.8134765625
+        ],
+        [
+          326.4458923339844,
+          259.8134765625
+        ],
+        [
+          326.4458923339844,
+          272.95599365234375
+        ],
+        [
+          56.00390625,
+          272.95599365234375
+        ]
+      ]
+    },
+    {
+      "title": "15.3.1 The Canary deployment strategy",
+      "heading_level": null,
+      "page_id": 31,
+      "polygon": [
+        [
+          66.18000030517578,
+          201.57421875
+        ],
+        [
+          250.75634765625,
+          201.57421875
+        ],
+        [
+          250.75634765625,
+          212.18637084960938
+        ],
+        [
+          66.18000030517578,
+          212.18637084960938
+        ]
+      ]
+    },
+    {
+      "title": "15.3.2 The A/B strategy",
+      "heading_level": null,
+      "page_id": 32,
+      "polygon": [
+        [
+          55.5,
+          87.75
+        ],
+        [
+          171.75,
+          87.75
+        ],
+        [
+          171.75,
+          97.76953125
+        ],
+        [
+          55.5,
+          97.76953125
+        ]
+      ]
+    },
+    {
+      "title": "15.3.3 The Blue/Green strategy",
+      "heading_level": null,
+      "page_id": 32,
+      "polygon": [
+        [
+          55.5,
+          417.3310546875
+        ],
+        [
+          207.0,
+          417.3310546875
+        ],
+        [
+          207.0,
+          427.5908203125
+        ],
+        [
+          55.5,
+          427.5908203125
+        ]
+      ]
+    },
+    {
+      "title": "15.3.4 Traffic shadowing",
+      "heading_level": null,
+      "page_id": 32,
+      "polygon": [
+        [
+          55.5,
+          547.0869140625
+        ],
+        [
+          175.5,
+          547.0869140625
+        ],
+        [
+          175.5,
+          558.5537109375
+        ],
+        [
+          55.5,
+          558.5537109375
+        ]
+      ]
+    },
+    {
+      "title": "Summary",
+      "heading_level": null,
+      "page_id": 34,
+      "polygon": [
+        [
+          92.302734375,
+          87.43600463867188
+        ],
+        [
+          144.15829467773438,
+          87.43600463867188
+        ],
+        [
+          144.15829467773438,
+          99.91604614257812
+        ],
+        [
+          92.302734375,
+          99.91604614257812
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          49
+        ],
+        [
+          "Line",
+          21
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          53
+        ],
+        [
+          "Span",
+          17
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          122
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "TableCell",
+          10
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          169
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          115
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "TableCell",
+          42
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          64
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          151
+        ],
+        [
+          "Line",
+          69
+        ],
+        [
+          "TableCell",
+          18
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          125
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "TableCell",
+          22
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          98
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          116
+        ],
+        [
+          "TableCell",
+          46
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          118
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          98
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "TableCell",
+          6
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          82
+        ],
+        [
+          "Span",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          143
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          143
+        ],
+        [
+          "TableCell",
+          76
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          162
+        ],
+        [
+          "Line",
+          65
+        ],
+        [
+          "TableCell",
+          36
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          55
+        ],
+        [
+          "TableCell",
+          32
+        ],
+        [
+          "Span",
+          10
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          179
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          124
+        ],
+        [
+          "TableCell",
+          77
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Table",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          115
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "TableCell",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          120
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "TableCell",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          78
+        ],
+        [
+          "Span",
+          15
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          116
+        ],
+        [
+          "Span",
+          11
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          134
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          99
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 25,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "TableCell",
+          18
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 26,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          61
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 27,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          128
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 28,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          122
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 29,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          155
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 30,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          100
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "TableCell",
+          16
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 31,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          149
+        ],
+        [
+          "Line",
+          65
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "TableCell",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 32,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          75
+        ],
+        [
+          "Span",
+          13
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 33,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          86
+        ],
+        [
+          "Span",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 34,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          46
+        ],
+        [
+          "Line",
+          17
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ch15-deployments"
+}

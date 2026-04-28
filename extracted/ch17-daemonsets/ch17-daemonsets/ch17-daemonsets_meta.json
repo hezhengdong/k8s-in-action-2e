@@ -1,0 +1,2683 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Deploying\nper-node workloads\nwith DaemonSets",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          238.53515625,
+          110.1416015625
+        ],
+        [
+          466.69921875,
+          110.1416015625
+        ],
+        [
+          466.69921875,
+          214.59078979492188
+        ],
+        [
+          238.53515625,
+          214.59078979492188
+        ]
+      ]
+    },
+    {
+      "title": "This chapter covers",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          81.931640625,
+          264.943359375
+        ],
+        [
+          186.93601989746094,
+          264.943359375
+        ],
+        [
+          186.93601989746094,
+          277.356689453125
+        ],
+        [
+          81.931640625,
+          277.356689453125
+        ]
+      ]
+    },
+    {
+      "title": "17.1 Introducing DaemonSets",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          66.18000030517578,
+          85.45602416992188
+        ],
+        [
+          238.53515625,
+          85.45602416992188
+        ],
+        [
+          238.53515625,
+          97.93606567382812
+        ],
+        [
+          66.18000030517578,
+          97.93606567382812
+        ]
+      ]
+    },
+    {
+      "title": "17.1.1 Understanding the DaemonSet object",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          65.337890625,
+          149.671875
+        ],
+        [
+          275.389404296875,
+          149.671875
+        ],
+        [
+          275.389404296875,
+          161.18637084960938
+        ],
+        [
+          65.337890625,
+          161.18637084960938
+        ]
+      ]
+    },
+    {
+      "title": "WHAT TYPE OF WORKLOADS ARE DEPLOYED VIA DAEMONSETS AND WHY",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          100.599609375,
+          487.931884765625
+        ],
+        [
+          368.173828125,
+          487.931884765625
+        ],
+        [
+          368.173828125,
+          497.41188049316406
+        ],
+        [
+          100.599609375,
+          497.41188049316406
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING THE OPERATION OF THE DAEMONSET CONTROLLER",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          92.302734375,
+          122.513671875
+        ],
+        [
+          341.208984375,
+          122.513671875
+        ],
+        [
+          341.208984375,
+          132.25186157226562
+        ],
+        [
+          92.302734375,
+          132.25186157226562
+        ]
+      ]
+    },
+    {
+      "title": "17.1.2 Deploying pods with a DaemonSet",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          56.00390625,
+          532.9462585449219
+        ],
+        [
+          251.08563232421875,
+          532.9462585449219
+        ],
+        [
+          251.08563232421875,
+          543.4658203125
+        ],
+        [
+          56.00390625,
+          543.4658203125
+        ]
+      ]
+    },
+    {
+      "title": "Listing 17.1 A DaemonSet manifest example",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          114.08203125,
+          55.5234375
+        ],
+        [
+          300.77880859375,
+          55.5234375
+        ],
+        [
+          300.77880859375,
+          65.19491577148438
+        ],
+        [
+          114.08203125,
+          65.19491577148438
+        ]
+      ]
+    },
+    {
+      "title": "QUICKLY INSPECTING A DAEMONSET",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          102.18000030517578,
+          452.9384765625
+        ],
+        [
+          236.16238403320312,
+          452.9384765625
+        ],
+        [
+          236.16238403320312,
+          462.9720001220703
+        ],
+        [
+          102.18000030517578,
+          462.9720001220703
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ds\nNAME DESIRED CURRENT READY UP-TO-DATE AVAILABLE NODE SELECTOR AGE\ndemo 2 2 2 2 2 <none> 7s",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          102.18000030517578,
+          499.7109375
+        ],
+        [
+          468.7094421386719,
+          499.7109375
+        ],
+        [
+          468.7094421386719,
+          528.7475433349609
+        ],
+        [
+          102.18000030517578,
+          528.7475433349609
+        ]
+      ]
+    },
+    {
+      "title": "INSPECTING A DAEMONSET IN DETAIL",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          91.5,
+          142.5
+        ],
+        [
+          231.0,
+          142.5
+        ],
+        [
+          231.0,
+          149.3701171875
+        ],
+        [
+          91.5,
+          149.3701171875
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING A DAEMONSET'S STATUS",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          101.63671875,
+          109.75198364257812
+        ],
+        [
+          258.0728454589844,
+          109.75198364257812
+        ],
+        [
+          258.0728454589844,
+          119.23196411132812
+        ],
+        [
+          101.63671875,
+          119.23196411132812
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ds demo -o yaml",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          100.599609375,
+          169.587890625
+        ],
+        [
+          241.30735778808594,
+          169.587890625
+        ],
+        [
+          241.30735778808594,
+          179.66757202148438
+        ],
+        [
+          100.599609375,
+          179.66757202148438
+        ]
+      ]
+    },
+    {
+      "title": "UNDERSTANDING WHY THERE ARE FEWER DAEMON PODS THAN NODES",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          91.7841796875,
+          135.79202270507812
+        ],
+        [
+          350.3155212402344,
+          135.79202270507812
+        ],
+        [
+          350.3155212402344,
+          145.27200317382812
+        ],
+        [
+          91.7841796875,
+          145.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get pods -l app=demo -o wide\nNAME READY STATUS RESTARTS AGE IP NODE ...\ndemo-w8tgm 1/1 Running 0 80s 10.244.2.42 kind-worker ...\ndemo-wqd22 1/1 Running 0 80s 10.244.1.64 kind-worker2 ...",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          92.302734375,
+          355.70758056640625
+        ],
+        [
+          464.34014892578125,
+          355.70758056640625
+        ],
+        [
+          464.34014892578125,
+          394.28765869140625
+        ],
+        [
+          92.302734375,
+          394.28765869140625
+        ]
+      ]
+    },
+    {
+      "title": "DEPLOYING DAEMON PODS ON CONTROL PLANE NODES",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          101.63671875,
+          122.77188110351562
+        ],
+        [
+          300.27655029296875,
+          122.77188110351562
+        ],
+        [
+          300.27655029296875,
+          132.25186157226562
+        ],
+        [
+          101.63671875,
+          132.25186157226562
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ds -n kube-system",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          101.63671875,
+          232.353515625
+        ],
+        [
+          244.7578125,
+          232.353515625
+        ],
+        [
+          244.7578125,
+          242.66757202148438
+        ],
+        [
+          101.63671875,
+          242.66757202148438
+        ]
+      ]
+    },
+    {
+      "title": "INSPECTING A DAEMON POD",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          92.8212890625,
+          98.77200317382812
+        ],
+        [
+          196.3898468017578,
+          98.77200317382812
+        ],
+        [
+          196.3898468017578,
+          108.25198364257812
+        ],
+        [
+          92.8212890625,
+          108.25198364257812
+        ]
+      ]
+    },
+    {
+      "title": "17.1.3 Deploying to a subset of Nodes with a node selector",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          65.337890625,
+          272.6663818359375
+        ],
+        [
+          343.283203125,
+          272.6663818359375
+        ],
+        [
+          343.283203125,
+          283.1663818359375
+        ],
+        [
+          65.337890625,
+          283.1663818359375
+        ]
+      ]
+    },
+    {
+      "title": "SPECIFYING A NODE SELECTOR IN THE DAEMONSET",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          92.302734375,
+          156.7919921875
+        ],
+        [
+          281.1026611328125,
+          156.7919921875
+        ],
+        [
+          281.1026611328125,
+          166.27200317382812
+        ],
+        [
+          92.302734375,
+          166.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "Listing 17.2 A DaemonSet with a node selector",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          103.7109375,
+          235.974609375
+        ],
+        [
+          302.5185546875,
+          235.974609375
+        ],
+        [
+          302.5185546875,
+          245.73486328125
+        ],
+        [
+          103.7109375,
+          245.73486328125
+        ]
+      ]
+    },
+    {
+      "title": "MOVING NODES IN AND OUT OF SCOPE OF A DAEMONSET BY CHANGING THEIR LABELS",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          101.63671875,
+          131.56640625
+        ],
+        [
+          418.9921875,
+          131.56640625
+        ],
+        [
+          418.9921875,
+          141.67196655273438
+        ],
+        [
+          101.63671875,
+          141.67196655273438
+        ]
+      ]
+    },
+    {
+      "title": "USING STANDARD NODE LABELS IN DAEMONSETS",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          102.1552734375,
+          416.7275390625
+        ],
+        [
+          283.6494140625,
+          416.7275390625
+        ],
+        [
+          283.6494140625,
+          427.3919982910156
+        ],
+        [
+          102.1552734375,
+          427.3919982910156
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe node kind-worker2\nName: kind-worker2\nRoles: <none>",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          101.1181640625,
+          479.78758239746094
+        ],
+        [
+          274.8472595214844,
+          479.78758239746094
+        ],
+        [
+          274.8472595214844,
+          509.0654296875
+        ],
+        [
+          101.1181640625,
+          509.0654296875
+        ]
+      ]
+    },
+    {
+      "title": "UPDATING THE NODE SELECTOR",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          91.52490234375,
+          339.4775390625
+        ],
+        [
+          208.21746826171875,
+          339.4775390625
+        ],
+        [
+          208.21746826171875,
+          350.0520324707031
+        ],
+        [
+          91.52490234375,
+          350.0520324707031
+        ]
+      ]
+    },
+    {
+      "title": "17.1.4 Updating a DaemonSet",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          64.8193359375,
+          52.505859375
+        ],
+        [
+          208.66714477539062,
+          52.505859375
+        ],
+        [
+          208.66714477539062,
+          63.146392822265625
+        ],
+        [
+          64.8193359375,
+          63.146392822265625
+        ]
+      ]
+    },
+    {
+      "title": "THE ROLLINGUPDATE STRATEGY",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          100.599609375,
+          372.7919921875
+        ],
+        [
+          219.51829528808594,
+          372.7919921875
+        ],
+        [
+          219.51829528808594,
+          382.2720031738281
+        ],
+        [
+          100.599609375,
+          382.2720031738281
+        ]
+      ]
+    },
+    {
+      "title": "Listing 17.3 Specifying the RollingUpdate strategy in a DaemonSet",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          114.08203125,
+          439.7148742675781
+        ],
+        [
+          396.7191162109375,
+          439.7148742675781
+        ],
+        [
+          396.7191162109375,
+          448.71485900878906
+        ],
+        [
+          114.08203125,
+          448.71485900878906
+        ]
+      ]
+    },
+    {
+      "title": "THE ONDELETE UPDATE STRATEGY",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          101.63671875,
+          223.6025390625
+        ],
+        [
+          228.5782928466797,
+          223.6025390625
+        ],
+        [
+          228.5782928466797,
+          233.23199462890625
+        ],
+        [
+          101.63671875,
+          233.23199462890625
+        ]
+      ]
+    },
+    {
+      "title": "Listing 17.4 Specifying the OnDelete strategy in a DaemonSet",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          113.044921875,
+          313.7148742675781
+        ],
+        [
+          372.7794189453125,
+          313.7148742675781
+        ],
+        [
+          372.7794189453125,
+          323.484375
+        ],
+        [
+          113.044921875,
+          323.484375
+        ]
+      ]
+    },
+    {
+      "title": "CONSIDERING THE USE OF THE ONDELETE STRATEGY FOR CRITICAL DAEMON PODS",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          93.18000030517578,
+          515.7041015625
+        ],
+        [
+          394.7160339355469,
+          515.7041015625
+        ],
+        [
+          394.7160339355469,
+          525.8519897460938
+        ],
+        [
+          93.18000030517578,
+          525.8519897460938
+        ]
+      ]
+    },
+    {
+      "title": "17.1.5 Deleting the DaemonSet",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          65.8564453125,
+          126.68637084960938
+        ],
+        [
+          214.9671630859375,
+          126.68637084960938
+        ],
+        [
+          214.9671630859375,
+          137.18637084960938
+        ],
+        [
+          65.8564453125,
+          137.18637084960938
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get pods -l app=demo\nNAME READY STATUS RESTARTS AGE\ndemo-4gf5h 1/1 Terminating 0 2m22s\ndemo-s7hsc 1/1 Terminating 0 6m53s",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          102.1552734375,
+          231.56759643554688
+        ],
+        [
+          346.8467712402344,
+          231.56759643554688
+        ],
+        [
+          346.8467712402344,
+          270.1476745605469
+        ],
+        [
+          102.1552734375,
+          270.1476745605469
+        ]
+      ]
+    },
+    {
+      "title": "17.2 Special features in pods running node agents \nand daemons",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          64.30078125,
+          344.6560363769531
+        ],
+        [
+          354.14849853515625,
+          344.6560363769531
+        ],
+        [
+          354.14849853515625,
+          370.6356201171875
+        ],
+        [
+          64.30078125,
+          370.6356201171875
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get ds -n kube-system",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          102.18000030517578,
+          499.4091796875
+        ],
+        [
+          245.794921875,
+          499.4091796875
+        ],
+        [
+          245.794921875,
+          509.6689453125
+        ],
+        [
+          102.18000030517578,
+          509.6689453125
+        ]
+      ]
+    },
+    {
+      "title": "17.2.1 Giving containers access to the OS kernel",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          56.00390625,
+          52.505859375
+        ],
+        [
+          286.37091064453125,
+          52.505859375
+        ],
+        [
+          286.37091064453125,
+          63.146392822265625
+        ],
+        [
+          56.00390625,
+          63.146392822265625
+        ]
+      ]
+    },
+    {
+      "title": "RUNNING A PRIVILEGED CONTAINER",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          93.18000030517578,
+          165.36328125
+        ],
+        [
+          222.3124542236328,
+          165.36328125
+        ],
+        [
+          222.3124542236328,
+          175.27200317382812
+        ],
+        [
+          93.18000030517578,
+          175.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "GIVING A CONTAINER ACCESS TO SPECIFIC CAPABILITIES",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          92.8212890625,
+          419.1416015625
+        ],
+        [
+          299.2115783691406,
+          419.1416015625
+        ],
+        [
+          299.2115783691406,
+          428.9519958496094
+        ],
+        [
+          92.8212890625,
+          428.9519958496094
+        ]
+      ]
+    },
+    {
+      "title": "17.2.2 Accessing the node's filesystem",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          64.8193359375,
+          279.86639404296875
+        ],
+        [
+          249.45120239257812,
+          279.86639404296875
+        ],
+        [
+          249.45120239257812,
+          290.36639404296875
+        ],
+        [
+          64.8193359375,
+          290.36639404296875
+        ]
+      ]
+    },
+    {
+      "title": "17.2.3 Using the node's network and other namespaces",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          56.00390625,
+          87.68637084960938
+        ],
+        [
+          318.5009765625,
+          87.68637084960938
+        ],
+        [
+          318.5009765625,
+          98.373046875
+        ],
+        [
+          56.00390625,
+          98.373046875
+        ]
+      ]
+    },
+    {
+      "title": "17.2.4 Marking daemon Pods as critical",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          64.8193359375,
+          87.68637084960938
+        ],
+        [
+          254.6103515625,
+          87.68637084960938
+        ],
+        [
+          254.6103515625,
+          98.373046875
+        ],
+        [
+          64.8193359375,
+          98.373046875
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCING PRIORITY CLASSES",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          101.63671875,
+          174.7919921875
+        ],
+        [
+          224.31593322753906,
+          174.7919921875
+        ],
+        [
+          224.31593322753906,
+          184.27200317382812
+        ],
+        [
+          101.63671875,
+          184.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl get priorityclasses",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          101.1181640625,
+          245.9326171875
+        ],
+        [
+          241.30735778808594,
+          245.9326171875
+        ],
+        [
+          241.30735778808594,
+          255.6275634765625
+        ],
+        [
+          101.1181640625,
+          255.6275634765625
+        ]
+      ]
+    },
+    {
+      "title": "$ kubectl describe priorityclasses",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          101.63671875,
+          399.5075988769531
+        ],
+        [
+          265.5,
+          399.5075988769531
+        ],
+        [
+          265.5,
+          407.4875793457031
+        ],
+        [
+          101.63671875,
+          407.4875793457031
+        ]
+      ]
+    },
+    {
+      "title": "17.3 Communicating with the local daemon Pod",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          56.00390625,
+          295.8760070800781
+        ],
+        [
+          329.84063720703125,
+          295.8760070800781
+        ],
+        [
+          329.84063720703125,
+          308.3559875488281
+        ],
+        [
+          56.00390625,
+          308.3559875488281
+        ]
+      ]
+    },
+    {
+      "title": "17.3.1 Binding directly to a host port",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          65.337890625,
+          191.6663818359375
+        ],
+        [
+          240.52835083007812,
+          191.6663818359375
+        ],
+        [
+          240.52835083007812,
+          202.1663818359375
+        ],
+        [
+          65.337890625,
+          202.1663818359375
+        ]
+      ]
+    },
+    {
+      "title": "Listing 17.5 Forwarding a host port to a container",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          113.5634765625,
+          285.1611328125
+        ],
+        [
+          322.0224609375,
+          285.1611328125
+        ],
+        [
+          322.0224609375,
+          295.23486328125
+        ],
+        [
+          113.5634765625,
+          295.23486328125
+        ]
+      ]
+    },
+    {
+      "title": "DEPLOYING THE AGENT AND CHECKING ITS CONNECTIVITY",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          91.7841796875,
+          326.052001953125
+        ],
+        [
+          302.3173828125,
+          326.052001953125
+        ],
+        [
+          302.3173828125,
+          335.5320129394531
+        ],
+        [
+          91.7841796875,
+          335.5320129394531
+        ]
+      ]
+    },
+    {
+      "title": "POINTING THE KIADA APPLICATION TO THE AGENT VIA THE NODE'S IP ADDRESS",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          101.63671875,
+          96.79202270507812
+        ],
+        [
+          391.47552490234375,
+          96.79202270507812
+        ],
+        [
+          391.47552490234375,
+          106.27200317382812
+        ],
+        [
+          101.63671875,
+          106.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "17.3.2 Using the node's network stack",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          56.5224609375,
+          200.306396484375
+        ],
+        [
+          238.8719940185547,
+          200.306396484375
+        ],
+        [
+          238.8719940185547,
+          210.806396484375
+        ],
+        [
+          56.5224609375,
+          210.806396484375
+        ]
+      ]
+    },
+    {
+      "title": "17.3.3 Using a local Service",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          65.59716796875,
+          504.2373046875
+        ],
+        [
+          198.3729248046875,
+          504.2373046875
+        ],
+        [
+          198.3729248046875,
+          515.3062438964844
+        ],
+        [
+          65.59716796875,
+          515.3062438964844
+        ]
+      ]
+    },
+    {
+      "title": "UPDATING THE NODE-AGENT DAEMONSET",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          92.302734375,
+          551.4118957519531
+        ],
+        [
+          243.96266174316406,
+          551.4118957519531
+        ],
+        [
+          243.96266174316406,
+          560.8918914794922
+        ],
+        [
+          92.302734375,
+          560.8918914794922
+        ]
+      ]
+    },
+    {
+      "title": "CREATING THE SERVICE WITH INTERNAL TRAFFIC POLICY SET TO LOCAL",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          102.18000030517578,
+          111.79202270507812
+        ],
+        [
+          361.951171875,
+          111.79202270507812
+        ],
+        [
+          361.951171875,
+          121.27200317382812
+        ],
+        [
+          102.18000030517578,
+          121.27200317382812
+        ]
+      ]
+    },
+    {
+      "title": "Listing 17.8 Exposing daemon Pods via a service using the Local internal traffic policy",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          110.970703125,
+          166.71487426757812
+        ],
+        [
+          468.1781921386719,
+          166.71487426757812
+        ],
+        [
+          468.1781921386719,
+          175.71487426757812
+        ],
+        [
+          110.970703125,
+          175.71487426757812
+        ]
+      ]
+    },
+    {
+      "title": "CONFIGURING KIADA TO CONNECT TO THE NODE-AGENT SERVICE",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          102.1552734375,
+          409.4853515625
+        ],
+        [
+          337.5791015625,
+          409.4853515625
+        ],
+        [
+          337.5791015625,
+          419.2919921875
+        ],
+        [
+          102.1552734375,
+          419.2919921875
+        ]
+      ]
+    },
+    {
+      "title": "Listing 17.9 Configuring the Kiada app to access the node agent via the local Service",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          113.044921875,
+          477.7548828125
+        ],
+        [
+          467.736328125,
+          477.7548828125
+        ],
+        [
+          467.736328125,
+          486.75486755371094
+        ],
+        [
+          113.044921875,
+          486.75486755371094
+        ]
+      ]
+    },
+    {
+      "title": "DECIDING WHICH APPROACH TO USE",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          92.302734375,
+          185.77200317382812
+        ],
+        [
+          226.2055206298828,
+          185.77200317382812
+        ],
+        [
+          226.2055206298828,
+          195.25201416015625
+        ],
+        [
+          92.302734375,
+          195.25201416015625
+        ]
+      ]
+    },
+    {
+      "title": "Summary",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          93.08056640625,
+          339.17578125
+        ],
+        [
+          144.41748046875,
+          339.17578125
+        ],
+        [
+          144.41748046875,
+          352.45599365234375
+        ],
+        [
+          93.08056640625,
+          352.45599365234375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          58
+        ],
+        [
+          "Line",
+          22
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          123
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          143
+        ],
+        [
+          "Line",
+          63
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          88
+        ],
+        [
+          "Span",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          117
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "TableCell",
+          14
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          115
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "TableCell",
+          25
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          116
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "TableCell",
+          24
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          59
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          114
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          130
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          129
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Code",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          93
+        ],
+        [
+          "Line",
+          36
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          123
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "TableCell",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "TableCell",
+          24
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "TableCell",
+          99
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          89
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "TableCell",
+          24
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          131
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          132
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          118
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          101
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "TableCell",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          137
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          151
+        ],
+        [
+          "Line",
+          57
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 25,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 26,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          122
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 27,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          123
+        ],
+        [
+          "Line",
+          54
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 28,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          148
+        ],
+        [
+          "Line",
+          58
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 29,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          142
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 30,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          121
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ch17-daemonsets"
+}
