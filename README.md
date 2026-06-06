@@ -2,7 +2,7 @@
 
 [![License: CC0](https://img.shields.io/badge/License-CC0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-本书为 *Kubernetes in Action, Second Edition*（作者 Marko Lukša & Kevin Conner，Manning Publications 出版）的中文翻译版。
+本书为 *Kubernetes in Action, Second Edition*（Kubernetes 实战第二版）（作者 Marko Lukša & Kevin Conner，Manning Publications 出版）的中文翻译版。
 
 > **免责声明：本项目为个人学习项目，翻译内容仅供个人学习使用，不得用于商业用途。如需商业使用，请购买正版书籍。**
 
