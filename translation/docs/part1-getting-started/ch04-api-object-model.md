@@ -16,8 +16,8 @@
 
 在 Kubernetes 集群中，用户和 Kubernetes 组件都通过 Kubernetes API 操作对象来与集群交互，如图 4.1 所示。这些对象代表了整个集群的配置，包括集群中运行的应用、它们的配置、用于在集群内部或外部暴露应用的负载均衡器、底层服务器和应用使用的存储、用户和应用的安全权限，以及许多其他基础设施细节。
 
-![图 4.1 通过操作 Kubernetes API 中的对象来配置 Kubernetes 集群](../images/ch04/figure-4.1.jpg)
-
+![图 4.1](../images/ch04/figure-4.1.jpg)
+图 4.1 通过操作 Kubernetes API 中的对象来配置 Kubernetes 集群
 ### 4.1.1 API 简介
 
 Kubernetes API 是与集群交互的中心点，因此本书大部分内容都在讲解此 API。最重要的 API 对象将在后续章节中描述，这里先给出 API 的基础介绍。
@@ -44,8 +44,8 @@ RESTful API 中的核心概念是资源，每个资源被分配一个唯一标�
 
 一个对象因此可以通过多个资源暴露。如图 4.2 所示，名为 mydeploy 的 Deployment 对象实例在查询 deployments 资源时作为集合中的一个元素返回，在直接查询单个资源 URI 时作为单个对象返回。
 
-![图 4.2 单个对象可以通过两个或更多资源暴露](../images/ch04/figure-4.2.jpg)
-
+![图 4.2](../images/ch04/figure-4.2.jpg)
+图 4.2 单个对象可以通过两个或更多资源暴露
 此外，如果某个对象类型存在多个 API 版本，单个对象实例也可以通过多个资源暴露。在 Kubernetes 1.15 之前，Deployment 对象在 API 中有两种不同的表示。除了暴露在 /apis/apps/v1/deployments 的 apps/v1 版本之外，API 中还有一个较旧的 extensions/v1beta1 版本，暴露在 /apis/extensions/v1beta1/deployments。这两个资源不代表两组不同的 Deployment 对象，而是以两种不同方式表示的同一组对象，对象模式有微小差异。你可以通过第一个 URI 创建 Deployment 对象实例，然后通过第二个 URI 读回它。
 
 在某些情况下，一个资源根本不代表任何对象。例如，Kubernetes API 允许客户端验证某个主体（人或服务）是否有权执行某项 API 操作。这是通过向 /apis/authorization.k8s.io/v1/subjectaccessreviews 资源提交 POST 请求来实现的。响应指示该主体是否有权执行请求体中指定的操作。关键在于——此 POST 请求不会创建任何对象。
@@ -76,9 +76,8 @@ RESTful API 中的核心概念是资源，每个资源被分配一个唯一标�
 - **Status**——包含对象的当前实际状态。对于 Pod，它告诉你 Pod 的状况、每个容器的状态、IP 地址、运行所在的节点，以及其他揭示 Pod 正在发生什么的信息。
 
 图 4.3 展示了一个对象清单及其四个部分。
-
-![图 4.3 Kubernetes API 对象的主要组成部分](../images/ch04/figure-4.3.jpg)
-
+![图 4.3](../images/ch04/figure-4.3.jpg)
+图 4.3 Kubernetes API 对象的主要组成部分
 !!! note ""
 
     虽然图中显示用户写入对象的 spec 部分并读取其 status，但 API 服务器在你执行 GET 请求时总是返回整个对象；更新对象时，你也需要在 PUT 请求中发送整个对象。
@@ -93,8 +92,8 @@ Kubernetes 控制平面运行着多个称为*控制器*（controller）的组件
 
 如图 4.4 所示，控制器的任务是：从对象的 spec 部分读取期望状态，执行实现此状态所需的操作，并通过写入对象的 status 部分回报对象的实际状态。
 
-![图 4.4 控制器如何管理一个对象](../images/ch04/figure-4.4.jpg)
-
+![图 4.4](../images/ch04/figure-4.4.jpg)
+图 4.4 控制器如何管理一个对象
 本质上，你通过创建和更新 API 对象告诉 Kubernetes 它需要做什么。Kubernetes 控制器使用相同的 API 对象告诉你它们做了什么以及工作的状态如何。请记住：几乎每种对象类型都有一个关联的控制器，正是这个控制器读取 spec 并写入 status。
 
 **并非所有对象都有 spec 和 status 部分**
@@ -120,9 +119,8 @@ kind-worker2        Ready    <none>   1h    v1.18.2
 ```
 
 图 4.5 展示了三个 Node 对象以及构成集群的实际物理机器。每个 Node 对象实例代表一台宿主机。在每个实例中，spec 部分包含宿主机的（部分）配置，status 部分包含宿主机的状态。
-
-![图 4.5 集群节点由 Node 对象表示](../images/ch04/figure-4.5.jpg)
-
+![图 4.5](../images/ch04/figure-4.5.jpg)
+图 4.5 集群节点由 Node 对象表示
 !!! note ""
 
     Node 对象与其他对象略有不同，因为它们通常由 Kubelet（即在集群节点上运行的节点代理）而不是用户创建。当你添加一台机器到集群时，Kubelet 通过创建一个代表宿主机的 Node 对象来注册该节点。用户可以随后编辑 spec 部分中的（部分）字段。
@@ -340,8 +338,8 @@ status:
 
 一共有四个状况，揭示了节点的状态。每个状况都有 type 和 status 字段，status 可以是 True、False 或 Unknown，如图 4.6 所示。一个状况还可以指定最近一次状态变更的机器可读 reason 以及包含变更详情的人类可读 message。lastTransitionTime 字段指示状况何时从一种状态转变为另一种，而 lastHeartbeatTime 字段揭示控制器最近一次收到该状况更新的时间。
 
-![图 4.6 指示 Node 对象状态的状态状况](../images/ch04/figure-4.6.jpg)
-
+![图 4.6](../images/ch04/figure-4.6.jpg)
+图 4.6 指示 Node 对象状态的状态状况
 虽然它是列表中的最后一个状况，Ready 状况可能是最重要的，它指示节点是否已准备好接受新的工作负载（Pod）。其他状况（MemoryPressure、DiskPressure、PIDPressure）指示节点是否正在耗尽资源。如果节点开始表现异常（例如应用开始资源不足和/或崩溃），记得检查这些状况。
 
 #### 理解其他对象类型中的状况
@@ -454,8 +452,8 @@ kubectl describe 命令以更易读的形式显示了之前在 Node 对象的 YA
 
 与 Kubernetes 中的一切一样，事件由 Event 对象表示，并通过 Kubernetes API 创建和读取。如图 4.7 所示，它们包含发生了什么、事件源等信息。
 
-![图 4.7 Event 对象、控制器和其他 API 对象之间的关系](../images/ch04/figure-4.7.jpg)
-
+![图 4.7](../images/ch04/figure-4.7.jpg)
+图 4.7 Event 对象、控制器和其他 API 对象之间的关系
 与其他对象不同，每个 Event 对象在创建一小时后被删除，以减轻 etcd（Kubernetes API 对象的数据存储）的负担。
 
 !!! note ""

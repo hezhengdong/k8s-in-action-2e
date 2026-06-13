@@ -27,8 +27,7 @@
 
 集群会找到匹配的 PersistentVolume 对象或创建一个新对象，然后将其绑定到 PersistentVolumeClaim。PersistentVolume 对象表示底层的网络存储卷。为了更好地理解这些对象之间的关系，请查看图 10.1。
 
-![图 10.1 使用 PersistentVolume 和 PersistentVolumeClaim 将网络存储挂载到 Pod](../images/ch10/figure-10.1.jpg)
-
+![图 10.1](../images/ch10/figure-10.1.jpg)
 图 10.1 使用 PersistentVolume 和 PersistentVolumeClaim 将网络存储挂载到 Pod
 
 现在让我们仔细看一下这三种 API 资源。
@@ -69,16 +68,14 @@ Kubernetes 集群可以提供不同类别的持久存储，由 StorageClass 资�
 
 如图 10.2 所示，当这个 Pod 被调度到集群节点时，Kubernetes 会找到与 Pod 中引用的声明绑定的 PersistentVolume，并使用 PersistentVolume 对象中的信息将网络存储卷挂载到 Pod 的容器中。
 
-![图 10.2 将 PersistentVolume 挂载到 Pod 的容器中](../images/ch10/figure-10.2.jpg)
-
+![图 10.2](../images/ch10/figure-10.2.jpg)
 图 10.2 将 PersistentVolume 挂载到 Pod 的容器中
 
 **在多个 Pod 中使用同一个 PersistentVolumeClaim**
 
 多个 Pod 可以通过引用同一个 PersistentVolumeClaim 来使用同一个存储卷，而该 PersistentVolumeClaim 又绑定到同一个 PersistentVolume，如图 10.3 所示。
 
-![图 10.3 在多个 Pod 中使用相同的 PersistentVolumeClaim](../images/ch10/figure-10.3.jpg)
-
+![图 10.3](../images/ch10/figure-10.3.jpg)
 图 10.3 在多个 Pod 中使用相同的 PersistentVolumeClaim
 
 这些 Pod 是否必须运行在同一个集群节点上，还是可以从不同节点访问底层存储，取决于存储技术。如果存储支持将卷同时附加到多个节点，则不同节点上的 Pod 都可以使用它。否则，所有 Pod 必须调度到最初挂载了该存储卷的节点上。
@@ -93,14 +90,12 @@ PersistentVolume 可以通过动态供应或静态供应方式创建。目前，
 
 集群管理员不需要预先供应任何 PersistentVolume 对象或底层存储。相反，它们是按需供应的，并在不再需要时自动销毁。
 
-![图 10.4 PersistentVolume 的动态供应](../images/ch10/figure-10.4.jpg)
-
+![图 10.4](../images/ch10/figure-10.4.jpg)
 图 10.4 PersistentVolume 的动态供应
 
 动态供应的 PersistentVolume 的生命周期如图 10.5 所示。用户创建 PersistentVolumeClaim 后不久，PersistentVolume 和底层存储即被供应。之后，多个 Pod 可以使用同一个 PersistentVolumeClaim，从而使用同一个 PersistentVolume。PersistentVolumeClaim 和 PersistentVolume 的生命周期不与 Pod 绑定，因此即使没有 Pod 引用 PersistentVolumeClaim，它们也会保留在原位。当 PersistentVolumeClaim 对象被删除时，PersistentVolume 和底层存储通常也会被删除，但如有必要也可以保留。
 
-![图 10.5 动态供应的 PersistentVolume、声明以及使用它们的 Pod 的生命周期](../images/ch10/figure-10.5.jpg)
-
+![图 10.5](../images/ch10/figure-10.5.jpg)
 图 10.5 动态供应的 PersistentVolume、声明以及使用它们的 Pod 的生命周期
 
 **静态供应的工作原理**
@@ -109,12 +104,10 @@ PersistentVolume 可以通过动态供应或静态供应方式创建。目前，
 
 首先，集群管理员供应实际的存储卷。然后创建 PersistentVolume 对象。接着用户创建 PersistentVolumeClaim 对象，在其中可以通过名称引用特定的 PersistentVolume，或者指定要求——例如最小卷大小和所需的访问模式。然后 Kubernetes 尝试将 PersistentVolumeClaim 匹配到满足这些条件的可用 PersistentVolume。
 
-![图 10.6 PersistentVolume 的静态供应](../images/ch10/figure-10.6.jpg)
-
+![图 10.6](../images/ch10/figure-10.6.jpg)
 图 10.6 PersistentVolume 的静态供应
 
-![图 10.7 静态供应的 PersistentVolume、声明以及使用它们的 Pod 的生命周期](../images/ch10/figure-10.7.jpg)
-
+![图 10.7](../images/ch10/figure-10.7.jpg)
 图 10.7 静态供应的 PersistentVolume、声明以及使用它们的 Pod 的生命周期
 
 一旦找到合适的匹配，PersistentVolume 就会绑定到 PersistentVolumeClaim，并变得不可用于绑定任何其他 PersistentVolumeClaim。
@@ -336,8 +329,7 @@ $ kubectl get --raw /api/v1/namespaces/default/pods/quiz/proxy/questions/random
 
 即使所有使用 PersistentVolumeClaim 的 Pod 都被删除，PersistentVolumeClaim 也会继续存在，直到你删除它为止。在此之前，PersistentVolume 对象保持绑定到 PersistentVolumeClaim。这意味着你可以在另一个 Pod 中使用同一个 PersistentVolumeClaim。
 
-![图 10.8 quiz Pod 及其 PersistentVolume](../images/ch10/figure-10.8.jpg)
-
+![图 10.8](../images/ch10/figure-10.8.jpg)
 图 10.8 quiz Pod 及其 PersistentVolume
 
 **在新的 Pod 中重用持久卷声明**
@@ -640,8 +632,7 @@ zonal-rwx                  filestore.csi.storage.gke.io    Delete
 
 如图 10.9 所示，每个存储类指定了使用哪个供应器以及在供应卷时应传递给供应器的参数。用户决定为其每个 PersistentVolumeClaim 使用哪个 StorageClass。
 
-![图 10.9 StorageClass、PersistentVolumeClaim 和卷供应器之间的关系](../images/ch10/figure-10.9.jpg)
-
+![图 10.9](../images/ch10/figure-10.9.jpg)
 图 10.9 StorageClass、PersistentVolumeClaim 和卷供应器之间的关系
 
 **检查默认存储类**

@@ -43,8 +43,7 @@ Job 资源类似于 Deployment，它创建一个或多个 Pod。然而，Job 不
 
 如图 18.1 所示，最简单的 Job 运行单个 Pod 至完成，而更复杂的 Job 则按顺序或并行运行多个 Pod。当 Pod 中的所有容器以成功状态终止时，该 Pod 被认为已完成。当所有 Pod 都已完成时，Job 本身也被视为完成。
 
-![图 18.1 三个不同的 Job 示例，每个 Job 在其 Pod 成功完成后即告完成](../images/ch18/figure-18.1.jpg)
-
+![图 18.1](../images/ch18/figure-18.1.jpg)
 图 18.1 三个不同的 Job 示例，每个 Job 在其 Pod 成功完成后即告完成
 
 正如你可能想到的，Job 资源定义了 Pod 模板和必须成功完成的 Pod 数量。它还定义了可以并行运行的 Pod 数量。
@@ -61,8 +60,7 @@ Job 资源类似于 Deployment，它创建一个或多个 Pod。然而，Job 不
 
 清单 18.1 展示了 Job 清单，你可以在 `job.quizinit.yaml` 文件中找到它。该清单文件还包含一个存储 quiz 问题的 ConfigMap，但该清单未显式展示。
 
-![图 18.2 quiz-init Job 概览](../images/ch18/figure-18.2.jpg)
-
+![图 18.2](../images/ch18/figure-18.2.jpg)
 图 18.2 quiz-init Job 概览
 
 **清单 18.1 用于运行单个任务的 Job 清单**
@@ -364,8 +362,7 @@ spec:
 
 如果 parallelism 设置得比 completions 高，Job 控制器只会创建 completions 字段中指定的数量。如果 parallelism 低于 completions，Job 控制器最多并行运行 parallelism 个 Pod，但当第一批 Pod 完成时，它会创建额外的 Pod。它会一直创建新 Pod，直到成功完成的 Pod 数量达到 completions。图 18.3 显示了当 completions 为 5、parallelism 为 2 时的情况。
 
-![图 18.3 运行 completions=5、parallelism=2 的并行 Job](../images/ch18/figure-18.3.jpg)
-
+![图 18.3](../images/ch18/figure-18.3.jpg)
 图 18.3 运行 completions=5、parallelism=2 的并行 Job
 
 如图所示，Job 控制器首先创建两个 Pod，等待其中一个完成。在图中，Pod 2 是第一个完成的。控制器立即创建下一个 Pod（Pod 3），使运行中的 Pod 数量恢复为两个。控制器重复此过程，直到五个 Pod 成功完成。表 18.1 解释了不同 completions 和 parallelism 组合的行为。
@@ -421,8 +418,7 @@ COMPLETIONS 列显示此 Job 完成了 5 次（目标为 5 次），耗时 110 �
 
 让我们看看这两种场景的区别。
 
-![图 18.4 根据 Pod 重启策略处理失败的方式](../images/ch18/figure-18.4.jpg)
-
+![图 18.4](../images/ch18/figure-18.4.jpg)
 图 18.4 根据 Pod 重启策略处理失败的方式
 
 #### 在 Pod 级别处理失败
@@ -573,8 +569,7 @@ spec:
 
 从清单中的 completions 字段可以看出，Job 需要两次完成才算完成。由于 parallelism 设置为 1，两个 Pod 依次运行。考虑到这两个 Pod 按顺序执行，以及每个 Pod 需要 60 秒完成，整个 Job 的执行需要略超过 120 秒。然而，由于此 Job 的 `activeDeadlineSeconds` 设置为 90，Job 无法成功。图 18.5 说明了这种情况。
 
-![图 18.5 为 Job 设置时间限制](../images/ch18/figure-18.5.jpg)
-
+![图 18.5](../images/ch18/figure-18.5.jpg)
 图 18.5 为 Job 设置时间限制
 
 要自己查看这一点，通过应用清单创建此 Job，等待其失败。失败时，Job 控制器会生成以下事件：
@@ -665,14 +660,12 @@ configmap/aggregate-responses created
 
 在 completionMode 支持被添加到 Job 资源之前，所有 Job 都以所谓的 NonIndexed 模式运行。这种模式的问题在于所有生成的 Pod 都是相同的（图 18.6）。
 
-![图 18.6 使用 NonIndexed 完成模式的 Job 生成相同的 Pod](../images/ch18/figure-18.6.jpg)
-
+![图 18.6](../images/ch18/figure-18.6.jpg)
+图 18.6 使用 NonIndexed 完成模式的 Job 生成相同的 Pod
 图 18.6 使用 NonIndexed completionMode 的 Job 生成相同的 Pod
-
 因此，如果你使用此完成模式，你无法向每个 Pod 传递不同的 MONTH 值。你必须为每个月创建单独的 Job 对象。这样，每个 Job 可以在 Pod 模板中将 MONTH 环境变量设置为不同的值，如图 18.7 所示。
 
-![图 18.7 从模板创建相似的 Job](../images/ch18/figure-18.7.jpg)
-
+![图 18.7](../images/ch18/figure-18.7.jpg)
 图 18.7 从模板创建相似的 Job
 
 要创建这些不同的 Job，你需要创建单独的 Job 清单。你可以手动完成，也可以使用外部模板系统来完成。Kubernetes 本身并不提供从模板创建 Job 的功能。
@@ -750,8 +743,7 @@ $ kubectl delete jobs -l app=aggregate-responses
 
 如前所述，当 Job 配置为 Indexed 完成模式时，每个 Pod 被分配一个完成索引（从 0 开始），区分该 Pod 和同一 Job 中的其他 Pod，如图 18.8 所示。
 
-![图 18.8 Indexed 完成模式生成的 Pod 各自获得索引号](../images/ch18/figure-18.8.jpg)
-
+![图 18.8](../images/ch18/figure-18.8.jpg)
 图 18.8 Indexed 完成模式生成的 Pod 各自获得索引号
 
 Pod 的数量由 Job 的 spec 中的 completions 字段确定。当每个索引都有一个成功完成的 Pod 时，Job 被认为已完成。
@@ -881,8 +873,7 @@ aggregate-responses-2021     Running    7/12          2m17s      2m17s
 
 如果内部卷挂载在主容器的 `/var/input` 目录下，则主容器可以处理文件，完全无需了解完成索引或有一千个文件正在被处理。图 18.9 显示了这一切。
 
-![图 18.9 初始化容器根据完成索引为主容器提供输入文件](../images/ch18/figure-18.9.jpg)
-
+![图 18.9](../images/ch18/figure-18.9.jpg)
 图 18.9 初始化容器根据完成索引为主容器提供输入文件
 
 如你所见，尽管 Indexed Job 仅为每个 Pod 提供一个简单的整数，但有办法利用该整数为工作负载准备更复杂的输入数据。你所需要的只是一个将整数转换为输入数据的初始化容器。
@@ -895,8 +886,7 @@ aggregate-responses-2021     Running    7/12          2m17s      2m17s
 
 处理工作队列有两种方式：**粗粒度**和**细粒度**。图 18.10 说明了这两种方法的区别。
 
-![图 18.10 粗粒度与细粒度并行处理的区别](../images/ch18/figure-18.10.jpg)
-
+![图 18.10](../images/ch18/figure-18.10.jpg)
 图 18.10 粗粒度与细粒度并行处理的区别
 
 在**粗粒度**并行处理中，每个 Pod 从队列中取出一个工作项，处理它，然后终止。因此，最终每个工作项对应一个 Pod。相比之下，在**细粒度**并行处理中，通常只创建少量 Pod，每个 Pod 处理多个工作项。它们并行工作，直到整个队列被处理完毕。在两种方法中，只要集群能容纳，你可以并行运行任意多的 Pod。
@@ -1293,8 +1283,7 @@ demo-good-sidecar    Complete   1/1           59s        2m28s
 
 在 CronJob 对象中，你指定一个 Job 模板和一个调度计划。根据此调度计划，CronJob 控制器从模板创建新的 Job 对象。你可以设置调度计划为每天多次、每天特定时间或每周/每月特定日期。控制器将持续根据调度计划创建 Job，直到你删除 CronJob 对象。图 18.11 说明了 CronJob 的工作原理。
 
-![图 18.11 CronJob 的运行方式](../images/ch18/figure-18.11.jpg)
-
+![图 18.11](../images/ch18/figure-18.11.jpg)
 图 18.11 CronJob 的运行方式
 
 如图所示，每次 CronJob 控制器创建 Job 时，Job 控制器随后创建 Pod，就像你手动创建 Job 对象时一样。让我们看看此过程的实际操作。
@@ -1615,8 +1604,7 @@ aggregate-responses-every-minute      * * * * *     <none>     True      2      
 
 ACTIVE 列表示同时有两个 Job 处于活动状态。默认情况下，CronJob 控制器创建新 Job 时不考虑有多少前一个 Job 仍在运行。但是，你可以通过在 CronJob spec 中设置 `concurrencyPolicy` 来更改此行为。图 18.12 显示了支持的三种并发策略。
 
-![图 18.12 三种 CronJob 并发策略的行为对比](../images/ch18/figure-18.12.jpg)
-
+![图 18.12](../images/ch18/figure-18.12.jpg)
 图 18.12 三种 CronJob 并发策略的行为对比
 
 为便于参考，表 18.5 中也解释了支持的并发策略。

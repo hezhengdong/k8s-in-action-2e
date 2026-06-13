@@ -24,8 +24,7 @@ $ kubectl apply -f SETUP -R
 
 工作负载通常通过创建 Deployment 对象来部署到 Kubernetes。Deployment 对象并不直接管理 Pod 对象，而是通过在创建 Deployment 时自动生成的 ReplicaSet 对象来进行管理。如图 15.1 所示，Deployment 控制 ReplicaSet，而 ReplicaSet 又控制各个 Pod。
 
-![图 15.1 Deployment、ReplicaSet 和 Pod 之间的关系](../images/ch15/figure-15.1.jpg)
-
+![图 15.1](../images/ch15/figure-15.1.jpg)
 图 15.1 Deployment、ReplicaSet 和 Pod 之间的关系
 
 Deployment 允许你以声明方式更新应用程序，这意味着你不再需要手动执行一系列操作来将一组 Pod 替换为运行更新版应用程序的 Pod，只需更新 Deployment 对象中的配置，然后让 Kubernetes 自动完成更新即可。
@@ -222,8 +221,7 @@ kiada-7bffb9bf96-qf4t7         ...   app=kiada,pod-template-          # 有 pod-
 
 `pod-template-hash` 标签的值不是随机的，而是根据 Pod 模板的内容计算出来的。由于 ReplicaSet 的名称使用了相同的值，因此名称取决于 Pod 模板的内容。由此可知，每次更改 Pod 模板时，都会创建一个新的 ReplicaSet。你将在第 15.2 节中了解更多相关内容，该节将解释 Deployment 的更新。
 
-![图 15.2 Deployment、ReplicaSet 中的标签选择器以及 Pod 中的标签](../images/ch15/figure-15.2.jpg)
-
+![图 15.2](../images/ch15/figure-15.2.jpg)
 图 15.2 Deployment、ReplicaSet 中的标签选择器以及 Pod 中的标签
 
 !!! warning ""
@@ -276,8 +274,7 @@ ReplicaSet 控制器无法创建 Pod 的原因有很多，但通常与用户权�
 
 扩缩 Deployment 与扩缩 ReplicaSet 没有什么不同。当你扩缩 Deployment 时，Deployment 控制器所做的只是扩缩底层的 ReplicaSet，剩下的工作由 ReplicaSet 控制器完成，如图 15.3 所示。
 
-![图 15.3 扩缩 Deployment](../images/ch15/figure-15.3.jpg)
-
+![图 15.3](../images/ch15/figure-15.3.jpg)
 图 15.3 扩缩 Deployment
 
 #### 扩缩 Deployment
@@ -415,11 +412,9 @@ Kiada Pod 当前运行的是应用程序的 0.5 版本，你现在将其更新�
 | RollingUpdate | RollingUpdate 策略使旧 Pod 逐渐被移除并被新 Pod 替换。当一个 Pod 被删除时，Kubernetes 等待新 Pod 就绪，然后再删除下一个 Pod。这样，Pod 提供的服务在整个升级过程中保持可用。这是默认策略。 |
 
 图 15.4 说明了两种策略之间的区别。它展示了每种策略下 Pod 随时间被替换的过程。
-
 Recreate 策略没有配置选项，而 RollingUpdate 策略允许你配置 Kubernetes 一次替换多少个 Pod。你将在后面了解更多相关内容。
 
-![图 15.4 Recreate 与 RollingUpdate 策略的区别](../images/ch15/figure-15.4.jpg)
-
+![图 15.4](../images/ch15/figure-15.4.jpg)
 图 15.4 Recreate 与 RollingUpdate 策略的区别
 
 ### 15.2.1 Recreate 策略
@@ -537,8 +532,7 @@ kiada-7bffb9bf96     0         0         0       16m   0.5    # 这是管理旧�
 
 当你最初创建 Deployment 时，只创建了一个 ReplicaSet，所有 Pod 都属于它。当你更新 Deployment 时，创建了一个新的 ReplicaSet。现在，此 Deployment 的所有 Pod 都由这个 ReplicaSet 控制，如图 15.5 所示。
 
-![图 15.5 更新 Deployment](../images/ch15/figure-15.5.jpg)
-
+![图 15.5](../images/ch15/figure-15.5.jpg)
 图 15.5 更新 Deployment
 
 #### 理解 Deployment 的 Pod 如何从一个 ReplicaSet 过渡到另一个
@@ -583,8 +577,7 @@ kiada-7bffb9bf96  0         0         0       16m   0.5    # 它们片刻之后�
 
 与 Recreate 策略相关的服务中断通常是不可接受的。这就是为什么 Deployment 中的默认策略是 RollingUpdate。当你使用此策略时，Pod 会逐渐被替换，通过缩减旧 ReplicaSet 并同时将新 ReplicaSet 扩展相同数量的副本。Service 永远不会没有 Pod 来转发流量（图 15.6）。
 
-![图 15.6 滚动更新期间 ReplicaSet、Pod 和 Service 的变化](../images/ch15/figure-15.6.jpg)
-
+![图 15.6](../images/ch15/figure-15.6.jpg)
 图 15.6 滚动更新期间 ReplicaSet、Pod 和 Service 的变化
 
 #### 配置 Deployment 使用 RollingUpdate 策略
@@ -744,10 +737,9 @@ spec:
 
 当你在上一节中执行滚动更新时，期望副本数是三，`maxSurge` 是零，`maxUnavailable` 是一。图 15.7 显示了 Pod 随时间更新的过程。
 
-![图 15.7 maxSurge=0、maxUnavailable=1 时的 Pod 替换过程](../images/ch15/figure-15.7.jpg)
-
+![图 15.7](../images/ch15/figure-15.7.jpg)
+图 15.7 maxSurge=0、maxUnavailable=1 时的 Pod 替换过程
 图 15.7 maxSurge 为 0、maxUnavailable 为 1 时的 Pod 替换过程
-
 因为 `maxSurge` 被设置为 0，Deployment 控制器不被允许添加超出期望副本数的 Pod。因此，与 Deployment 关联的 Pod 从未超过三个。因为 `maxUnavailable` 被设置为 1，Deployment 控制器必须保持可用副本数在两个以上，因此一次只能删除一个旧 Pod。它不能删除下一个 Pod，直到替换被删除 Pod 的新 Pod 变得可用。
 
 #### maxSurge=1, maxUnavailable=0
@@ -758,10 +750,9 @@ spec:
 
 此时，Deployment 有三个旧 Pod 和一个新 Pod。当新 Pod 可用时，流量由所有四个 Pod 处理片刻。Deployment 控制器现在可以将旧 ReplicaSet 缩减一个 Pod，因为仍然有三个 Pod 可用。然后控制器可以扩展新 ReplicaSet。重复此过程，直到新 ReplicaSet 有三个 Pod 而旧 ReplicaSet 为零。
 
-![图 15.8 maxSurge=1、maxUnavailable=0 时的 Pod 替换过程](../images/ch15/figure-15.8.jpg)
-
+![图 15.8](../images/ch15/figure-15.8.jpg)
+图 15.8 maxSurge=1、maxUnavailable=0 时的 Pod 替换过程
 图 15.8 maxSurge 为 1、maxUnavailable 为 0 时的 Pod 替换过程
-
 在整个更新过程中，期望数量的 Pod 始终可用，且总 Pod 数量从未超过期望副本数一个以上。
 
 !!! note ""
@@ -772,10 +763,9 @@ spec:
 
 如果你将 `maxSurge` 和 `maxUnavailable` 都设置为 1，Deployment 中的总副本数最多可以是四个，且必须始终有两个可用。图 15.9 显示了随时间的进展。
 
-![图 15.9 maxSurge=1、maxUnavailable=1 时的 Pod 替换过程](../images/ch15/figure-15.9.jpg)
-
+![图 15.9](../images/ch15/figure-15.9.jpg)
+图 15.9 maxSurge=1、maxUnavailable=1 时的 Pod 替换过程
 图 15.9 maxSurge 和 maxUnavailable 都为 1 时的 Pod 替换过程
-
 Deployment 控制器立即将新 ReplicaSet 扩展一个副本，将旧 ReplicaSet 缩减相同的量。一旦旧 ReplicaSet 报告它已将一个旧 Pod 标记为删除，Deployment 控制器将新 ReplicaSet 再扩展一个 Pod。
 
 每个 ReplicaSet 现在配置了两个副本。旧 ReplicaSet 中的两个 Pod 仍在运行且可用，而两个新 Pod 正在启动。当一个新 Pod 可用时，另一个旧 Pod 被删除，另一个新 Pod 被创建。此过程持续到所有旧 Pod 被替换。总的 Pod 数量从未超过四个，且在任何给定时间至少有 2 个 Pod 可用。
@@ -1012,8 +1002,7 @@ Pod Template:
 
 你可能想知道修订历史存储在哪里。你不会在 Deployment 对象中找到它。取而代之的是，Deployment 的历史由与 Deployment 关联的 ReplicaSet 表示，如图 15.10 所示。每个 ReplicaSet 表示一个修订版本。这就是 Deployment 控制器在更新过程完成后不删除旧 ReplicaSet 对象的原因。
 
-![图 15.10 Deployment 的修订历史](../images/ch15/figure-15.10.jpg)
-
+![图 15.10](../images/ch15/figure-15.10.jpg)
 图 15.10 Deployment 的修订历史
 
 !!! note ""
@@ -1080,18 +1069,16 @@ $ kubectl rollout undo deployment kiada --to-revision=1
 
 实现相同目标的另一种方法是为金丝雀 Pod 创建一个单独的 Deployment，并将期望副本数设置为远低于稳定版本 Deployment 中的数量。你配置 Service 将流量转发到两个 Deployment 中的 Pod。由于 Service 在 Pod 之间均匀分配流量，并且由于金丝雀 Deployment 的 Pod 数量远少于稳定 Deployment，因此只有少量流量发送到金丝雀 Pod，而大部分流量发送到稳定 Pod。图 15.11 说明了这种方法。
 
-![图 15.11 使用两个 Deployment 实现金丝雀部署](../images/ch15/figure-15.11.jpg)
-
+![图 15.11](../images/ch15/figure-15.11.jpg)
+图 15.11 使用两个 Deployment 实现金丝雀部署
 图 15.11 使用两个 Deployment 实现金丝雀部署策略
-
 当你准备好更新其他 Pod 时，你可以对旧 Deployment 执行常规的滚动更新，并删除金丝雀 Deployment。
 
 ### 15.3.2 A/B 策略
 
 如果你想实现 A/B 部署策略，仅根据特定条件（如位置、语言、用户代理、HTTP cookie 或标头）向特定用户发布新版本，你可以创建两个 Deployment 和两个 Service。你配置 Ingress 对象根据所选条件将流量路由到一个 Service 或另一个 Service，如图 15.12 所示。
 
-![图 15.12 使用两个 Deployment、Service 和 Ingress 实现 A/B 策略](../images/ch15/figure-15.12.jpg)
-
+![图 15.12](../images/ch15/figure-15.12.jpg)
 图 15.12 使用两个 Deployment、Service 和 Ingress 实现 A/B 策略
 
 在撰写本文时，Kubernetes 不提供实现此部署策略的原生方式，但一些 Ingress 实现提供了。请参阅你选择的 Ingress 实现的文档以获取更多信息。
@@ -1102,8 +1089,7 @@ $ kubectl rollout undo deployment kiada --to-revision=1
 
 如你所知，Kubernetes 提供了实现此策略所需的一切。不需要额外的工具。
 
-![图 15.13 使用标签和选择器实现蓝绿部署](../images/ch15/figure-15.13.jpg)
-
+![图 15.13](../images/ch15/figure-15.13.jpg)
 图 15.13 使用标签和选择器实现蓝绿部署
 
 ### 15.3.4 流量镜像
@@ -1112,13 +1098,12 @@ $ kubectl rollout undo deployment kiada --to-revision=1
 
 你配置 Pod 前面的 Ingress 或代理，将流量发送到现有 Pod，但同时也将其镜像到新 Pod。代理将来自现有 Pod 的响应发送给客户端，并丢弃来自新 Pod 的响应，如图 15.14 所示。
 
-![图 15.14 流量镜像的实现](../images/ch15/figure-15.14.jpg)
-
+![图 15.14](../images/ch15/figure-15.14.jpg)
+图 15.14 流量镜像的实现
 图 15.14 实现流量镜像
-
 与 A/B 测试一样，Kubernetes 本身不提供实现流量镜像所需的功能，但一些 Ingress 实现提供了。
 
-## 总结
+## 本章小结
 
 - Deployment 是 ReplicaSet 之上的抽象。除了 ReplicaSet 提供的所有功能外，Deployment 还允许你声明式地更新 Pod。当你修改 Pod 模板时，旧 Pod 会被使用更新后模板创建的新 Pod 替换。
 - 在更新期间，Deployment 控制器根据 Deployment 中配置的策略替换 Pod。在 Recreate 策略中，所有 Pod 一次性替换，而在 RollingUpdate 策略中，它们被逐渐替换。

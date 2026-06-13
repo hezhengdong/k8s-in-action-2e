@@ -27,20 +27,17 @@ $ kubectl apply -f SETUP -R
 
 ReplicaSet 代表一组 Pod 副本（Pod 的精确拷贝）。你无需逐个创建 Pod，而是可以创建一个 ReplicaSet 对象，在其中指定 Pod 模板和所需的副本数量，然后让 Kubernetes 创建这些 Pod，如图 14.1 所示。
 
-![图 14.1 ReplicaSet 一览](../images/ch14/figure-14.1.jpg)
-
+![图 14.1](../images/ch14/figure-14.1.jpg)
 图 14.1 ReplicaSet 一览
 
 ReplicaSet 允许你将 Pod 作为单个单元来管理，但也仅限于此。如果你希望将这些 Pod 作为一个整体对外暴露，你仍然需要一个 Service 对象。如图 14.2 所示，提供特定服务的每组 Pod 通常同时需要一个 ReplicaSet 和一个 Service 对象。
 
-![图 14.2 Service、ReplicaSet 和 Pod 之间的关系](../images/ch14/figure-14.2.jpg)
-
+![图 14.2](../images/ch14/figure-14.2.jpg)
 图 14.2 Service、ReplicaSet 和 Pod 之间的关系
 
 与 Service 一样，ReplicaSet 的标签选择器和 Pod 标签决定了哪些 Pod 属于该 ReplicaSet。如图 14.3 所示，ReplicaSet 只关心与其标签选择器匹配的 Pod，而忽略其他 Pod。
 
-![图 14.3 ReplicaSet 只关心与其标签选择器匹配的 Pod](../images/ch14/figure-14.3.jpg)
-
+![图 14.3](../images/ch14/figure-14.3.jpg)
 图 14.3 ReplicaSet 只关心与其标签选择器匹配的 Pod
 
 基于以上信息，你可能认为 ReplicaSet 仅用于创建 Pod 的多个副本，但事实并非如此。即使你只需要创建单个 Pod，通过 ReplicaSet 来创建也比直接创建更好，因为 ReplicaSet 能确保该 Pod 始终存在以完成其工作。
@@ -53,7 +50,7 @@ ReplicaSet 允许你将 Pod 作为单个单元来管理，但也仅限于此。�
 
 让我们首先为 Kiada 服务创建 ReplicaSet 对象。该服务目前运行在三个 Pod 中，这些 Pod 是你之前从三个独立的 Pod 清单直接创建的，现在你将用一个 ReplicaSet 清单来替代它们。在创建清单之前，让我们先看看需要在 spec 部分指定哪些字段。
 
-#### REPLICASET SPEC 简介
+#### ReplicaSet Spec 简介
 
 ReplicaSet 是一个相对简单的对象。表 14.1 解释了你在 ReplicaSet 的 spec 部分需要指定的三个关键字段。
 
@@ -67,7 +64,7 @@ ReplicaSet 是一个相对简单的对象。表 14.1 解释了你在 ReplicaSet 
 | selector | 标签选择器，可以在 `matchLabels` 子字段中包含一个标签映射，也可以在 `matchExpressions` 子字段中包含一个标签选择器要求列表。与标签选择器匹配的 Pod 被视为该 ReplicaSet 的一部分。 |
 | template | ReplicaSet Pod 的 Pod 模板。当需要创建新 Pod 时，将使用此模板创建该对象。 |
 
-#### 创建 REPLICASET 对象清单
+#### 创建 ReplicaSet 对象清单
 
 为 Kiada Pod 创建一个 ReplicaSet 对象清单。以下清单显示了其内容。你可以在文件 `rs.kiada.yaml` 中找到该清单。
 
@@ -207,7 +204,7 @@ $ kubectl describe rs kiada
 
 输出显示了 ReplicaSet 中使用的标签选择器、Pod 的数量及其状态，以及用于创建这些 Pod 的完整模板。
 
-#### 列出 REPLICASET 中的 POD
+#### 列出 ReplicaSet 中的 Pod
 
 kubectl 不提供直接列出 ReplicaSet 中 Pod 的方法，但你可以获取 ReplicaSet 的标签选择器，并在 `kubectl get pods` 命令中使用它，如下所示：
 
@@ -223,7 +220,7 @@ kiada-k9hn2   2/2     Running   0          8s
 
 在创建 ReplicaSet 之前，你有三个来自前几章的 Kiada Pod，现在你有五个，这与 ReplicaSet 中定义的所需副本数一致。三个已有 Pod 的标签与 ReplicaSet 的标签选择器匹配，因此被 ReplicaSet 接管。另外创建了两个 Pod，以确保集合中的 Pod 数量与所需的副本数匹配。
 
-#### 理解 REPLICASET 中 POD 的命名方式
+#### 理解 ReplicaSet 中 Pod 的命名方式
 
 正如你所见，两个新 Pod 的名称包含五个随机字母数字字符，而不是延续你在 Pod 名称中使用的数字序列。Kubernetes 通常为它创建的对象分配随机名称。
 
@@ -247,7 +244,7 @@ metadata:
 
 对于 ReplicaSet Pod 而言，给 Pod 赋予随机名称是合理的，因为这些 Pod 彼此完全相同，因此是可替代的。这些 Pod 之间也没有顺序的概念，因此使用序列号是没有意义的。即使 Pod 名称现在看起来合理，想象一下如果你删除了其中的一些会怎样。如果你无序地删除它们，编号就不再连续了。然而，对于有状态的工作负载，按顺序为 Pod 编号可能是有意义的。这就是你使用 StatefulSet 对象创建 Pod 时的情况。你将在第 16 章中了解更多关于 StatefulSet 的信息。
 
-#### 查看 REPLICASET POD 的日志
+#### 查看 ReplicaSet Pod 的日志
 
 ReplicaSet Pod 的随机名称使它们在某种程度上难以操作。例如，要查看这些 Pod 中某个容器的日志，在运行 `kubectl logs` 命令时输入 Pod 名称是相当繁琐的。如果 ReplicaSet 只包含单个 Pod，输入完整名称似乎没有必要。幸运的是，在这种情况下，你可以使用以下命令打印 Pod 的日志：
 
@@ -331,7 +328,7 @@ Kubernetes 有一个垃圾收集器，当所有者被删除时会自动删除从
 
 在 ReplicaSet 中，你将所需副本数设置为 5，这也是当前 ReplicaSet 拥有的 Pod 数量。然而，你现在可以更新 ReplicaSet 对象来更改这个数字。这可以通过更改清单文件中的值并重新应用来完成，也可以通过 `kubectl edit` 命令直接编辑对象来完成。然而，扩缩容 ReplicaSet 最简单的方法是使用 `kubectl scale` 命令。
 
-#### 使用 KUBECTL SCALE 命令扩缩容 REPLICASET
+#### 使用 kubectl scale 命令扩缩容 ReplicaSet
 
 让我们将 Kiada Pod 的数量增加到 6。为此，请执行以下命令：
 
@@ -407,8 +404,7 @@ kiada-k9hn2   2/2     Running       0          16m
 
 Kubernetes 还尝试使 Pod 在集群节点上均匀分布。图 14.4 展示了一个例子，其中 ReplicaSet 从五个副本缩容到三个副本。由于第三个节点比其他两个节点多运行了两个并置的副本，因此第三个节点上的 Pod 首先被删除。如果没有这条规则，你可能会在单个节点上得到三个副本。
 
-![图 14.4 Kubernetes 使相关 Pod 均匀分布在集群节点上](../images/ch14/figure-14.4.jpg)
-
+![图 14.4](../images/ch14/figure-14.4.jpg)
 图 14.4 Kubernetes 使相关 Pod 均匀分布在集群节点上
 
 #### 缩容至零
@@ -432,7 +428,7 @@ No resources found in kiada namespace.
 
 在下一章中，你将学习 Deployment 对象，它与 ReplicaSet 的区别在于如何处理 Pod 模板更新。这个区别就是为什么你通常使用 Deployment 而不是 ReplicaSet 来管理 Pod。因此，了解 ReplicaSet 不做什么是很重要的。
 
-#### 编辑 REPLICASET 的 POD 模板
+#### 编辑 ReplicaSet 的 Pod 模板
 
 Kiada Pod 当前具有指示应用程序名称和发布类型（是稳定版本还是其他版本）的标签。如果有一个标签指示确切的版本号，那么在同时运行不同版本时，你就可以轻松地区分它们，那就更好了。
 
@@ -467,7 +463,7 @@ Kiada Pod 当前具有指示应用程序名称和发布类型（是稳定版本�
 
     你是否注意到 Pod 模板中的标签和选择器中的标签并不完全相同？它们不必完全相同，但选择器中的标签必须是模板中标签的子集。
 
-#### 理解 REPLICASET POD 模板的使用方式
+#### 理解 ReplicaSet Pod 模板的使用方式
 
 你已更新了 Pod 模板。现在检查更改是否反映在 Pod 中。按如下方式列出 Pod 及其标签：
 
@@ -520,21 +516,19 @@ Events:
 
 如图 14.5 所示，控制器观察所有者对象和从属对象的状态。在每次状态发生变化后，控制器将从属对象的状态与所有者对象中指定的期望状态进行比较。如果这两种状态存在差异，控制器会对从属对象进行更改，以协调这两种状态。这就是你在所有控制器中都会发现的所谓的**协调控制循环**。
 
-![图 14.5 控制器的协调控制循环](../images/ch14/figure-14.5.jpg)
-
+![图 14.5](../images/ch14/figure-14.5.jpg)
 图 14.5 控制器的协调控制循环
 
 ReplicaSet 控制器的协调控制循环包括观察 ReplicaSet 和 Pod。每次 ReplicaSet 或 Pod 发生变化时，控制器会检查与 ReplicaSet 关联的 Pod 列表，并确保实际的 Pod 数量与 ReplicaSet 中指定的期望数量一致。如果实际 Pod 数量少于期望数量，它会从 Pod 模板创建新的副本。如果 Pod 数量多于期望数量，它会删除多余的副本。图 14.6 中的流程图解释了整个过程。
 
-![图 14.6 ReplicaSet 控制器的协调循环](../images/ch14/figure-14.6.jpg)
-
+![图 14.6](../images/ch14/figure-14.6.jpg)
 图 14.6 ReplicaSet 控制器的协调循环
 
 ### 14.3.2 理解 ReplicaSet 控制器如何响应 Pod 变化
 
 你已经看到控制器如何立即响应 ReplicaSet 的 `replicas` 字段的变化。然而，这并不是期望数量和实际 Pod 数量可能产生差异的唯一方式。如果没有人触碰 ReplicaSet，但实际 Pod 数量发生了变化呢？ReplicaSet 控制器的职责是确保 Pod 数量始终与指定的数量一致。因此，在这种情况下它也应该发挥作用。
 
-#### 删除由 REPLICASET 管理的 POD
+#### 删除由 ReplicaSet 管理的 Pod
 
 让我们看看如果你删除一个由 ReplicaSet 管理的 Pod 会发生什么。选择一个并使用 `kubectl delete` 删除它：
 
@@ -565,7 +559,7 @@ kiada-rfkqb   2/2     Running   0          47s
 $ kubectl delete pod -l app=kiada
 ```
 
-#### 创建匹配 REPLICASET 标签选择器的 POD
+#### 创建匹配 ReplicaSet 标签选择器的 Pod
 
 正如 ReplicaSet 控制器在发现 Pod 少于所需数量时会创建新的 Pod 一样，当它发现 Pod 过多时，也会删除 Pod。你已经在减少所需副本数量时看到过这种情况，但如果你手动创建一个匹配 ReplicaSet 标签选择器的 Pod 呢？从控制器的角度来看，其中一个 Pod 必须消失。
 
@@ -584,7 +578,7 @@ kiada-z9dp2          2/2     Running       0          11m
 
 正如预期的那样，ReplicaSet 控制器一旦检测到该 Pod 就会将其删除。当你创建与 ReplicaSet 的标签选择器匹配的 Pod 时，控制器就会介入。如你所见，Pod 的名称并不重要。只有 Pod 的标签是重要的。
 
-#### 当运行 REPLICASET POD 的节点故障时会发生什么？
+#### 当运行 ReplicaSet Pod 的节点故障时会发生什么？
 
 在前面的例子中，你看到了当有人干预 ReplicaSet 的 Pod 时，ReplicaSet 控制器如何响应。虽然这些例子有效地展示了 ReplicaSet 控制器的工作方式，但它们并没有真正展示使用 ReplicaSet 运行 Pod 的真正好处。通过 ReplicaSet 而不是直接创建 Pod 的最大原因在于，当你的集群节点发生故障时，Pod 会被自动替换。
 
@@ -657,7 +651,7 @@ $ docker network inspect kind -f '{{ (index .IPAM.Config 0).Gateway }}'
 
     如果你使用的是 GKE，必须使用 `gcloud compute instances reset <node-name>` 命令远程重置节点。
 
-#### POD 何时不会被替换？
+#### Pod 何时不会被替换？
 
 前面的章节已经证明，ReplicaSet 控制器确保始终有与 ReplicaSet 对象中指定数量相同的健康 Pod。但情况总是如此吗？是否可能进入一种状态，即 Pod 数量与期望副本数一致，但这些 Pod 无法为客户端提供服务？
 
@@ -709,8 +703,7 @@ kiada   3         3         2       2h
 
 你已经知道，ReplicaSet 控制器持续确保与 ReplicaSet 标签选择器匹配的 Pod 数量也与期望副本数一致。因此，如果你将一个 Pod 从匹配选择器的 Pod 集合中移除，控制器就会替换它。为此，你只需更改故障 Pod 的标签，如图 14.7 所示。
 
-![图 14.7 更改 Pod 的标签将其从 ReplicaSet 中移除](../images/ch14/figure-14.7.jpg)
-
+![图 14.7](../images/ch14/figure-14.7.jpg)
 图 14.7 更改 Pod 的标签将其从 ReplicaSet 中移除
 
 ReplicaSet 控制器会用一个新的 Pod 替换该 Pod，从那时起，它就不再关注故障 Pod。你可以按自己的节奏排查问题，而新 Pod 则接管流量。

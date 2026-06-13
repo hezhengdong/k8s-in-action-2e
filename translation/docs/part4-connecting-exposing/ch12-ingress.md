@@ -55,10 +55,9 @@
 
 虽然 Ingress 对象可以用于暴露单个 Service，但通常它被用于组合多个 Service 对象，如图 12.1 所示。图中展示了单个 Ingress 对象如何使 Kiada 套件中的所有三个 Service 都能被外部客户端访问。
 
-![图 12.1 Ingress 将外部流量转发到多个服务](../images/ch12/figure-12.1.jpg)
-
+![图 12.1](../images/ch12/figure-12.1.jpg)
+图 12.1 Ingress 将外部流量转发到多个服务
 图 12.1 Ingress 将外部流量转发到多个 Service。
-
 Ingress 对象包含基于 HTTP 请求中的信息将流量路由到三个 Service 的规则。这些 Service 的公共 DNS 条目都指向同一个 Ingress。Ingress 根据请求本身决定哪个 Service 应该接收该请求。如果客户端请求指定了主机 kiada.example.com，Ingress 会将其转发到属于 kiada Service 的 Pod；而指定主机 api.example.com 的请求则根据请求路径转发到 quote 或 quiz Service。
 
 #### 在集群中使用多个 Ingress 对象
@@ -79,8 +78,7 @@ Ingress 对象包含基于 HTTP 请求中的信息将流量路由到三个 Servi
 
 Ingress 控制器是让 Ingress 对象发挥作用的软件组件。如图 12.2 所示，控制器连接到 Kubernetes API 服务器并监控 Ingress、Service 以及 Endpoints 或 EndpointSlice 对象。当你创建、修改或删除这些对象时，控制器会收到通知。它利用这些对象中的信息来为 Ingress 配置和部署反向代理。
 
-![图 12.2 Ingress 控制器的角色](../images/ch12/figure-12.2.jpg)
-
+![图 12.2](../images/ch12/figure-12.2.jpg)
 图 12.2 Ingress 控制器的角色
 
 当你创建 Ingress 对象时，控制器会读取其 spec 部分，并将其与引用的 Service 和 EndpointSlice 对象中的信息相结合。控制器将这些信息转换为反向代理的配置。然后，它会使用此配置设置一个新的代理，并执行其他步骤以确保代理可从集群外部访问。如果代理运行在集群内部的 Pod 中，这通常意味着会创建一个 LoadBalancer 类型的 Service 来将代理对外暴露。
@@ -92,9 +90,7 @@ Ingress 控制器是让 Ingress 对象发挥作用的软件组件。如图 12.2 
 反向代理（或 L7 负载均衡器）是处理传入 HTTP 请求并将其转发到 Service 的组件。代理配置通常包含一个虚拟主机列表，以及每个虚拟主机对应的端点 IP 列表。这些信息来自 Ingress、Service 和 Endpoints/EndpointSlice 对象。当客户端连接到代理时，代理使用这些信息根据请求路径和头部将请求路由到某个端点（如 Pod）。
 
 图 12.3 展示了客户端如何通过代理访问 Kiada Service。客户端首先对 kiada.example.com 进行 DNS 查询。DNS 服务器返回反向代理的公共 IP 地址。然后，客户端向代理发送一个 HTTP 请求，其中 Host 头部包含值 kiada.example.com。代理将该主机映射到某个 Kiada Pod 的 IP 地址，并将 HTTP 请求转发给它。请注意，代理不会将请求发送到 Service IP，而是直接发送到 Pod。这是大多数 Ingress 实现的工作方式。
-
-![图 12.3 通过 Ingress 访问 Pod](../images/ch12/figure-12.3.jpg)
-
+![图 12.3](../images/ch12/figure-12.3.jpg)
 图 12.3 通过 Ingress 访问 Pod
 
 ### 12.1.3 安装 Ingress 控制器
@@ -200,8 +196,7 @@ spec:
 
 清单中的 Ingress 对象定义了一条规则。该规则规定，无论请求的路径如何（如 path 和 pathType 字段所示），所有针对主机 kiada.example.com 的请求都应转发到 kiada Service 的端口 80。这如图 12.4 所示。
 
-![图 12.4 kiada-example-com Ingress 对象如何配置外部流量路由](../images/ch12/figure-12.4.jpg)
-
+![图 12.4](../images/ch12/figure-12.4.jpg)
 图 12.4 kiada-example-com Ingress 对象如何配置外部流量路由
 
 ##### 通过查看 Ingress 对象获取其公网 IP 地址
@@ -320,8 +315,7 @@ Ingress 对象可以包含多条规则，因此可以将多个主机和路径映
 
 这两个 Service 的 Ingress 对象使它们通过同一个主机可用：api.example.com。HTTP 请求中的路径决定了哪个 Service 接收请求。如图 12.5 所示，所有路径为 `/quote` 的请求会转发到 quote Service，所有路径以 `/questions` 开头的请求会转发到 quiz Service。
 
-![图 12.5 基于路径的 Ingress 流量路由](../images/ch12/figure-12.5.jpg)
-
+![图 12.5](../images/ch12/figure-12.5.jpg)
 图 12.5 基于路径的 Ingress 流量路由
 
 以下清单展示了该 Ingress 清单。
@@ -470,8 +464,7 @@ spec:
 
 该 Ingress 对象使用虚拟主机将流量路由到后端 Service。如果请求中 Host 头部的值为 kiada.example.com，请求将被转发到 kiada Service。如果头部的值为 api.example.com，请求将根据请求路径路由到另外两个 Service 中的一个。该 Ingress 及关联的 Service 对象如图 12.6 所示。
 
-![图 12.6 涵盖 Kiada 套件所有服务的 Ingress 对象](../images/ch12/figure-12.6.jpg)
-
+![图 12.6](../images/ch12/figure-12.6.jpg)
 图 12.6 涵盖 Kiada 套件所有服务的 Ingress 对象
 
 你可以删除之前创建的两个 Ingress 对象，并用上述清单中的 Ingress 对象替换它们。然后，你可以尝试通过这个 Ingress 访问所有三个 Service。由于这是一个新的 Ingress 对象，它的 IP 地址很可能与之前不同。因此，你需要更新 DNS、`/etc/hosts` 文件，或者再次运行 curl 命令时更新 `--resolve` 选项。
@@ -498,9 +491,7 @@ Ingress 规则中的 `host` 字段支持使用通配符。这允许你捕获所�
 如果客户端请求不匹配 Ingress 对象中定义的任何规则，通常会返回 404 Not Found 响应。然而，你也可以定义一个默认后端 Service，当没有匹配的规则时，Ingress 会将请求转发到该 Service。默认后端充当"兜底"规则。
 
 图 12.7 显示了默认后端在 Ingress 对象其他规则中的上下文。一个名为 fun404 的 Service 被用作默认后端，让我们将其添加到 kiada Ingress 对象中。
-
-![图 12.7 默认后端处理不匹配任何 Ingress 规则的请求](../images/ch12/figure-12.7.jpg)
-
+![图 12.7](../images/ch12/figure-12.7.jpg)
 图 12.7 默认后端处理不匹配任何 Ingress 规则的请求
 
 #### 在 Ingress 对象中指定默认后端
@@ -618,8 +609,7 @@ Nginx Ingress 控制器的 SSL 穿透支持默认未启用。要启用它，必�
 
 要终止 TLS 连接，代理需要一个 TLS 证书和一个私钥。你通过一个 Secret 提供它们，并在 Ingress 对象中引用该 Secret。
 
-![图 12.8 使用 TLS 保护通往 Ingress 的连接](../images/ch12/figure-12.8.jpg)
-
+![图 12.8](../images/ch12/figure-12.8.jpg)
 图 12.8 使用 TLS 保护通往 Ingress 的连接
 
 #### 为 Ingress 创建 TLS Secret
@@ -801,8 +791,7 @@ spec:
 
 当你创建 Ingress 对象时，通过在 Ingress 对象的 `spec` 字段中指定 IngressClass 对象的名称来指定 Ingress 的类。每个 IngressClass 指定控制器的名称以及可选参数。因此，你在 Ingress 对象中引用的类决定了哪个 Ingress 代理被配置以及如何配置。如图 12.9 所示，不同的 Ingress 对象可以引用不同的 IngressClass，后者再引用不同的 Ingress 控制器。
 
-![图 12.9 Ingress、IngressClass 和 Ingress 控制器之间的关系](../images/ch12/figure-12.9.jpg)
-
+![图 12.9](../images/ch12/figure-12.9.jpg)
 图 12.9 Ingress、IngressClass 和 Ingress 控制器之间的关系
 
 ### 12.5.1 IngressClass 对象类型简介
