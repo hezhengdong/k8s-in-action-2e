@@ -101,8 +101,15 @@
   - 表格/纯文本日志 → ` ``` `（无类型标注）
 - **术语一致性**：首次遇到 K8s 术语时，确定中文译法并记录到 `translation/docs/05-glossary.md`，后续章节严格沿用。每次翻译前先查阅 `glossary.md`
 - **标注框**：书中 callout/sidebar（如 "This chapter covers"、"NOTE"、"DEFINITION"）使用 Zensical admonition 语法。语法格式见 `source/zensical-admonitions.md`。基本格式为 `!!! type "标题"` 后接四空格缩进内容。常用类型：`note`、`info`、`tip`、`warning`。不可使用 `:::` 语法（非 Zensical 支持）
-- **图表**：Marker 已自动提取图片。将图片从 `extracted/<chapter>/` 拷贝到 `translation/docs/images/<chapter>/`，重命名为 `figure-X.X.jpg`。由于 markdown 文件位于 `translation/docs/` 下，图片引用路径为 `../images/chXX/figure-X.X.jpg`（相对于当前 markdown 文件的路径）。图表标题（Figure X.X）翻译为"图 X.X 描述"
-
+- **图表处理**：Marker 会提取 PDF 中所有图片（包括终端截图等无编号图片）。处理步骤：
+  1. 对照英文原文，找出上下文中带有 "Figure X.X" 标题的图片，这些才是编号图表
+  2. 有编号标题的 → 重命名为 `figure-X.X.jpg`；无编号标题的 → 使用描述性文件名（如 `kubectl-get-pods.jpg`），不参与编号
+  3. 图片描述格式：英文原文中图片描述位于图片正下方独立一行。翻译时保留此格式，`![]()` 中只写简短标识，描述放在图片正下方：
+     ```markdown
+     ![图 3.1](../images/ch03/figure-3.1.jpg)
+     图 3.1 Docker Desktop for Windows 中的设置对话框
+     ```
+  4. 图片引用路径为 `../images/chXX/figure-X.X.jpg`（相对于当前 markdown 文件的路径）
 ## PDF 提取方案
 
 主力工具为 **[Marker](https://github.com/VikParuchuri/marker)**，经与 pymupdf、unstructured 对比测试后选定。
@@ -154,3 +161,17 @@ uv run zensical build    # 构建静态站点到 site/ 目录
 ### Marker 提取并发限制
 
 **最多同时运行 1 个 Marker 提取进程**。本机只有 16GB 内存，2 个 Marker 进程也会导致内存压力过大。提取多章节时，严格逐个执行。
+
+## 审查
+
+翻译完成后，以英文提取的 markdown 为基准，对中文译文进行结构化审查。
+
+### 图片审查
+
+1. 从英文原文和中文译文分别提取所有 `![]()` 图片引用路径
+2. 以文件大小为指纹，逐一比对确认映射关系（同一张图在两个目录下大小一致）
+3. 检查每张有编号的 `figure-X.X.jpg` 在英文原文上下文中是否确实有 "Figure X.X" 标题——无标题说明编号出错
+
+### 文本内容审查
+
+TODO：目前 Marker 提取的英文 markdown 标题噪声较大（全大写文本、Shell 输出被误提取为标题），导致中英文小节结构无法一一对应，尚未找到可靠的自动化审查手段。
