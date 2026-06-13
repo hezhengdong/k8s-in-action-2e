@@ -13,6 +13,7 @@
 你正在构建的 Kiada 套件由三个服务组成：Kiada 服务、Quiz 服务和 Quote 服务。到目前为止，这三个服务是相互隔离的，你分别与它们交互，但我们的目标是让它们相互连接，如图 11.1 所示。
 
 ![图 11.1](../images/ch11/figure-11.1.jpg)
+
 图 11.1 Kiada 套件的架构和运行方式
 
 Kiada 服务将调用另外两个服务，并将它们返回的信息整合到发送给客户端的响应中。每个服务将由多个 Pod 副本提供，因此你需要使用 Service 对象来暴露它们。
@@ -63,6 +64,7 @@ Kiada 套件是解释 Service 的绝佳示例。它包含三组 Pod，分别提�
 我在版本 0.5 中对 Kiada 应用程序做了必要的更改。你可以在本书代码仓库的 Chapter11/ 目录中找到更新后的源代码。你将在本章中使用这个新版本。你将学习如何配置 Kiada 应用程序以连接到另外两个服务，并将其对外部世界可见。由于每个服务中的 Pod 数量及其 IP 地址都可能变化，你将通过 Service 对象来暴露它们，如图 11.2 所示。
 
 ![图 11.2](../images/ch11/figure-11.2.jpg)
+
 图 11.2 使用 Service 对象暴露 Pod
 
 通过为 Kiada Pod 创建 Service 并将其配置为可从集群外部访问，你创建了一个单一、恒定的 IP 地址，外部客户端可以通过该地址连接到 Pod。每个连接被转发到一个 Kiada Pod。通过为 Quote Pod 创建 Service，你创建了一个稳定的 IP 地址，Kiada Pod 可以通过该地址访问 Quote Pod，无论任意给定时间点 Service 背后的 Pod 实例数量及其位置如何。
@@ -76,6 +78,7 @@ Kiada 套件是解释 Service 的绝佳示例。它包含三组 Pod，分别提�
 在上一章中，你学习了标签和标签选择器，以及如何使用它们将一组对象组织为子集。Service 使用相同的机制。如图 11.3 所示，你为 Pod 对象添加标签，并在 Service 对象中指定标签选择器。标签与选择器匹配的 Pod 即属于该 Service。
 
 ![图 11.3](../images/ch11/figure-11.3.jpg)
+
 图 11.3 标签选择器决定哪些 Pod 属于该服务
 
 quote Service 中定义的标签选择器是 `app=quote`，这意味着它会选择所有的 quote Pod，包括稳定版和金丝雀版实例，因为它们都包含标签键 `app` 和值 `quote`。Pod 上的其他标签不重要。
@@ -115,6 +118,7 @@ spec:
 清单定义了一个名为 quote 的 ClusterIP Service。该 Service 在端口 80 上接受连接，并将每个连接转发给匹配 `app=quote` 标签选择器的随机选择 Pod 的端口 80，如图 11.4 所示。
 
 ![图 11.4](../images/ch11/figure-11.4.jpg)
+
 图 11.4 quote 服务及其转发流量的 Pod
 
 要创建 Service，请使用 `kubectl apply` 将清单文件应用到 Kubernetes API。
@@ -428,6 +432,7 @@ HTML version of this content is available at /html
 如果你在 Web 浏览器中打开该 URL，你会看到如图 11.5 所示的网页。
 
 ![图 11.5](../images/ch11/figure-11.5.jpg)
+
 图 11.5 在浏览器中访问 Kiada 应用
 
 如果你能看到名言和测验问题，这意味着 kiada-001 Pod 能够与 quote 和 quiz Service 通信。如果你检查支撑这些 Service 的 Pod 的日志，你会看到它们正在接收请求。对于由多个 Pod 支撑的 quote Service，你会看到每个请求被发送到不同的 Pod。
@@ -437,6 +442,7 @@ HTML version of this content is available at /html
 像你在上一节中创建的 ClusterIP Service 只能在集群内部访问。由于客户端必须能够从集群外部访问 Kiada Service，如图 11.6 所示，创建 ClusterIP Service 是不够的。
 
 ![图 11.6](../images/ch11/figure-11.6.jpg)
+
 图 11.6 对外暴露服务
 
 如果你需要将 Service 对外部世界可用，你可以执行以下操作之一：
@@ -459,6 +465,7 @@ Kubernetes 也可以替你完成这项任务，而不必手动使用 NodePort Se
 使 Pod 对外部客户端可访问的一种方法是通过 NodePort Service 暴露它们。当你创建这样的 Service 时，匹配其选择器的 Pod 可通过集群中所有节点上的特定端口访问，如图 11.7 所示。因为这个端口在节点上是开放的，所以被称为节点端口 (node port)。
 
 ![图 11.7](../images/ch11/figure-11.7.jpg)
+
 图 11.7 通过 NodePort 服务暴露 Pod
 
 与 ClusterIP Service 一样，NodePort Service 可通过其内部 ClusterIP 访问，但也可通过每个集群节点上的节点端口访问。在图中所示的例子中，Pod 可通过端口 30080 访问。如你所见，此端口在两个集群节点上都开放。
@@ -497,6 +504,7 @@ spec:
 该 Service 指定了六个不同的端口号，这可能让它难以理解，但图 11.8 应该能帮助你理清。
 
 ![图 11.8](../images/ch11/figure-11.8.jpg)
+
 图 11.8 通过 NodePort 服务暴露多个端口
 
 **检查你的 NodePort Service**
@@ -579,6 +587,7 @@ Pod hostname: kiada-001; Pod IP: 10.244.1.90; Node IP: 172.18.0.2; Client IP:
 如图 11.9 所示，这个负载均衡器位于节点前面，处理来自客户端的连接。它通过将每个连接转发到其中一个节点上的节点端口来路由到该 Service。这是可能的，因为 LoadBalancer Service 类型是 NodePort 类型的扩展，使 Service 可以通过这些节点端口访问。通过将客户端指向负载均衡器而不是直接指向某个特定节点的节点端口，客户端永远不会尝试连接到不可用的节点，因为负载均衡器仅将流量转发到健康节点。此外，负载均衡器确保连接均匀分布到集群中的所有节点。
 
 ![图 11.9](../images/ch11/figure-11.9.jpg)
+
 图 11.9 暴露 LoadBalancer 服务
 
 并非所有 Kubernetes 集群都支持这种类型的 Service，但如果你的集群运行在云中，它几乎肯定支持。如果你的集群在本地部署，安装了附加组件后也会支持 LoadBalancer Service。如果集群不支持这种类型的 Service，你仍然可以创建此类型的 Service，但该 Service 只能通过其节点端口访问。
@@ -671,6 +680,7 @@ LoadBalancer Service 很容易创建。你只需将 `type` 设置为 `LoadBalanc
 考虑图 11.10 所示的情况。节点 A 上运行一个 Pod，节点 B 上运行两个 Pod。负载均衡器将一半流量路由到节点 A，另一半路由到节点 B。
 
 ![图 11.10](../images/ch11/figure-11.10.jpg)
+
 图 11.10 NodePort/LoadBalancer 的两种外部流量策略
 
 当 `externalTrafficPolicy` 设置为 `Cluster` 时，每个节点将流量转发到系统中的所有 Pod。流量在 Pod 之间均匀分配。需要额外的网络跳数，并且客户端 IP 被掩盖。
@@ -878,6 +888,7 @@ Endpoints 对象必须与 Service 具有相同的名称，并包含目标地址�
 Service 及其关联的 Endpoints 对象的创建允许 Pod 按照与集群中定义的其他 Service 相同的方式使用此 Service。如图 11.11 所示，发送到 Service 的 ClusterIP 的流量被分发到 Service 的端点。这些端点在集群外部，但也可以在集群内部。
 
 ![图 11.11](../images/ch11/figure-11.11.jpg)
+
 图 11.11 Pod 消费具有两个外部端点的服务
 
 如果你以后决定将外部服务迁移到运行在 Kubernetes 集群内部的 Pod，你可以向 Service 添加一个选择器，以将流量重定向到这些 Pod，而不是你手动配置的端点。这是因为在向 Service 添加选择器后，Kubernetes 会立即开始管理 Endpoints 对象。
@@ -975,6 +986,7 @@ Service 将一组 Pod 暴露在一个稳定的 IP 地址下。到该 IP 地址�
 对于无头 Service，集群 DNS 不仅返回一个指向 Service ClusterIP 的 A 记录，而是返回多个 A 记录，每个属于该 Service 的 Pod 对应一个。因此，客户端可以查询 DNS 来获取 Service 中所有 Pod 的 IP。有了这些信息，客户端就可以直接连接到 Pod，如图 11.12 所示。
 
 ![图 11.12](../images/ch11/figure-11.12.jpg)
+
 图 11.12 无头服务下客户端直接连接到 Pod
 
 **创建无头 Service**
@@ -1169,6 +1181,7 @@ Address: 2a09:8280:1::3:e
 如图 11.13 所示，如果 Service 配置了 `Local` 内部流量策略，来自给定节点上 Pod 的流量仅被转发到同一节点上的 Pod。如果没有节点本地的 Service 端点，连接将失败。
 
 ![图 11.13](../images/ch11/figure-11.13.jpg)
+
 图 11.13 internalTrafficPolicy=Local 时的行为
 
 设想每个集群节点上运行一个系统 Pod，该 Pod 管理与连接到该节点的设备通信。这些 Pod 不直接使用设备，而是与系统 Pod 通信。由于 Pod IP 是可替换的，而 Service IP 是稳定的，Pod 通过 Service 连接到系统 Pod。为了确保 Pod 只连接到本地系统 Pod 而不是其他节点上的，Service 被配置为仅将流量转发到本地端点。你的集群中没有这样的 Pod，但你可以使用 quote Pod 来尝试这个特性。
@@ -1223,6 +1236,7 @@ curl: (7) Failed to connect to quote-local port 80: Connection refused
 想象 Kiada 套件运行在一个集群中，节点分布在不同区域和地区的多个数据中心，如图 11.14 所示。你不希望一个区域中运行的 Kiada Pod 连接到另一个区域中的 Quote Pod，除非本地区域中没有 Quote Pod。理想情况下，你希望连接在同一区域内进行，以减少网络流量和相关成本。
 
 ![图 11.14](../images/ch11/figure-11.14.jpg)
+
 图 11.14 跨可用区路由服务流量
 
 该图说明了所谓的**拓扑感知流量路由**。Kubernetes 通过向 EndpointSlice 对象中的每个端点添加拓扑感知提示来支持它。
@@ -1278,6 +1292,7 @@ endpoints:
 如图 11.15 所示，如果一个 Pod 未通过就绪探针，即使其标签匹配 Service 中定义的标签选择器，Service 也不会将连接转发给该 Pod。
 
 ![图 11.15](../images/ch11/figure-11.15.jpg)
+
 图 11.15 未通过就绪探针的 Pod 从服务中移除
 
 就绪的概念对每个应用程序来说都是特定的。应用程序开发者决定就绪在应用程序上下文中意味着什么。为此，他们暴露一个端点，Kubernetes 通过该端点询问应用程序是否就绪。根据端点的类型，必须使用正确的就绪探针类型。
@@ -1297,6 +1312,7 @@ endpoints:
 这些设置最好用图形来解释。图 11.16 显示了各个属性如何影响就绪探针的执行以及容器的就绪状态结果。
 
 ![图 11.16](../images/ch11/figure-11.16.jpg)
+
 图 11.16 就绪探针的执行过程及容器的就绪状态
 
 !!! note "注意"

@@ -44,6 +44,7 @@ Dockerfile 中定义的环境变量、命令和参数仅是在你运行容器时
 Kubernetes 提供了两个与这两个指令类似的字段。这两个 Pod 清单字段称为 `command` 和 `args`。你在 Pod 清单的容器定义块中指定它们。与 Docker 一样，这两个字段接受数组值，容器中执行的结果命令是通过拼接这两个数组得到的，如图 8.1 所示。
 
 ![图 8.1](../images/ch08/figure-8.1.jpg)
+
 图 8.1 在 Pod 清单中覆盖命令和参数
 
 编写 Dockerfile 时，你通常使用 ENTRYPOINT 指令指定裸命令，使用 CMD 指令指定参数。这使你可以在不指定命令本身的情况下，使用不同的参数运行容器。但如果需要，你仍然可以覆盖命令。而且你可以在不覆盖参数的情况下做到这一点，因此命令和参数分别放在两个不同的 Dockerfile 指令和 Pod 清单字段中是很棒的设计。
@@ -110,6 +111,7 @@ spec:
 容器化应用通常使用环境变量进行配置。与命令和参数一样，你可以为 Pod 中的每个容器设置环境变量，如图 8.2 所示。
 
 ![图 8.2](../images/ch08/figure-8.2.jpg)
+
 图 8.2 环境变量按容器设置
 
 !!! note ""
@@ -267,9 +269,11 @@ ConfigMap 是一个 Kubernetes API 对象，它仅包含一组键值对。值的
 无论应用如何消费 ConfigMap，将配置存储在单独的对象（而不是 Pod）中，可以让你通过维护不同的 ConfigMap 清单并将其应用到各自的目标环境，来为不同环境保持不同的配置。由于 Pod 按名称引用 ConfigMap，你可以在所有环境中部署相同的 Pod 清单，并通过使用相同的 ConfigMap 名称在不同环境中仍然拥有不同的配置，如图 8.4 所示。
 
 ![图 8.3](../images/ch08/figure-8.3.jpg)
+
 图 8.3 Pod 通过环境变量和 ConfigMap 卷使用 ConfigMap
 
 ![图 8.4](../images/ch08/figure-8.4.jpg)
+
 图 8.4 在不同环境中部署相同的 Pod 清单和不同的 ConfigMap 清单
 
 ### 8.2.2 创建 ConfigMap 对象
@@ -816,6 +820,7 @@ Secret 与其他所有资源一起存储在 etcd 中，即 Kubernetes API 服务
 Downward API 并不是你的应用需要调用以获取数据的 REST 端点。它只是一种将 Pod 清单的 `metadata`、`spec` 或 `status` 字段中的值**向下**注入到容器中的方式。名字由此而来。图 8.5 展示了 Downward API 的示意图。
 
 ![图 8.5](../images/ch08/figure-8.5.jpg)
+
 图 8.5 Downward API 通过环境变量或文件暴露 Pod 元数据
 
 如你所见，这与从 ConfigMap 和 Secret 设置环境变量或投射文件没有什么不同，只是这些值来自 Pod 对象本身。

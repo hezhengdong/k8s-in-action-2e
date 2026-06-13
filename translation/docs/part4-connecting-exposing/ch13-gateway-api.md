@@ -33,6 +33,7 @@ Gateway API 由一组 Kubernetes 资源组成，允许你设置网关代理并�
 既然你在上一章学习了 Ingress，介绍 Gateway API 的最佳方式就是将其与之对比。图 13.1 展示了每种 API 中包含的 Kubernetes 对象类型以及它们之间的关系。
 
 ![图 13.1](../images/ch13/figure-13.1.jpg)
+
 图 13.1 Ingress 与 Gateway API 资源的对比
 
 要使用 Ingress API 对外暴露一组服务，你需要创建一个 Ingress 对象。类似地，在 Gateway API 中，你需要创建一个 Gateway 对象。每个 Gateway 都属于某个特定的 GatewayClass，就像每个 Ingress 对象都属于某个特定的 IngressClass 一样。集群可以提供其中一个或多个类别，因此你可以为每个创建的网关选择提供者。
@@ -48,6 +49,7 @@ Gateway API 由一组 Kubernetes 资源组成，允许你设置网关代理并�
 路由的最后一个优势是，Gateway 对象可以跨命名空间共享，如图 13.2 所示。一个命名空间中的 Route 可以引用另一个命名空间中的 Gateway，也可以引用另一个命名空间中的 Service。这个特性使 Gateway API 比 Ingress 强大得多，因为你可以使用单个 Gateway 和单个公网 IP 地址来暴露多个命名空间中的服务。
 
 ![图 13.2](../images/ch13/figure-13.2.jpg)
+
 图 13.2 跨命名空间使用 Gateway 和 HTTPRoute
 
 ### 13.1.2 理解 Gateway API 的实现
@@ -449,8 +451,10 @@ spec:
 如前面的清单以及图 13.3 所示，HTTPRoute（与所有其他路由类型一样）将一个或多个 Gateway 连接到一个或多个 Service，分别通过在 `parentRefs` 和 `backendRefs` 字段中引用它们。示例中的 `kiada` HTTPRoute 将 `kiada` Gateway 连接到 `kiada` Service。由 `kiada` Gateway 接收到的所有匹配主机名 `kiada.example.com` 的 HTTP 流量都将被转发到 `kiada` 后端服务。
 
 ![图 13.3](../images/ch13/figure-13.3.jpg)
+
 图 13.3 HTTPRoute 将一个或多个 Gateway 连接到一个或多个 Service
 图 13.3 HTTPRoute 将一个或多个 Gateway 连接到一个或多个 Service。
+
 #### 创建并测试 HTTPRoute
 
 通过应用清单文件创建 HTTPRoute，如下所示：

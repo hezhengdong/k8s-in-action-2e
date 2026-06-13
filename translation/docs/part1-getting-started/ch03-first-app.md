@@ -58,7 +58,9 @@
     集群初次安装可能需要几分钟，因为所有 Kubernetes 组件的容器镜像都必须下载。
 
 ![图 3.1](../images/ch03/figure-3.1.jpg)
+
 图 3.1 Docker Desktop for Windows 中的设置对话框
+
 #### 系统可视化
 
 你已了解到 Kubernetes 包含多个组件。图 3.2 展示了这些组件在 Docker Desktop 提供的集群中的运行位置。
@@ -68,7 +70,9 @@ Docker Desktop 创建了一个 Linux 虚拟机，承载 Docker 守护进程和�
 要列出运行中的容器，你不需要登录到 VM——宿主机 OS 中的 docker CLI 工具即可显示它们。
 
 ![图 3.2](../images/ch03/figure-3.2.jpg)
+
 图 3.2 Docker Desktop 中运行的 Kubernetes
+
 ##### 从内部探索虚拟机
 
 撰写本文时，Docker Desktop 没有提供登录 VM 进行内部探索的命令。不过，你可以运行一个特殊容器，配置为使用 VM 的命名空间来运行远程 shell，等效于通过 SSH 访问远程服务器：
@@ -153,7 +157,9 @@ kubeconfig: Configured
 系统架构如图 3.3 所示，与 Docker Desktop 几乎相同。控制平面组件运行在 VM 中的容器内（若使用 `--vm-driver none` 则直接运行在宿主机 OS 中）。Kubelet 直接运行在 VM 或宿主机 OS 中，通过 Docker 守护进程运行你部署的应用。
 
 ![图 3.3](../images/ch03/figure-3.3.jpg)
+
 图 3.3 使用 Minikube 运行单节点 Kubernetes 集群
+
 运行 `minikube ssh` 登录到 VM 内部探索。用 `ps aux` 列出进程，或用 `docker ps` 列出运行中的容器。
 
 !!! tip ""
@@ -165,7 +171,9 @@ kubeconfig: Configured
 Minikube 的一个替代方案是 *kind*（Kubernetes in Docker）。kind 不是将 Kubernetes 运行在 VM 中或直接在宿主机上，而是将每个集群节点运行在一个容器内。与 Minikube 不同，这个特性使其可以创建多节点集群——只需启动多个容器即可。你部署到 Kubernetes 的实际应用容器随后运行在这些节点容器内。系统如图 3.4 所示。
 
 ![图 3.4](../images/ch03/figure-3.4.jpg)
+
 图 3.4 使用 kind 运行多节点 Kubernetes 集群
+
 上一章我提到，运行在容器中的进程实际上运行在宿主机 OS 中。这意味着使用 kind 时，所有 Kubernetes 组件都运行在你的宿主机 OS 中。你部署到 Kubernetes 集群的应用也是如此。
 
 这使得 kind 成为开发与测试的绝佳工具——一切都在本地运行，你可以像调试普通进程一样调试容器中的应用。我偏好使用 kind 进行 Kubernetes 开发，因为可以用 nsenter 等工具在容器的网络命名空间内运行 Wireshark 甚至浏览器来做各种调试。
@@ -318,7 +326,9 @@ NAME          ZONE        MACHINE_TYPE   INTERNAL_IP   EXTERNAL_IP     STATUS
 系统如图 3.5 所示。注意只有工作节点运行在 GCE 虚拟机中——控制平面运行在别处，你无法访问承载它的机器。
 
 ![图 3.5](../images/ch03/figure-3.5.jpg)
+
 图 3.5 Google Kubernetes Engine 中的集群
+
 #### 调整节点数量
 
 你可以轻松调整节点数。对于本书大多数练习，将其缩减到 1 个节点可以省钱。甚至可以缩减到 0：
@@ -370,7 +380,9 @@ $ eksctl create cluster --name kiada --region eu-central-1 --nodes 3 --ssh-acces
 如图 3.6 所示，该工具与 Kubernetes API 服务器通信——API 服务器是 Kubernetes 控制平面的一部分。控制平面随后触发其他组件，根据你通过 API 所做的变更执行相应操作。
 
 ![图 3.6](../images/ch03/figure-3.6.jpg)
+
 图 3.6 与 Kubernetes 集群交互
+
 ### 3.2.1 设置 kubectl
 
 kubectl 是一个单可执行文件，需要下载到计算机并放入 PATH 中。它从名为 *kubeconfig* 的配置文件加载配置。使用 kubectl 之前必须安装它并准备好 kubeconfig 文件，以便 kubectl 知道与哪个集群通信。
@@ -506,8 +518,11 @@ $ kubectl describe node gke-kiada-85f6-node-0rrx
 尽管如此，仪表板以直观的上下文方式展示不同资源，是了解 Kubernetes 主要资源类型及其关系的好起点。仪表板还提供了修改已部署对象的功能，并为每个操作显示等效的 kubectl 命令——这个功能大多数初学者都会喜欢。
 
 图 3.7 展示了仪表板中运行着两个工作负载的截图。虽然本书不使用仪表板，但在通过 kubectl 创建对象后，你随时可以打开它快速查看集群中已部署对象的图形化视图。
+
 ![图 3.7](../images/ch03/figure-3.7.jpg)
+
 图 3.7 Kubernetes Web 仪表板截图
+
 #### 在 Docker Desktop 中访问仪表板
 
 遗憾的是，Docker Desktop 默认不安装 Kubernetes 仪表板，访问也并非易事。你需要先安装它：
@@ -618,7 +633,9 @@ error: the server doesn't have a resource type "containers"
 上一章中我展示了两个进程使用相同命名空间的例子。通过共享网络命名空间，两个进程使用相同的网络接口、IP 地址和端口空间。通过共享 UTS 命名空间，两者看到相同的系统主机名。这正是同一 pod 中容器的运行方式——它们共享网络和 UTS 命名空间，以及其他根据 pod spec 指定的命名空间（图 3.8）。
 
 ![图 3.8](../images/ch03/figure-3.8.jpg)
+
 图 3.8 容器、Pod 和工作节点之间的关系
+
 如图所示，每个 pod 可视为一个独立的逻辑计算机，包含一个应用。该应用可以由单个进程（运行在一个容器中）组成，也可以由一个主应用进程和额外的支持进程（各自运行在独立容器中）组成。Pod 分布在集群的所有工作节点上。
 
 每个 pod 有自己独立的 IP、主机名、进程、网络接口和其他资源。属于同一 pod 的容器认为它们是该计算机上运行的唯一进程——它们看不到任何其他 pod 的进程，即使位于同一节点。
@@ -648,8 +665,11 @@ pod 处于 Pending 状态的原因是分配到的节点必须先下载容器镜�
 #### 理解幕后发生的事
 
 图 3.9 可视化了你创建 Deployment 时发生的事情。
+
 ![图 3.9](../images/ch03/figure-3.9.jpg)
+
 图 3.9 创建 Deployment 对象如何产生运行中的应用容器
+
 当你运行 `kubectl create` 命令时，它通过向 Kubernetes API 服务器发送 HTTP 请求在集群中创建了一个新的 Deployment 对象。Kubernetes 随后创建了新的 Pod 对象，该 pod 被分配或*调度*到某个工作节点。工作节点上的 Kubernetes 代理（Kubelet）感知到新创建的 Pod 对象，看到它被调度到自己的节点，随即指示 Docker 从仓库拉取指定镜像、创建容器并执行。
 
 !!! info "定义：调度（Scheduling）"
@@ -707,7 +727,9 @@ kiada        LoadBalancer   10.19.243.17    <pending>     8080:30838/TCP   4s
 Kubernetes 虽然允许你创建 LoadBalancer 类型的 Service，但它本身并不提供负载均衡器。如果集群部署在云端，Kubernetes 可请求云基础设施提供负载均衡器并配置其将流量转发到集群。基础设施告诉 Kubernetes 负载均衡器的 IP 地址，该地址成为 Service 的外部地址。图 3.10 展示了创建 Service 对象、配置负载均衡器以及将连接转发到集群的过程。
 
 ![图 3.10](../images/ch03/figure-3.10.jpg)
+
 图 3.10 创建 LoadBalancer 类型 Service 对象后发生的事情
+
 负载均衡器的配置需要一些时间。稍等几秒再查看 IP 是否已分配。这次只查看 kiada Service：
 
 ```bash
@@ -744,7 +766,9 @@ Kiada version 0.1. Request processed by "kiada-9d785b578-p449x". Client IP: ...
 创建 LoadBalancer 类型 Service 的同时，也会被分配一个所谓的**节点端口**（node port）——即集群节点上用于将流量转发到 Service 的网络端口。图 3.11 展示了外部客户端如何通过节点端口访问应用。
 
 ![图 3.11](../images/ch03/figure-3.11.jpg)
+
 图 3.11 通过 Service 的节点端口转发连接
+
 要访问应用，你需要两条信息：节点端口号和某个集群节点的 IP。
 
 创建 Service 时，Kubernetes 会自动分配一个未使用的节点端口。运行 `kubectl get services` 在 PORT(S) 列可以看到端口号：
@@ -871,7 +895,9 @@ Kiada version 0.1. Request processed by "kiada-9d785b578-p449x". Client IP: ...
 仔细查看响应，你会发现它们对应 pod 名称，每次请求随机到达不同 pod。这就是 Kubernetes Service 在有多个 pod 实例支撑时的作用——充当 pod 前面的负载均衡器。图 3.12 展示了这个系统。
 
 ![图 3.12](../images/ch03/figure-3.12.jpg)
+
 图 3.12 将负载均衡到支撑同一 Service 的多个 pod 上
+
 如图所示，不要将 Kubernetes Service 本身提供的负载均衡机制与基础设施在 GKE 或其他云端集群中提供的额外负载均衡器混淆。即使你使用 Minikube 且没有外部负载均衡器，请求仍然由 Service 本身分发到三个 pod。如果你使用 GKE，实际上有*两个*负载均衡器在起作用：基础设施的负载均衡器将请求分发到各个节点，Service 再将请求分发到各个 pod。
 
 我知道现在听起来可能很混乱，但在第 11 章中一切都会清晰的。
@@ -887,7 +913,9 @@ Kiada version 0.1. Request processed by "kiada-9d785b578-p449x". Client IP: ...
 逻辑视图由你在 Kubernetes API 中创建的对象组成——直接或间接创建的。图 3.13 展示了这些对象之间的关系。
 
 ![图 3.13](../images/ch03/figure-3.13.jpg)
+
 图 3.13 已部署应用由 Deployment、多个 Pod 和一个 Service 组成
+
 这些对象是：
 
 - 你创建的 Deployment 对象

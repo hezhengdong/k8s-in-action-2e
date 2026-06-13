@@ -66,6 +66,7 @@ $ kubectl logs quiz-6f4968457-cdw97 -c mongo
 该错误消息表明你不能在多个 MongoDB 实例中使用同一数据目录。三个 quiz Pod 使用同一目录是因为它们都使用相同的 PersistentVolumeClaim，进而使用相同的 PersistentVolume，如图 16.1 所示。
 
 ![图 16.1](../images/ch16/figure-16.1.jpg)
+
 图 16.1 Deployment 的所有 Pod 使用相同的 PersistentVolumeClaim 和 PersistentVolume
 
 由于此方法不可行，另一种方案是为每个 Pod 副本使用单独的 PersistentVolume。让我们看看这意味着什么，以及是否可以用单个 Deployment 对象来实现。
@@ -81,6 +82,7 @@ $ kubectl logs quiz-6f4968457-cdw97 -c mongo
 你无法通过单个 Deployment 和 Service 来实现这一点，但可以通过为每个副本创建单独的 Deployment、Service 和 PersistentVolumeClaim 来实现，如图 16.2 所示。
 
 ![图 16.2](../images/ch16/figure-16.2.jpg)
+
 图 16.2 为每个副本提供自己的卷和地址
 
 每个 Pod 拥有自己的 Deployment，因此 Pod 可以使用自己的 PersistentVolumeClaim 和 PersistentVolume。每个副本关联的 Service 为其提供稳定的地址，该地址始终解析为 Pod 的 IP 地址，即使 Pod 被删除并在其他地方重新创建也是如此。这是必要的，因为 MongoDB 与许多其他分布式系统一样，必须在初始化副本集时指定每个副本的地址。除了这些针对每个副本的 Service 之外，你可能还需要另一个 Service 来使所有 Pod 在单一地址上对客户端可访问。因此，整个系统看起来令人望而生畏。
@@ -106,6 +108,7 @@ StatefulSet 类似于 Deployment，但专门针对有状态工作负载进行了
 我们曾经像对待宠物一样对待我们的硬件基础设施和工作负载。我们给每台服务器起名字，并单独照顾每个工作负载实例。然而，事实证明，如果像对待牲畜一样对待硬件和软件，将它们视为无法区分的实体，管理起来会容易得多。这使得替换每个单元变得容易，无需担心替换品是否与原来的完全一样——就像农场主对待牲畜一样（图 16.3）。
 
 ![图 16.3](../images/ch16/figure-16.3.jpg)
+
 图 16.3 像对待宠物一样对待实体 vs. 像对待牲畜一样
 
 通过 Deployment 部署的无状态工作负载就像牲畜。如果一个 Pod 被替换，你甚至可能不会注意到。然而，有状态工作负载就像宠物。如果宠物走丢了，你不能随便找一只新的来代替。即使你给替代的宠物起同样的名字，它的行为也不会和原来完全一样。但在硬件/软件领域，如果你能给替代品赋予与被替代实例相同的网络标识和状态，这是可能的。而这正是你通过 StatefulSet 部署应用时所发生的情况。
@@ -117,6 +120,7 @@ StatefulSet 类似于 Deployment，但专门针对有状态工作负载进行了
 StatefulSet 创建的 Pod 并非彼此的精确副本（这与 Deployment 的情况不同），因为每个 Pod 指向不同的 PersistentVolumeClaim 集合。此外，Pod 的名称不是随机的。相反，每个 Pod 被赋予唯一的序号（ordinal number），每个 PersistentVolumeClaim 也是如此。当 StatefulSet Pod 被删除并重新创建时，它会获得与被替换 Pod 相同的名称。此外，具有特定序号的 Pod 始终与相同序号的 PersistentVolumeClaim 关联。这意味着与特定副本关联的状态始终保持不变，无论 Pod 被重新创建多少次（图 16.4）。
 
 ![图 16.4](../images/ch16/figure-16.4.jpg)
+
 图 16.4 StatefulSet、其 Pod 和 PersistentVolumeClaim
 
 Deployment 和 StatefulSet 之间的另一个显著区别是，默认情况下，StatefulSet 的 Pod 不会并发创建。相反，它们一次创建一个，类似于 Deployment 的滚动更新。当你创建 StatefulSet 时，最初只创建第一个 Pod。然后 StatefulSet 控制器等待该 Pod 就绪之后，再创建下一个。
@@ -134,6 +138,7 @@ StatefulSet 可以像 Deployment 一样扩缩容。当扩容 StatefulSet 时，�
 如图 16.5 所示，当与 StatefulSet 配合使用无头 Service 时，会为每个 Pod 创建额外的 DNS 记录，以便可以通过 Pod 名称解析每个 Pod 的 IP 地址。这就是有状态 Pod 保持其稳定网络标识的方式。如果无头 Service 未与 StatefulSet 关联，这些 DNS 记录不会存在。
 
 ![图 16.5](../images/ch16/figure-16.5.jpg)
+
 图 16.5 与 StatefulSet 配合使用的无头 Service
 
 你已经有了一个在前几章中创建的名为 quiz 的 Service。你可以将其改为无头 Service，但我们还是创建一个额外的 Service，因为新 Service 将暴露所有 quiz Pod，无论它们是否就绪。
@@ -785,6 +790,7 @@ quiz Service 没有 endpoints。quiz-pods Service 仍然有 quiz-0 作为 endpoi
 由于缩容 StatefulSet 时 PersistentVolumeClaim 被保留，它们可以在重新扩容时重新挂载，如图 16.6 所示。每个 Pod 根据其序号与之前的相同 PersistentVolumeClaim 关联。
 
 ![图 16.6](../images/ch16/figure-16.6.jpg)
+
 图 16.6 StatefulSet 缩容时不删除 PersistentVolumeClaim，扩容时重新挂载
 
 按以下方式将 quiz StatefulSet 重新扩容到三个副本：
@@ -886,6 +892,7 @@ statefulset.apps "quiz" deleted
 当 StatefulSet 首次引入时，Pod 管理策略不可配置，控制器始终按顺序部署 Pod。为了保持向后兼容性，在引入此字段时，这种工作方式必须保持不变。因此，默认的 podManagementPolicy 是 OrderedReady，但你可以通过将策略更改为 Parallel 来放宽 StatefulSet 的顺序保证。图 16.7 显示了每种策略下 Pod 随时间创建和删除的方式。
 
 ![图 16.7](../images/ch16/figure-16.7.jpg)
+
 图 16.7 OrderedReady 与 Parallel Pod 管理策略对比
 
 表 16.1 更详细地解释了两种策略之间的差异。
@@ -1056,7 +1063,9 @@ OrderedReady Pod 管理策略影响 StatefulSet Pod 的初始部署、扩缩容�
 | OnDelete | StatefulSet 控制器等待每个 Pod 被手动删除。当你删除 Pod 时，控制器用使用新模板创建的 Pod 替换它。使用此策略，你可以按任何顺序和任何速度替换 Pod。 |
 
 图 16.8 显示了每种更新策略下 Pod 随时间更新的方式。RollingUpdate 策略在 Deployment 和 StatefulSet 中都存在，
+
 ![图 16.8](../images/ch16/figure-16.8.jpg)
+
 图 16.8 不同更新策略下 Pod 随时间更新
 
 在两种对象之间相似，但可设置的参数不同。OnDelete 策略让你可以按自己的节奏和任意顺序替换 Pod。它与 Deployment 中的 Recreate 策略不同，后者一次性自动删除并替换所有 Pod。
@@ -1153,6 +1162,7 @@ error: statefulsets.apps "quiz" pausing is not supported
 在 StatefulSet 中，你可以通过 RollingUpdate 策略的 partition 参数实现相同的效果，甚至更多。此字段的值指定 StatefulSet 应在哪个序号处分区。如图 16.9 所示，序号低于分区值的 Pod 不会被更新。
 
 ![图 16.9](../images/ch16/figure-16.9.jpg)
+
 图 16.9 分区滚动更新
 
 如果你适当设置分区值，可以实现金丝雀部署、手动控制滚动更新或在触发前暂存更新。
@@ -1299,6 +1309,7 @@ quiz-2    2/2     Running   0          12m    quiz-6c48bdd8df            0.1
 每个 Operator 通过其自己的一组自定义对象类型扩展 Kubernetes API，你使用这些对象类型来部署和配置应用。你使用 Kubernetes API 创建此自定义对象类型的实例，并让 Operator 创建 Deployment 或 StatefulSet 来创建运行应用的 Pod，如图 16.10 所示。
 
 ![图 16.10](../images/ch16/figure-16.10.jpg)
+
 图 16.10 通过自定义资源和 Operator 管理应用
 
 在本节中，你将学习如何使用 MongoDB Community Operator 来部署 MongoDB。由于我不知道本书出版后 Operator 会如何变化，我不会讲得太详细，但我会列出在撰写本书时安装 Operator 和部署 MongoDB 所需的所有步骤，以便你能即使不亲自尝试也能了解所需内容。

@@ -28,16 +28,19 @@ $ kubectl apply -f SETUP -R
 ReplicaSet 代表一组 Pod 副本（Pod 的精确拷贝）。你无需逐个创建 Pod，而是可以创建一个 ReplicaSet 对象，在其中指定 Pod 模板和所需的副本数量，然后让 Kubernetes 创建这些 Pod，如图 14.1 所示。
 
 ![图 14.1](../images/ch14/figure-14.1.jpg)
+
 图 14.1 ReplicaSet 一览
 
 ReplicaSet 允许你将 Pod 作为单个单元来管理，但也仅限于此。如果你希望将这些 Pod 作为一个整体对外暴露，你仍然需要一个 Service 对象。如图 14.2 所示，提供特定服务的每组 Pod 通常同时需要一个 ReplicaSet 和一个 Service 对象。
 
 ![图 14.2](../images/ch14/figure-14.2.jpg)
+
 图 14.2 Service、ReplicaSet 和 Pod 之间的关系
 
 与 Service 一样，ReplicaSet 的标签选择器和 Pod 标签决定了哪些 Pod 属于该 ReplicaSet。如图 14.3 所示，ReplicaSet 只关心与其标签选择器匹配的 Pod，而忽略其他 Pod。
 
 ![图 14.3](../images/ch14/figure-14.3.jpg)
+
 图 14.3 ReplicaSet 只关心与其标签选择器匹配的 Pod
 
 基于以上信息，你可能认为 ReplicaSet 仅用于创建 Pod 的多个副本，但事实并非如此。即使你只需要创建单个 Pod，通过 ReplicaSet 来创建也比直接创建更好，因为 ReplicaSet 能确保该 Pod 始终存在以完成其工作。
@@ -405,6 +408,7 @@ kiada-k9hn2   2/2     Running       0          16m
 Kubernetes 还尝试使 Pod 在集群节点上均匀分布。图 14.4 展示了一个例子，其中 ReplicaSet 从五个副本缩容到三个副本。由于第三个节点比其他两个节点多运行了两个并置的副本，因此第三个节点上的 Pod 首先被删除。如果没有这条规则，你可能会在单个节点上得到三个副本。
 
 ![图 14.4](../images/ch14/figure-14.4.jpg)
+
 图 14.4 Kubernetes 使相关 Pod 均匀分布在集群节点上
 
 #### 缩容至零
@@ -517,11 +521,13 @@ Events:
 如图 14.5 所示，控制器观察所有者对象和从属对象的状态。在每次状态发生变化后，控制器将从属对象的状态与所有者对象中指定的期望状态进行比较。如果这两种状态存在差异，控制器会对从属对象进行更改，以协调这两种状态。这就是你在所有控制器中都会发现的所谓的**协调控制循环**。
 
 ![图 14.5](../images/ch14/figure-14.5.jpg)
+
 图 14.5 控制器的协调控制循环
 
 ReplicaSet 控制器的协调控制循环包括观察 ReplicaSet 和 Pod。每次 ReplicaSet 或 Pod 发生变化时，控制器会检查与 ReplicaSet 关联的 Pod 列表，并确保实际的 Pod 数量与 ReplicaSet 中指定的期望数量一致。如果实际 Pod 数量少于期望数量，它会从 Pod 模板创建新的副本。如果 Pod 数量多于期望数量，它会删除多余的副本。图 14.6 中的流程图解释了整个过程。
 
 ![图 14.6](../images/ch14/figure-14.6.jpg)
+
 图 14.6 ReplicaSet 控制器的协调循环
 
 ### 14.3.2 理解 ReplicaSet 控制器如何响应 Pod 变化
@@ -704,6 +710,7 @@ kiada   3         3         2       2h
 你已经知道，ReplicaSet 控制器持续确保与 ReplicaSet 标签选择器匹配的 Pod 数量也与期望副本数一致。因此，如果你将一个 Pod 从匹配选择器的 Pod 集合中移除，控制器就会替换它。为此，你只需更改故障 Pod 的标签，如图 14.7 所示。
 
 ![图 14.7](../images/ch14/figure-14.7.jpg)
+
 图 14.7 更改 Pod 的标签将其从 ReplicaSet 中移除
 
 ReplicaSet 控制器会用一个新的 Pod 替换该 Pod，从那时起，它就不再关注故障 Pod。你可以按自己的节奏排查问题，而新 Pod 则接管流量。

@@ -31,6 +31,7 @@ DaemonSet 是一个 API 对象，它确保每个集群节点上恰好运行一�
 DaemonSet 包含一个 Pod 模板，并使用它来创建多个 Pod 副本，就像 Deployment、ReplicaSet 和 StatefulSet 一样。然而，与 DaemonSet 不同的是，你不需要像其他对象那样指定所需的副本数量。相反，DaemonSet 控制器会根据集群中的节点数量创建相应数量的 Pod。它确保每个 Pod 被调度到不同的节点，而不像 ReplicaSet 部署的 Pod 那样可以将多个 Pod 调度到同一个节点，如图 17.1 所示。
 
 ![图 17.1](../images/ch17/figure-17.1.jpg)
+
 图 17.1 DaemonSet 在每个节点运行一个 Pod，而 ReplicaSet 将其散布在集群中
 
 #### 哪些类型的工作负载通过 DaemonSet 部署及其原因
@@ -46,6 +47,7 @@ Kube Proxy 组件负责为你集群中创建的 Service 对象路由流量，通
 与 ReplicaSet 和 StatefulSet 一样，DaemonSet 包含一个 Pod 模板和一个标签选择器，用于确定哪些 Pod 属于该 DaemonSet。在其协调循环的每一轮中，DaemonSet 控制器查找与标签选择器匹配的 Pod，检查每个节点是否恰好有一个匹配的 Pod，并创建或删除 Pod 以确保满足这一条件。如图 17.2 所示。
 
 ![图 17.2](../images/ch17/figure-17.2.jpg)
+
 图 17.2 DaemonSet 控制器的协调循环
 
 当你向集群中添加节点时，DaemonSet 控制器会创建一个新的 Pod 并将其与该节点关联。当你移除节点时，DaemonSet 会删除与之关联的 Pod 对象。如果其中一个守护 Pod 消失（例如被手动删除），控制器会立即重新创建它。如果出现额外的 Pod（例如你创建了一个与 DaemonSet 中标签选择器匹配的 Pod），控制器会立即将其删除。
@@ -301,6 +303,7 @@ DaemonSet 中的每个 Pod 都会获得你在 Pod 模板中定义的标签，以
 DaemonSet 将 Pod 部署到所有没有 Pod 不兼容污点的集群节点上，但你可能希望某个特定的工作负载只在部分节点上运行。例如，如果只有部分节点具有特殊硬件，你可能希望只在那些节点上运行相关软件，而不是在所有节点上。使用 DaemonSet，你可以通过在 Pod 模板中指定节点选择器来实现这一点。请注意节点选择器和 Pod 选择器之间的区别。DaemonSet 控制器使用前者来过滤符合条件的节点，而使用后者来知道哪些 Pod 属于该 DaemonSet。如图 17.3 所示，DaemonSet 仅在节点标签与节点选择器匹配时才为该节点创建 Pod。
 
 ![图 17.3](../images/ch17/figure-17.3.jpg)
+
 图 17.3 使用节点选择器在部分节点上部署 DaemonSet Pod
 
 图中显示了一个 DaemonSet，它仅在包含 CUDA 加速 GPU 且标记有 `gpu: cuda` 标签的节点上部署 Pod。DaemonSet 控制器仅在节点 B 和 C 上部署 Pod，而忽略节点 A，因为它的标签与 DaemonSet 中指定的节点选择器不匹配。
@@ -813,8 +816,10 @@ kube-proxy Pod 的优先级类确保 kube-proxy Pod 比其他 Pod 具有更高�
 如何确保 Pod 始终连接到运行在同一节点上的守护 Pod，如图 17.4 所示？在本节中，你将学习几种实现这一点的方法。
 
 ![图 17.4](../images/ch17/figure-17.4.jpg)
+
 图 17.4 如何让客户端 Pod 只与本地运行的守护 Pod 通信
 图 17.4 如何让客户端 Pod 只与本地运行的守护 Pod 通信？
+
 在以下示例中，你将使用一个用 Go 编写的演示节点代理，它允许客户端通过 HTTP 检索系统信息，例如运行时间和平均节点利用率。这允许像 Kiada 这样的 Pod 从代理检索信息，而不是直接从节点检索。
 
 节点代理的源代码可以在 `Chapter17/node-agent-0.1/` 目录中找到。你可以自己构建容器镜像，也可以使用预构建的镜像 `luksa/node-agent:0.1`。
@@ -854,6 +859,7 @@ spec:
 清单定义了一个 DaemonSet，它部署监听在 Pod 网络接口端口 80 上的节点代理 Pod。但是，在端口列表中，容器的端口 80 也可以通过主机节点的端口 11559 访问。容器中的进程仅绑定到端口 80，但 Kubernetes 确保主机节点在端口 11559 上接收的流量被转发到节点代理容器内的端口 80，如图 17.5 所示。
 
 ![图 17.5](../images/ch17/figure-17.5.jpg)
+
 图 17.5 通过主机端口暴露守护 Pod
 
 如图所示，每个节点将来自主机端口的流量仅转发到本地代理 Pod。这与第 11 章中解释的 NodePort Service 不同，在 NodePort Service 中，客户端到节点端口的连接会被转发到集群中一个随机的 Pod，可能运行在其他节点上。这也意味着如果某个节点上没有部署代理 Pod，尝试连接到主机端口将会失败。
@@ -939,6 +945,7 @@ Node info: kind-worker2 uptime: 6h17m48s, load average: 0.87, 1.29, 1.61,
 与上一节类似的一种方法是让代理 Pod 直接使用节点的网络环境，而不是拥有自己的网络环境，如 17.2.3 节所述。在这种情况下，代理可以通过其绑定的端口经由节点 IP 地址被访问。当代理绑定到端口 11559 时，客户端 Pod 可以通过节点网络接口上的此端口连接到代理，如图 17.6 所示。
 
 ![图 17.6](../images/ch17/figure-17.6.jpg)
+
 图 17.6 使用主机节点的网络命名空间暴露守护 Pod
 
 以下清单显示了 `ds.node-agent.hostNetwork.yaml` 清单，其中 Pod 被配置为使用主机节点的网络环境而不是自己的。代理被配置为监听端口 11559。
@@ -985,7 +992,9 @@ spec:
 如果你不希望守护进程对外部世界可见，或者你希望客户端 Pod 按照访问集群中其他 Pod 的方式访问守护进程，你可以通过 Kubernetes Service 使守护 Pod 可访问。但是，如你所知，这会导致连接被转发到一个随机的守护 Pod，不一定运行在客户端所在的同一节点上。幸运的是，如第 11 章所学，你可以通过将 Service 清单中的 `internalTrafficPolicy` 设置为 `Local`，将 Service 配置为仅在同一节点内转发流量。
 
 图 17.7 显示了如何使用此类型的 Service 暴露 node-agent Pod，以便它们的客户端始终连接到与客户端运行在同一节点上的代理。
+
 ![图 17.7](../images/ch17/figure-17.7.jpg)
+
 图 17.7 通过 internal traffic policy 设为 Local 的服务暴露守护 Pod
 
 如第 11 章所述，`internalTrafficPolicy` 设置为 `Local` 的 Service 的行为类似于多个按节点划分的 Service，每个仅由运行在该节点上的 Pod 提供后盾。例如，当节点 A 上的客户端连接到 Service 时，连接仅被转发到节点 A 上的 Pod。节点 B 上的客户端仅连接到节点 B 上的 Pod。对于 node-agent Service，每个节点上仅有一个这样的 Pod。
