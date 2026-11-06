@@ -983,7 +983,7 @@ Service 将一组 Pod 暴露在一个稳定的 IP 地址下。到该 IP 地址�
 
 客户端可以从 Kubernetes API 获取 Pod IP，而不是连接到 Service IP，但最好让它们与 Kubernetes 无关，使用 DNS 这样的标准机制。幸运的是，你可以配置内部 DNS 来返回 Pod IP 而不是 Service 的 ClusterIP，通过创建**无头** (headless) Service。
 
-对于无头 Service，集群 DNS 不仅返回一个指向 Service ClusterIP 的 A 记录，而是返回多个 A 记录，每个属于该 Service 的 Pod 对应一个。因此，客户端可以查询 DNS 来获取 Service 中所有 Pod 的 IP。有了这些信息，客户端就可以直接连接到 Pod，如图 11.12 所示。
+对于无头 Service，集群 DNS 不是返回一条指向 Service ClusterIP 的 A 记录，而是返回多个 A 记录，每个属于该 Service 的 Pod 对应一个。因此，客户端可以查询 DNS 来获取 Service 中所有 Pod 的 IP。有了这些信息，客户端就可以直接连接到 Pod，如图 11.12 所示。
 
 ![图 11.12](../images/ch11/figure-11.12.jpg)
 
